@@ -1,7 +1,4 @@
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="!visible">
  
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       
@@ -30,6 +27,7 @@
 
         <li class="nav-item">
             <a class="nav-link" class="titulos" href="./perfil">Perfil</a></li>
+
         <li>
             <!--Botón de Buscar en la página-->
           
@@ -40,6 +38,11 @@
          
         </form>
           </li>
+
+          <li>
+              <button type="button" class="btn btn-primary btn-lg" onclick="location='./login'">Iniciar Sesión</button>
+          </li>
+
         </ul>
   
   <!-- Es importante mejorar este dropdown para otra entrega
