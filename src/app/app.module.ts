@@ -34,6 +34,24 @@ const router: Routes = [
     component: MenuComponent
   },
   {
+    path: 'menu/carnes',
+    component: CarnesComponent
+  },
+  
+  {
+    path: 'menu/aperitivos',
+    component: AperitivosComponent
+  },
+  {
+    path: 'menu/postres',
+    component: PostresComponent
+  },
+  {
+    path: 'menu/bebidas',
+    component: BebidasComponent
+  },
+  
+  {
     path: 'contact',
     component: ContactComponent
   },
