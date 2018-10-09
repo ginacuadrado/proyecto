@@ -7,10 +7,15 @@
         overflow: hidden;
         background-color: rgba(108, 106, 109, 0.493);
         position: sticky;
-        top: 0;
+        top: auto;
         font: arial ;
-        font-size: 20px;;
-    
+        font-size: 25pt;
+}
+
+.titulos
+{
+    font-family: 'Anton', sans-serif;
+    font-size: 25pt;
 }
 
 .opciones
@@ -18,7 +23,7 @@
         display: inline-block;
         color: white;
         text-align: center;
-        padding: 14px 16px;
+        padding: 14pt 16pt;
         text-decoration: none;
         display: block;
 }
