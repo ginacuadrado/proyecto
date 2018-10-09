@@ -1,0 +1,30 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    }
+  
+  .flex-container > div 
+  {
+    width: 2000px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+  }
+  
+  
+  .titulos
+  {
+    font-family: 'Anton', sans-serif;
+    font-size: 30pt;
+    text-align: center;
+    color: orange;
+    
+  }
+  
+  .texto
+  {
+    font-family: 'PT Serif', serif;
+    font-size: 20pt;
+    text-align: justify;
+    
+  }
