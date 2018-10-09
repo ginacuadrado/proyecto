@@ -1,16 +1,28 @@
 
 <div>
-    <div style="text-align:center">
-        <img width="300" alt="SteakLogo" src="../assets/logo.png">
-    </div>
+        <br>
+            <div style="text-align:center">
+                    <img width="300" alt="SteakLogo" src="../assets/logo.png">
+            </div>
+        <br>
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <div style="text-align:center">
-        <h2>Usuario: <input type="text"> </h2>
-        <h2> Contraseña: <input type="password"> </h2>
-        <button class="btn btn-primary" onclick="location='./home'">Ingresar</button>
-        <button class="btn btn-primary" onclick="location='./register'">Registro</button>
-    </div>
-    
-</div>
+        <h1 class="titulos2">
+          Ingreso de Usuario
+        </h1>
+      
+        <div>
+          <form>
+            <div class="container">
+            
+                <label for="usuario" class="titulos">Nombre de usuario</label>
+                <input type="text" id="usuario" placeholder="Usuario">        
+              
+                <label for="clave" class="titulos">Clave</label>
+                <input type="password" id="clave" placeholder="Ingrese su clave">
+              
+                <button class="btn btn-primary" onclick="location='./home'">Ingresar</button>
+                <button class="btn btn-primary" onclick="location='./register'">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
