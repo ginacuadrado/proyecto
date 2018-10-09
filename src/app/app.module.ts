@@ -58,6 +58,10 @@ const router: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 
