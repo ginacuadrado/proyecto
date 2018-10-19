@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderServiceService } from '../header/header-service.service';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() {
+  constructor(public nav: HeaderServiceService) {
    }
 
   ngOnInit() {
-    
+    this.nav.hide();
   }
 
 }

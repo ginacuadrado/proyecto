@@ -50,7 +50,6 @@ const router: Routes = [
     path: 'menu/bebidas',
     component: BebidasComponent
   },
-  
   {
     path: 'contact',
     component: ContactComponent
@@ -62,6 +61,11 @@ const router: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ];
 
