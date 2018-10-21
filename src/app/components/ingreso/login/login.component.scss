@@ -24,7 +24,7 @@
    display: inline-block;
    margin-top: 40pt;
    margin-left: 40pt;
-   background-color: rgba(106, 110, 110, 0.527);
+   background-color: rgba(106, 110, 110, 0.50);
    border-radius: 20px;
 
 }
@@ -61,12 +61,24 @@ input[type="password"]
 }
 button 
 {
-    color: white;
+    color: rgb(168, 158, 158);
     padding: 14px 20px;
     margin: 8pt 8pt;
+    margin-left: 140pt;
     border: none;
     cursor: pointer;
-    width: 10pt;
+    width: 150pt;
+    border-radius: 10px;
+    
+}
+
+.boton3
+{
+    font-family: 'PT Serif', serif;
+    font-size: 16pt;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    
 }
 
 img
@@ -80,6 +92,17 @@ img
     font-size: 20pt;
     text-align: justify;
     color: white;
+    
+}
+
+.titulo2
+{
+    font-family: 'PT Serif', serif;
+    font-size: 15pt;
+    text-align: center;
+    color: white;
+    margin-left: 10pt;
+
     
 }
 

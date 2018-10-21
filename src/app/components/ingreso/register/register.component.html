@@ -1,40 +1,54 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <form [formGroup]="registerForm">
-        <div class="form-group">
-          <label>Email address</label>
-          <input type="email" formControlName="email" class="form-control">
+<!--Inicio del container fluid-->
+
+<div class="container-fluid">
+
+    <div class="jumbotron jumbotron-fluid">
+    
+      <div style="text-align:center">
+       
+        <img width="250" alt="SteakLogo" src="../assets/logofondo.png">
+    
+      </div>
+      <br>
+      <br>
+      <div class="container">
+      <div class="row">
+        
+        <div class="col-md-10 col-md-offset-3">
+                  
+            <form [formGroup]="registerForm">
+            
+            <div class="form-group">
+              
+              <h1 class="titulo"><strong>Regístrate en STEAK (Nuevo Usuario)</strong></h1>
+              <!--Ingreso del correo electrónico en el formulario-->
+              <br>
+              <input type="email" formControlName="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+            </div>
+    
+            <div class="form-group">
+              
+              <!--Ingreso de la contraseña en el formulario-->
+              
+              <input type="password" class="form-control" formControlName="password" placeholder="Ingresa tu contraseña">
+              <label class="error" class="titulo">{{errorMessage}}</label>
+              <label class="success" class="titulo">{{successMessage}}</label>
+    
+            </div>
+    
+            <button type="submit" (click)="tryRegister(registerForm.value)" class="boton3"><strong>Registro</strong></button>
+            </form>
         </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" class="form-control" formControlName="password">
-          <label class="error">{{errorMessage}}</label>
-          <label class="success">{{successMessage}}</label>
-        </div>
-        <button type="submit" (click)="tryRegister(registerForm.value)" class="btn btn-default">Register</button>
-      </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <button type="button" class="btn btn-primary btn-block" (click)="tryFacebookLogin()">Register with Facebook</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Register with Google</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <button type="button" class="btn btn-info btn-block" (click)="tryTwitterLogin()">Register with Twitter</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <p>¿Ya tienes una cuenta con STEAK?<a href="/login">  Inicia sesión</a></p>
-    </div>
-  </div>
-</div>
+    
+      </div>
+          
+              <div class="row" >
+                
+                  <br>
+                  <p class="titulo2"><strong>¿Ya tienes cuenta en STEAK?  <a href="/login">Ingresa con tus datos</a></strong></p>
+              </div>
+            </div> 
+    </div> 
+    
+    </div> <!--Final del div container fluid-->

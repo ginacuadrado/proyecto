@@ -66,7 +66,6 @@ const router: Routes = [
     path: 'menu/bebidas',
     component: BebidasComponent
   },
-  
   {
     path: 'contact',
     component: ContactComponent
