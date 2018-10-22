@@ -1,0 +1,50 @@
+<div class="container-fluid">
+
+<div class="jumbotron jumbotron-fluid">
+
+  <div style="text-align:center">
+   
+    <img width="250" alt="SteakLogo" src="../assets/logofondo.png">
+
+  </div>
+  <br>
+  <br>
+  <div class="container">
+  <div class="row">
+    
+    <div class="col-md-10 col-md-offset-3">
+              
+      <form [formGroup]="loginForm">
+        
+        <div class="form-group">
+          
+          <h1 class="titulo"><strong>Inicia sesión en STEAK</strong></h1>
+          <!--Ingreso del correo electrónico en el formulario-->
+          <br>
+          <input type="email" formControlName="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+        </div>
+
+        <div class="form-group">
+          
+          <!--Ingreso de la contraseña en el formulario-->
+          
+          <input type="password" class="form-control" formControlName="password" placeholder="Ingresa tu contraseña">
+          <label class="error" class="titulo2">{{errorMessage}}</label>
+
+        </div>
+
+        <button type="submit" (click)="tryLogin(loginForm.value)" class="boton3"><strong>Ingresar</strong></button>
+        </form>
+    </div>
+
+  </div>
+      
+          <div class="row" >
+            
+              <br>
+              <p class="titulo2"><strong>¿Aún no te has registrado?  <a href="/register">Registrate en STEAK</a></strong></p>
+          </div>
+        </div> 
+</div> 
+
+</div> <!--Final del div container fluid-->

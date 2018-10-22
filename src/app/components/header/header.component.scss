@@ -1,0 +1,34 @@
+
+.navegacion
+{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color:rgb(105, 105, 105);
+        position: sticky;
+        top: auto;
+        font: arial ;
+        font-size: 25pt;
+}
+
+.titulos
+{
+    font-family: 'Anton', sans-serif;
+    color: black;
+    font-size: 25pt;
+}
+
+li {
+        margin: 2pt;
+}
+
+.opciones
+{
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14pt 16pt;
+        text-decoration: none;
+        display: block;
+}

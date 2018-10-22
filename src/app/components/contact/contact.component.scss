@@ -1,0 +1,47 @@
+.container {
+
+    padding: 16pt;
+}
+
+form {
+    border: 3pt;
+}
+
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8pt 8pt;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8pt 8pt;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    color: white;
+    padding: 14px 20px;
+    margin: 8pt 8pt;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+}
+
+.titulos
+{
+    font-family: 'Anton', sans-serif;
+    font-size: 20pt;
+}
+
+.titulos2
+{
+    font-family: 'Anton', sans-serif;
+    font-size: 30pt;
+}
