@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderServiceService } from '../../header/header-service.service';
 
 @Component({
   selector: 'app-bebidas',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BebidasComponent implements OnInit {
 
-  constructor() { }
+  constructor(public nav: HeaderServiceService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }
