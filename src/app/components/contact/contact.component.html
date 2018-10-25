@@ -1,30 +1,46 @@
-<!--
-<br>
-<br>
-<h1 class="titulos2">Contacto</h1>
+<div class="container">
 
-<div>
+<div class="column">
 
+ <img alt="Banner Contacto" src="../assets/bannercontacto.png"> 
+
+
+</div>
+<div class="column">
+<div class="jumbotron jumbotron-fluid">
   
-    <div class="container">
-      <form>
-      <label for="select" class="titulos">¿Por qué nos escribes hoy?</label>
+<form [formGroup]="myForm" [hidden]="success" (ngSubmit)="submitHandler()">
+  
+  <label for="select" class="titulos"><strong>¿Por qué nos escribes hoy?</strong></label>
 
       <br>
 
-      <select id="select">
+    
+      <input id="mensaje" type="text" formControlName="nombre" class="form-control my-4" placeholder="Ingresa tu nombre y tu apellido">
+
+      <input id="mensaje" type="text" formControlName="email" class="form-control my-4" placeholder="Ingresa tu correo electrónico" >
+
+      <label class="titulo">Motivo del contacto</label>
+      <select id="select" formControlName="motivo" class="form-control" placeholder="Selecciona el motivo por el que nos escribes">
         <option>Pregunta</option>
         <option>Reservaciones</option>
         <option>Reclamos</option>
         <option>Sugerencias</option>
         <option>Elogios</option>
       </select>
-    
-      <label for="mensaje" class="titulos">Mensaje</label>
-      <br>
-      <input id="mensaje" type="text" maxlength="2000" placeholder="Longitud máxima: 2000 caracteres">
   
-    <button class="btn btn-primary" type="submit" onclick="location='./contact'">Enviar</button>
-  </form>
+      <input id="mensaje" type="text" maxlength="2000" placeholder="Escribe tu mensaje para nosotros..." formControlName="mensaje" class="form-control my-4">
+  
+    <button type="submit" [disabled]="myForm.invalid"><strong>Enviar</strong></button>
+  
+</form>
+
+<div *ngIf="success" class="notification is-success">
+¡Tu mensaje fue enviado exitosamente!
+
 </div>
--->
+
+</div>
+
+</div>
+</div>

@@ -1,25 +1,22 @@
 
-.navegacion
+.navbar
 {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color:rgb(105, 105, 105);
-        position: sticky;
-        top: auto;
+       
+        background-color:rgba(151, 151, 151, 0.637);
         font: arial ;
-        font-size: 25pt;
+        height:10%;
 }
 
 .titulos
 {
-    font-family: 'Anton', sans-serif;
+    font-family: 'PT Serif', serif;
     color: black;
     font-size: 25pt;
+    margin-top: 5pt;
 }
 
-li {
+li 
+{
         margin: 2pt;
 }
 
