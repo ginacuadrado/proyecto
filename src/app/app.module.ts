@@ -139,8 +139,8 @@ const router: Routes = [
     ProductdetailsComponent,
     AgregarItemComponent,
     AgregarItem3Component,
-    AgregarItem4Component
-    AgregarItem2Component,
+    AgregarItem4Component,
+    AgregarItem2Component
     
   ],
 
