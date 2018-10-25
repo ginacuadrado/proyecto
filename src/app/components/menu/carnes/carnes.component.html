@@ -1,8 +1,12 @@
 <div style="text-align:center">
   <br>
   <img width="74%" height="200pt"alt="Banner Carnes" src="../assets/bannercarnes.jpg">
-  
+  <br>
+  <br>
 </div>
+
+<app-agregar-item></app-agregar-item>
+<br>
 
 <div *ngIf="items.length > 0; else noItems">
 
@@ -12,13 +16,19 @@
             <th>Imgen</th>
             <th>Plato</th>
             <th>Descripción</th>
-            <th>Precio</th>    
+            <th>Precio</th>  
+            <th></th>
+            <th></th>  
         </tr>
         <tr *ngFor="let item of items">
-            <td><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
-            <td>{{item.nombre}}</td>
-            <td>{{item.descripcion}}</td>
-            <td>{{item.precio}}</td>
+            <div>
+                <td><img src="{{item.imagen}}" heigth="100px" width="100px" ></td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.descripcion}}</td>
+                <td>{{item.precio}}</td>
+                <td><button><strong>ORDENAR</strong></button></td>
+                <td><button (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button></td>
+            </div>
         </tr>
     </table>
 

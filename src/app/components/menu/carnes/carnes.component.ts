@@ -23,4 +23,8 @@ export class CarnesComponent implements OnInit {
     });
   }
 
+  deleteItem(event, item){
+      this.carneService.deleteItem(item);
+  }
+
 }

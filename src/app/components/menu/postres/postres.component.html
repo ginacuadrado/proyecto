@@ -1,54 +1,42 @@
   <div style="text-align:center">
     <br>
     <a href="./menu/postres"> <img width="74%" height="200pt"alt="Banner Postres" src="../assets/bannerpostres.jpg"> </a>
+    <br>
+    <br>
+  </div>
+
+  <div *ngIf="items.length > 0; else noItems">
+
+        <table>
+            <tr>
+                <th>Imgen</th>
+                <th>Plato</th>
+                <th>Descripción</th>
+                <th>Precio</th>    
+                <th></th>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.descripcion}}</td>
+                <td>{{item.precio}}</td>
+                <td><button><strong>ORDENAR</strong></button></td>
+            </tr>
+        </table>
     
-    <div class="flex-container">
-        <div>
-              <img width="250" alt="Helado EFE" src="../assets/IceCream.jpg"></div>
-          <div>
-            <br>
-              <h1 class="titulos"><strong>Helado</strong> </h1>
-            
-          <div> 
-              <h2 class="texto"> Helado especial, elaborado por EFE (Contact exclusiva para Steak Company), con mashmallows al fuego.  </h2>
-              <h3 class="texto">Precio: 200 Bs. S.</h3>
-              <button type="button" type="submit" weight="25pt" class="btn btn-primary" disabled>ORDENAR</button>
-            </div>
-        </div>
+    
+        <!--<ul *ngFor="let item of items" class="collection">
+            <li class="collection-item">
+                <img src="{{item.imagen}}">
+                {{item.nombre}}
+                {{item.descripcion}}
+                Precio: {{item.precio}} Bs.S
+            </li>
+        </ul>-->
     </div>
-
-    <div style="text-align:center">
-        <div class="flex-container">
-            <div>
-                  <img width="250" alt="Brownie" src="../assets/brownie.jpg"></div>
-              <div>
-                  <h1 class="titulos"><strong>Brownie</strong> </h1>
-              <div> 
-                  
-                  <h2 class="texto"> Brownie de chocolate con relleno fudge </h2>
-                  <h3 class="texto">Precio: 200 Bs. S.</h3>
-                  <button type="button" type="submit" weight="25pt" class="btn btn-primary" disabled>ORDENAR</button>
-              </div>
-            </div>
-        </div>
     
-      <div style="text-align:center">
-              <div class="flex-container">
-                  <div>
-                        <img width="250" alt="Pie de Limón" src="../assets/piedelimon.jpg"></div>
-                    <div>
-                        <br>
-                        <h1 class="titulos"><strong>Pie de Limón</strong> </h1>
-                    <div> 
-                        <h2 class="texto"> Pie de limon con ralladura de limon en la crème </h2>
-                        <h3 class="texto">Precio: 200 Bs. S.</h3>
-                        <button type="button" type="submit" weight="25pt" class="btn btn-primary" disabled>ORDENAR</button>
-                    </div>
-                  </div>
-      </div>     
-      <br>
-      <br>
     
- <button type="button" type="submit"  class="btn btn-primary" onclick="location='../menu'">Volver al Menu</button>
-
-     
+    <ng-template #noItems>
+        <hr>
+        <h5>No hay objetos para visualizar</h5>
+    </ng-template>

@@ -4,4 +4,5 @@ export interface Item {
     precio?: number;
     disp?: boolean;
     imagen?: string;
+    id?:string;
   }

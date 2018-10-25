@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from './header-service.service';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+//import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgModule } from '@angular/core';
 
 @Component({
