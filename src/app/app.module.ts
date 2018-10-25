@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { ItemService } from './services/item.service';
 import { Item2Service } from './services/item2.service';
 import { Item3Service } from './services/item3.service';
@@ -42,6 +41,7 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 import { AgregarItemComponent } from './components/agregar-item/agregar-item.component';
 import { AgregarItem3Component } from './components/agregar-item3/agregar-item3.component';
 import { AgregarItem4Component } from './components/agregar-item4/agregar-item4.component';
+import { AgregarItem2Component } from './components/agregar-item2/agregar-item2.component';
 
 //Router para la navegación entre las páginas
 
@@ -140,6 +140,7 @@ const router: Routes = [
     AgregarItemComponent,
     AgregarItem3Component,
     AgregarItem4Component
+    AgregarItem2Component,
     
   ],
 
