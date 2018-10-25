@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { ItemService } from './services/item.service';
+import { Item2Service } from './services/item2.service';
+import { Item3Service } from './services/item3.service';
+import { Item4Service } from './services/item4.service';
 
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
@@ -16,7 +20,7 @@ import { environment } from '../environments/environment';
 import { AuthGuard } from './services/auth/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/auth/user.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserResolver } from './services/auth/user.resolver';
 
 //Componentes del Proyecto
@@ -35,6 +39,7 @@ import { AperitivosComponent } from './components/menu/aperitivos/aperitivos.com
 import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { AgregarItemComponent } from './components/agregar-item/agregar-item.component';
 
 //Router para la navegación entre las páginas
 
@@ -129,7 +134,8 @@ const router: Routes = [
     AperitivosComponent,
     BebidasComponent,
     ProductlistComponent,
-    ProductdetailsComponent
+    ProductdetailsComponent,
+    AgregarItemComponent
     
   ],
 
@@ -138,14 +144,14 @@ const router: Routes = [
     BrowserModule,
     RouterModule.forRoot(router),
     ReactiveFormsModule,
-
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase), // Viene de firestore, usado para features de la base de datos
     AngularFirestoreModule, // Viene de firestore, usado para features de la base de datos
     AngularFireAuthModule,  // Viene de firestore, usado para la autenticación
 
   ],
 
-  providers: [AuthService, UserService, UserResolver, AuthGuard, ItemService],
+  providers: [AuthService, UserService, UserResolver, AuthGuard, ItemService, Item2Service, Item3Service, Item4Service],
   bootstrap: [AppComponent],
 
 })
