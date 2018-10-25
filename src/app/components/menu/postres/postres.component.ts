@@ -22,4 +22,8 @@ export class PostresComponent implements OnInit {
     });
   }
 
+  deleteItem(event, item){
+    this.postresService.deleteItem(item);
+}
+
 }

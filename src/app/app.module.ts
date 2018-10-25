@@ -39,6 +39,8 @@ import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { AgregarItemComponent } from './components/agregar-item/agregar-item.component';
+import { AgregarItem3Component } from './components/agregar-item3/agregar-item3.component';
+import { AgregarItem4Component } from './components/agregar-item4/agregar-item4.component';
 import { AgregarItem2Component } from './components/agregar-item2/agregar-item2.component';
 
 //Router para la navegación entre las páginas
@@ -136,7 +138,9 @@ const router: Routes = [
     ProductlistComponent,
     ProductdetailsComponent,
     AgregarItemComponent,
-    AgregarItem2Component,
+    AgregarItem3Component,
+    AgregarItem4Component,
+    AgregarItem2Component
     
   ],
 
