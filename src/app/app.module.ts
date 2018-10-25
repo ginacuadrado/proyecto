@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ItemService } from './services/item.service';
+
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
 
@@ -31,7 +33,8 @@ import { CarnesComponent } from './components/menu/carnes/carnes.component';
 import { PostresComponent } from './components/menu/postres/postres.component';
 import { AperitivosComponent } from './components/menu/aperitivos/aperitivos.component';
 import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
-
+import { ProductlistComponent } from './productlist/productlist.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 //Router para la navegación entre las páginas
 
@@ -102,7 +105,6 @@ const router: Routes = [
     component: RegisterComponent,
      canActivate: [AuthGuard] 
   },
-
   { 
     path: 'perfil',
     component: PerfilComponent,
@@ -126,6 +128,8 @@ const router: Routes = [
     PostresComponent,
     AperitivosComponent,
     BebidasComponent,
+    ProductlistComponent,
+    ProductdetailsComponent
     
   ],
 
@@ -141,7 +145,7 @@ const router: Routes = [
 
   ],
 
-  providers: [AuthService, UserService, UserResolver, AuthGuard],
+  providers: [AuthService, UserService, UserResolver, AuthGuard, ItemService],
   bootstrap: [AppComponent],
 
 })

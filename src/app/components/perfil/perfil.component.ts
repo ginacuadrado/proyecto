@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseUserModel } from '../../services/auth/user.model';
+import { HeaderServiceService } from '../header/header-service.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class PerfilComponent implements OnInit {
     public authService: AuthService,
     private route: ActivatedRoute,
     private location : Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public nav: HeaderServiceService
   ) {
 
   }
@@ -35,6 +37,8 @@ export class PerfilComponent implements OnInit {
         this.createForm(this.user.name);
       }
     })
+
+    this.nav.show();
   }
 
   createForm(name) {

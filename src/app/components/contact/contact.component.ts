@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { tap, first } from 'rxjs/operators';
+import { HeaderServiceService } from '../header/header-service.service';
 
 @Component({
 
@@ -27,7 +28,7 @@ export class ContactComponent implements OnInit{
   loading = false;
   success = false;
 
-  constructor(private fb: FormBuilder, private afs: AngularFirestore) { }
+  constructor(private fb: FormBuilder, private afs: AngularFirestore, public nav: HeaderServiceService) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -37,8 +38,10 @@ export class ContactComponent implements OnInit{
       mensaje: ['', Validators.required]
     })
 
-    this.preloadData()
+    this.preloadData();
+    this.nav.show();
   }
+
 
 
   async submitHandler() {

@@ -2,71 +2,39 @@
   <br>
   <img width="74%" height="200pt"alt="Banner Carnes" src="../assets/bannercarnes.jpg">
   
-  <div class="flex-container">
-      <div>
-            <img width="250" alt="Churrasco" src="../assets/Churrasco.jpg"></div>
-        <div>
-          <br>
-            <h1 class="titulos"><strong>Churrasco</strong> </h1>
-          
-        <div> 
-            <h2 class="texto"> Exquisito Churrasco de Solomo Kobe, preparado a la brasa con Sal Marina de las famosas salinas de Araya y un toque de pimienta.  </h2>
-            <h3 class="texto">Precio: 400 Bs. S.</h3>
-            <button type="button" type="submit" weight="25pt" class="btn btn-primary" disabled>ORDENAR</button>
-          </div>
-      </div>
-  </div>
+</div>
 
-  <div style="text-align:center">
-      <div class="flex-container">
-          <div>
-                <img width="250" alt="T-Bone" src="../assets/Tbone.jpg"></div>
-            <div>
-                <br>
-                <h1 class="titulos"><strong>T-Bone</strong> </h1>
-            <div> 
-               
-                <h2 class="texto"> Delicioso T-Bone, preparado a la parrilla con la suculenta Sal Marina de las salinas de Araya y un toque de pimienta. </h2>
-                <h3 class="texto">Precio: 400 Bs. S.</h3>
-                <button type="button" type="submit" weight="25pt" class="btn btn-primary" disabled>ORDENAR</button>
-            </div>
-          </div>
-      </div>
-  
-    <div style="text-align:center">
-            <div class="flex-container">
-                <div>
-                      <img width="250" alt="Pollo Asado" src="../assets/Chicken.jpg"></div>
-                  <div>
-                      <br>
-                      <h1 class="titulos"><strong>Pollo En Varasado</strong> </h1>
-                  <div> 
-                      <h2 class="texto">Pollo entero preparado en vara a la leña con Sal Marina de las salinas de Araya y un toque de pimienta.  </h2>
-                      <h3 class="texto">Precio: 400 Bs. S.</h3>
-                      <button type="button" type="submit" weight="25pt" class="btn btn-primary" disabled>ORDENAR</button>
-                  </div>
-                </div>
-    </div> 
-    
-    <div style="text-align:center">
-      <div class="flex-container">
-          <div>
-                <img width="250" alt="Salchichas" src="../assets/Salchichas.jpg"></div>
-            <div>
-                <br>
-                <h1 class="titulos"><strong>Salchichas</strong> </h1>
-            <div> 
-                <h2 class="texto">Salchichas de la Montserratina a la leña con un toque de cerveza Tovar para darle ese sabor inigualable.  </h2>
-                <h3 class="texto">Precio: 400 Bs. S.</h3>
-  
-                <button type="button" type="submit" weight="25pt" class="btn btn-primary" disabled>ORDENAR</button>
-            </div>
-          </div>
-</div>     
+<div *ngIf="items.length > 0; else noItems">
 
-    <br>
-    <br>
 
-    <button type="button" type="submit"  class="titulo" onclick="location='../menu'" class="btn btn-primary">Volver al Menu</button>
-    <br>
-    <br>
+    <table>
+        <tr>
+            <th>Imgen</th>
+            <th>Plato</th>
+            <th>Descripción</th>
+            <th>Precio</th>    
+        </tr>
+        <tr *ngFor="let item of items">
+            <td><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.descripcion}}</td>
+            <td>{{item.precio}}</td>
+        </tr>
+    </table>
+
+
+    <!--<ul *ngFor="let item of items" class="collection">
+        <li class="collection-item">
+            <img src="{{item.imagen}}">
+            {{item.nombre}}
+            {{item.descripcion}}
+            Precio: {{item.precio}} Bs.S
+        </li>
+    </ul>-->
+</div>
+
+
+<ng-template #noItems>
+    <hr>
+    <h5>No hay objetos para visualizar</h5>
+</ng-template>

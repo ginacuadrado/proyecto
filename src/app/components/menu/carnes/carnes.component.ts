@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderServiceService } from '../../header/header-service.service';
+import { ItemService } from '../../../services/item.service';
+import { Item } from '../../../models/item';
 
 @Component({
   selector: 'app-carnes',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarnesComponent implements OnInit {
 
-  constructor() { }
+  items: Item[];
+
+  constructor(public nav: HeaderServiceService, public carneService: ItemService) {
+    
+   }
 
   ngOnInit() {
+    this.nav.show();
+    this.carneService.getItems().subscribe(items => {
+      this.items = items;
+    });
   }
 
 }
