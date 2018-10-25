@@ -14,24 +14,27 @@
        
     <table>
         <tr>
-            <th>Imgen</th>
+            <th>Imagen</th>
             <th>Plato</th>
             <th>Descripción</th>
             <th>Precio</th>  
-            <th></th>
-            <th></th>  
+            <th>Ordenar</th>
+            <th>Eliminar</th>
         </tr>
+
         <tr *ngFor="let item of items">
-            <div>
+            
                 <td><img src="{{item.imagen}}" heigth="100px" width="100px" ></td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.descripcion}}</td>
                 <td>{{item.precio}}</td>
                 <td><button><strong>ORDENAR</strong></button></td>
                 <td><button (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button></td>
-            </div>
+            
         </tr>
     </table>
+    <br>
+    <br>
     
     
         <!--<ul *ngFor="let item of items" class="collection">

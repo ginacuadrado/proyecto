@@ -1,30 +1,18 @@
-
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  }
-
-.flex-container > div 
-{
-  width: 1000px;
-  margin: 20px;
-  text-align: center;
-  line-height: 75px;
-}
-
-
-.titulos
-{
-  font-family: 'Anton', sans-serif;
-  font-size: 30pt;
-  text-align: center;
-  
-}
-
-.texto
-{
+table {
   font-family: 'PT Serif', serif;
   font-size: 20pt;
   text-align: justify;
-  
+  border-collapse: collapse;
+  width: 100%;
 }
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.content-box-red {
+  background-color: #f9dbdb;
+  border: 1px solid #e9b3b3;
+  }

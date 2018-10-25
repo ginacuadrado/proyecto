@@ -1,37 +1,38 @@
 <div style="text-align:center">
   <br>
-  <img width="74%" height="200pt"alt="Banner Carnes" src="../assets/bannercarnes.jpg">
+  <img width="85%" alt="Banner Carnes" src="../assets/bannercarnes.jpg">
   <br>
   <br>
 </div>
 
-<app-agregar-item></app-agregar-item>
-<br>
+
 
 <div *ngIf="items.length > 0; else noItems">
 
-
+ 
     <table>
         <tr>
-            <th>Imgen</th>
+            <th>Imagen</th>
             <th>Plato</th>
             <th>Descripción</th>
             <th>Precio</th>  
-            <th></th>
-            <th></th>  
+            <th>Ordenar</th>
+            <th>Eliminar</th>
         </tr>
+
         <tr *ngFor="let item of items">
-            <div>
+            
                 <td><img src="{{item.imagen}}" heigth="100px" width="100px" ></td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.descripcion}}</td>
                 <td>{{item.precio}}</td>
                 <td><button><strong>ORDENAR</strong></button></td>
                 <td><button (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button></td>
-            </div>
+            
         </tr>
     </table>
-
+    <br>
+    <br>
 
     <!--<ul *ngFor="let item of items" class="collection">
         <li class="collection-item">
@@ -48,3 +49,12 @@
     <hr>
     <h5>No hay objetos para visualizar</h5>
 </ng-template>
+
+<div style="text-align: center">
+<br>
+<br>
+<br>
+<br>
+<app-agregar-item></app-agregar-item>
+
+</div>
