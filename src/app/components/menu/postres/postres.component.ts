@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../../header/header-service.service';
+import { Item4Service } from '../../../services/item4.service';
+import { Item } from '../../../models/item';
+
 
 @Component({
   selector: 'app-postres',
@@ -8,10 +11,15 @@ import { HeaderServiceService } from '../../header/header-service.service';
 })
 export class PostresComponent implements OnInit {
 
-  constructor(public nav: HeaderServiceService) { }
+  items: Item[];
+
+  constructor(public nav: HeaderServiceService, public postresService: Item4Service) { }
 
   ngOnInit() {
     this.nav.show();
+    this.postresService.getItems().subscribe(items => {
+      this.items = items;
+    });
   }
 
 }
