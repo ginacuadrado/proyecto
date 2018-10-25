@@ -12,7 +12,9 @@ import { NgModule } from '@angular/core';
 
 @NgModule
 ({
-  imports: [BsDropdownModule] })
+
+
+})
 
 export class HeaderComponent implements OnInit {
 
@@ -22,3 +24,5 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+
+
