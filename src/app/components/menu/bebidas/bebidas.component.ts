@@ -22,4 +22,8 @@ export class BebidasComponent implements OnInit {
     });
   }
 
+  deleteItem(event, item){
+    this.bebidasService.deleteItem(item);
+  }
+
 }

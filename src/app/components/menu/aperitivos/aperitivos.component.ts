@@ -24,9 +24,7 @@ export class AperitivosComponent implements OnInit {
   }
 
   //Método que elimina el item del array
-  deleteItem(event, item)
-  
-  {
+  deleteItem(event, item){
     this.aperitivosService.deleteItem(item);
   }
 
