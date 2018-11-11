@@ -9,22 +9,20 @@ import { Item4Service } from './services/item4.service';
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
 
-//Importados desde FIRESTORE
+//Importados desde FIREBASE
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment'; //Aquí se encuentra la conexión a Firebase
 
 //Servicios de autenticación
-import { AuthGuard } from './services/auth/auth.guard';
-import { AuthService } from './services/auth/auth.service';
-import { UserService } from './services/auth/user.service';
+import { AuthService } from './services/autenticacion/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserResolver } from './services/auth/user.resolver';
 
 //Componentes del Proyecto
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component'
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -42,6 +40,8 @@ import { AgregarItemComponent } from './components/agregar-item/agregar-item.com
 import { AgregarItem3Component } from './components/agregar-item3/agregar-item3.component';
 import { AgregarItem4Component } from './components/agregar-item4/agregar-item4.component';
 import { AgregarItem2Component } from './components/agregar-item2/agregar-item2.component';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 //Router para la navegación entre las páginas
 
@@ -102,7 +102,7 @@ const router: Routes = [
     redirectTo: 'login',
     pathMatch: 'full' 
   },
-  { 
+  /*{ 
     path: 'login', 
     component: LoginComponent, 
     canActivate: [AuthGuard]
@@ -116,7 +116,7 @@ const router: Routes = [
     path: 'perfil',
     component: PerfilComponent,
     resolve: { data: UserResolver}
-  }
+  }*/
 ];
 
 @NgModule({
@@ -140,7 +140,9 @@ const router: Routes = [
     AgregarItemComponent,
     AgregarItem3Component,
     AgregarItem4Component,
-    AgregarItem2Component
+    AgregarItem2Component,
+    FooterComponent,
+    AdminComponent,
     
   ],
 
@@ -150,13 +152,13 @@ const router: Routes = [
     RouterModule.forRoot(router),
     ReactiveFormsModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase), // Viene de firestore, usado para features de la base de datos
+    AngularFireModule.initializeApp(environment.firebase), // Viene de firestore, inicializa el environmet
     AngularFirestoreModule, // Viene de firestore, usado para features de la base de datos
     AngularFireAuthModule,  // Viene de firestore, usado para la autenticación
 
   ],
 
-  providers: [AuthService, UserService, UserResolver, AuthGuard, ItemService, Item2Service, Item3Service, Item4Service],
+  providers: [AuthService, ItemService, Item2Service, Item3Service, Item4Service],
   bootstrap: [AppComponent],
 
 })

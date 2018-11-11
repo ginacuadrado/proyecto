@@ -1,30 +1,38 @@
-.navbar
+nav
 {
-       
-        background-color:rgba(151, 151, 151, 0.637);
-        font: arial ;
-        height:10%;
+        background-color:black;
+        align-self: center;
+        background-size: cover;     
 }
 
+
+      
 .titulos
 {
-    font-family: 'PT Serif', serif;
-    color: black;
-    font-size: 25pt;
-    margin-top: 5pt;
+   font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 20pt;
+ 
 }
 
-li 
+.dropdown
 {
-        margin: 2pt;
+     position:relative;
+     display:inline-block;   
 }
 
-.opciones
+.dropdown-content
 {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14pt 16pt;
-        text-decoration: none;
-        display: block;
+        display:none;
+        position:absolute;
+        min-width: 160px;
+        z-index: 1;
+        background-color:rgba(0,0,0,0.5);
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+
+}
+
+.dropdown:hover .dropdown-content
+{
+        display:block;
 }

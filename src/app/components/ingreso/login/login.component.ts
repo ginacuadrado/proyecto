@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/auth/auth.service'
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/autenticacion/auth.service'
 
 @Component({
 
@@ -12,33 +12,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
-  loginForm: FormGroup;
-  errorMessage: string = '';
+public email: string;
+public password: string;
+  
 
-  constructor(
-    public authService: AuthService,
-    private router: Router,
-    private fb: FormBuilder
-  ) {
-    this.createForm();
+  constructor(public authService: AuthService, public router: Router) 
+  {
+   
   }
 
-  createForm() {
-    this.loginForm = this.fb.group({
-      email: ['', Validators.required ],
-      password: ['',Validators.required]
-    });
+  onSubmitLogin()
+  {
+      this.authService.loginEmail(this.email,this.password)
+      .then ((res) => 
+      {
+          this.router.navigate(['./home']);
+      }).catch((err) =>
+      
+      {
+        console.log(err);
+        this.router.navigate(['#'])
+      })
+
   }
 
-  tryLogin(value){
-    this.authService.doLogin(value)
-    .then(res => {
-      this.router.navigate(['home']);
-    }, err => {
-      console.log(err);
-      this.errorMessage = err.message;
-    })
-  }
   
 }
-

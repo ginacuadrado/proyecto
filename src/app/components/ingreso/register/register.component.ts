@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/auth/auth.service';
 import { Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+//Métodos de autenticación
+import { AuthService } from '../../../services/autenticacion/auth.service'
 
 @Component({
   selector: 'app-register',
@@ -12,36 +14,30 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class RegisterComponent {
  
-  registerForm: FormGroup;
-  errorMessage: string = '';
-  successMessage: string = '';
+//Propiedades para el formulario
+public email: string;
+public password: string;
 
-  constructor(
-    public authService: AuthService,
-    private router: Router,
-    private fb: FormBuilder
-  ) {
-    this.createForm();
-   }
+constructor(public authService: AuthService, public router : Router)
+{
+ 
+}
 
-   createForm() {
-     this.registerForm = this.fb.group({
-       email: ['', Validators.required ],
-       password: ['',Validators.required]
-     });
-   }
+onSubmitAddUser()
+{
+  this.authService.registerUser(this.email, this.password)
+  .then ( (res) => 
+  {
+    console.log('Usuario Registrado');  //Mensajes de éxito
+    console.log(res);
+    this.router.navigate(['./login'])
 
-   tryRegister(value){
-     this.authService.doRegister(value)
-     .then(res => {
-       console.log(res);
-       this.errorMessage = "";
-       this.successMessage = "Your account has been created";
-     }, err => {
-       console.log(err);
-       this.errorMessage = err.message;
-       this.successMessage = "";
-     })
-   }
+  }).catch ( (err) => 
+      {
+          console.log(err);
+      }
+  )
+}
+
 
 }

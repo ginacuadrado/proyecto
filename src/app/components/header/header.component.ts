@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from './header-service.service';
-//import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgModule } from '@angular/core';
+import { AuthService } from '../../services/autenticacion/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,10 +18,40 @@ import { NgModule } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  constructor( public nav: HeaderServiceService ) { }
+  navbarOpen = false;
+  public isLogin: boolean;
+  public emailUsuario: string;
+  public uid: string;
 
-  ngOnInit() {
+
+  toggleNavbar() 
+  {
+    this.navbarOpen = !this.navbarOpen;
   }
+
+  constructor( public nav: HeaderServiceService, public authService: AuthService ) { }
+
+  ngOnInit() 
+  {
+   
+    /*this.authService.getAuth().subscribe( auth => {
+      if (auth) {
+        this.isLogin = true;
+        this.emailUsuario = auth.email;
+        this.uid=auth.uid;
+       
+      } else {
+        this.isLogin = false;
+      }
+    });   */
+   
+  }
+
+  onClickLogout()
+  {
+      this.authService.logout();
+  }
+
 
 }
 
