@@ -1,0 +1,37 @@
+.container {
+    width: 60vmax;
+    height: 24vmax;
+    padding: 3%;
+    background-color: black;
+}
+
+.container img {  
+    width: 18vmax;
+    height: 18vmax;
+    display: inline-block;
+    margin: auto;
+    float: left;
+}
+
+.container h2 {
+    font-family: 'PT Serif', serif;
+    font-size: 5vmin; 
+    color: white;
+    text-align: justify;
+}
+
+.container p {
+    font-family: 'PT Serif', serif;
+    font-size: 3vmin;
+    color: white; 
+    text-align: justify; 
+} 
+
+.container div {
+    float: right;
+    width: 35vmax;
+    height: 20vmax;
+    display: inline-block;
+    margin: auto;
+    padding: 2%;
+}

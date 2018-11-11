@@ -11,7 +11,7 @@ import { Item } from '../../../models/item';
 export class CarnesComponent implements OnInit {
 
   items: Item[];
-  route: string = 'aperitivos';
+  route: string = 'carnes';
 
   constructor(public nav: HeaderServiceService, public carneService: ItemService) {
      
