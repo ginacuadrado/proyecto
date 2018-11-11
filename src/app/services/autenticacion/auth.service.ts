@@ -6,9 +6,6 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { userInfo } from 'os';
-
-
 
 interface User 
 {
@@ -20,7 +17,6 @@ interface User
 @Injectable()
 export class AuthService
 {
-
 
     constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore, public router: Router)
     {

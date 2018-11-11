@@ -119,6 +119,7 @@ const router: Routes = [
     HomeComponent,
     MenuComponent,
     ContactComponent,
+    FooterComponent,
     AboutComponent,
     LoginComponent,      //Componentes relacionados con el ingreso del usuario
     RegisterComponent,   //Componentes relacionados con el ingreso del usuario
@@ -144,6 +145,10 @@ const router: Routes = [
     AngularFireAuthModule,  // Viene de firestore, usado para la autenticación
 
   ],
+
+  providers:[AuthService, ItemService,],
+  bootstrap: [AppComponent],
+
 
 })
 export class AppModule { }
