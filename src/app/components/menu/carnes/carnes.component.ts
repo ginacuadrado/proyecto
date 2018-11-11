@@ -11,13 +11,16 @@ import { Item } from '../../../models/item';
 export class CarnesComponent implements OnInit {
 
   items: Item[];
+  route: string = 'aperitivos';
 
   constructor(public nav: HeaderServiceService, public carneService: ItemService) {
-    
+     
    }
 
   ngOnInit() {
     this.nav.show();
+    this.carneService.setRoute(this.route);
+    this.carneService.getData();
     this.carneService.getItems().subscribe(items => {
       this.items = items;
     });
