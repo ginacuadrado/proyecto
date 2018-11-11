@@ -44,17 +44,21 @@
     
           <li class="nav-item dropdown">
 
-    
-            
+
+          <div *ngIf="authService.user | async">
            <span> <a class="nav-link" class="titulos" ><strong>Perfil</strong></a></span>
            <br>
-           <p class="dropdown-content">¡Bienvenido!</p>
+
+           
+           <p class="dropdown-content"> ¡Bienvenido  {{ (authService.user | async)?.email }}!</p>
+          
             <br>
                 <a class="dropdown-content" href="./perfil"><strong>Carrito</strong></a>
             <br>
                 <a class="dropdown-content" href="./perfil"><strong>Órdenes Pasadas</strong></a>
             <br>
-                <a class="dropdown-content" href="#" (click)="onClickLogout()"><strong>Cerrar Sesión</strong></a>
+                <a class="dropdown-content" href="#" (click)="onClickLogout()" ><strong>Cerrar Sesión</strong></a>
+          </div>
 
           </li>  
     

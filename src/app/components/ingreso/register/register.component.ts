@@ -25,12 +25,14 @@ constructor(public authService: AuthService, public router : Router)
 
 onSubmitAddUser()
 {
+  
   this.authService.registerUser(this.email, this.password)
   .then ( (res) => 
   {
     console.log('Usuario Registrado');  //Mensajes de éxito
     console.log(res);
     this.router.navigate(['./login'])
+    this.authService.createdocument();
 
   }).catch ( (err) => 
       {
@@ -38,6 +40,5 @@ onSubmitAddUser()
       }
   )
 }
-
 
 }
