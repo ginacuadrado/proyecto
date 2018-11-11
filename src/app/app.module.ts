@@ -31,9 +31,8 @@ import { CarnesComponent } from './components/menu/carnes/carnes.component';
 import { PostresComponent } from './components/menu/postres/postres.component';
 import { AperitivosComponent } from './components/menu/aperitivos/aperitivos.component';
 import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
-import { ProductlistComponent } from './productlist/productlist.component';
-import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { AgregarItemComponent } from './components/agregar-item/agregar-item.component';
+import { MenuDetailsComponent } from './components/menu/menu-details/menu-details.component';
 
 //Componentes de Administrador
 import { AdminComponent } from './components/admin/admin.component';
@@ -84,8 +83,8 @@ const router: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'menu-details',
+    component: MenuDetailsComponent
   },
   {
     path: 'admin',
@@ -95,11 +94,6 @@ const router: Routes = [
     path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
     redirectTo: '/login',
     pathMatch: 'full'
-  },
-  { 
-    path: '', 
-    redirectTo: 'login',
-    pathMatch: 'full' 
   },
   /*{ 
     path: 'login', 
@@ -135,11 +129,9 @@ const router: Routes = [
     PostresComponent,
     AperitivosComponent,
     BebidasComponent,
-    ProductlistComponent,
-    ProductdetailsComponent,
     AgregarItemComponent,
     AdminComponent,
-    
+    MenuDetailsComponent
   ],
 
   imports:

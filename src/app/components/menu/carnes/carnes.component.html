@@ -2,15 +2,21 @@
   <br>
   <img width="85%" alt="Banner Carnes" src="../assets/bannercarnes.jpg">
   <br>
-  <br>
 </div>
 
 
 
 <div *ngIf="items.length > 0; else noItems">
 
+    <div *ngFor="let item of items" style="text-align: center">
+        <br>
+        <app-menu-details [item]="item"></app-menu-details>
+        <br>
+        <button><strong>ORDENAR</strong></button>
+        <button (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+    </div>
  
-    <table>
+    <!--<table>
         <tr>
             <th>Imagen</th>
             <th>Plato</th>
@@ -22,15 +28,15 @@
 
         <tr *ngFor="let item of items">
             
-                <td><img src="{{item.imagen}}" heigth="100px" width="100px" ></td>
+                <td><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.descripcion}}</td>
                 <td>{{item.precio}}</td>
                 <td><button><strong>ORDENAR</strong></button></td>
-                <td><button (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button></td>
+                <td></td>
             
         </tr>
-    </table>
+    </table>-->
     <br>
     <br>
 
