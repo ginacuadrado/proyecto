@@ -34,22 +34,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() 
   {
    
-    /*this.authService.getAuth().subscribe( auth => {
-      if (auth) {
-        this.isLogin = true;
-        this.emailUsuario = auth.email;
-        this.uid=auth.uid;
-       
-      } else {
-        this.isLogin = false;
-      }
-    });   */
-   
   }
 
   onClickLogout()
   {
       this.authService.logout();
+      
   }
 
 

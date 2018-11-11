@@ -35,6 +35,9 @@ import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { AgregarItemComponent } from './components/agregar-item/agregar-item.component';
 
+//Componentes de Administrador
+import { AdminComponent } from './components/admin/admin.component';
+
 //Router para la navegación entre las páginas
 
 const router: Routes = [
@@ -85,6 +88,10 @@ const router: Routes = [
     component: LoginComponent
   },
   {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
     path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
     redirectTo: '/login',
     pathMatch: 'full'
@@ -130,7 +137,8 @@ const router: Routes = [
     BebidasComponent,
     ProductlistComponent,
     ProductdetailsComponent,
-    AgregarItemComponent
+    AgregarItemComponent,
+    AdminComponent,
     
   ],
 
