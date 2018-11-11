@@ -4,7 +4,6 @@ import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
 
 
-
 @Component({
   selector: 'app-aperitivos',
   templateUrl: './aperitivos.component.html',
@@ -27,8 +26,11 @@ export class AperitivosComponent implements OnInit {
   }
 
   //Método que elimina el item del array
-  deleteItem(event, item){
+  deleteItem(event, item)
+  {
     this.aperitivosService.deleteItem(item);
   }
+
+ 
 
 }

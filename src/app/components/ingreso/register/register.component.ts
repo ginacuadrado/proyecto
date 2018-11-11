@@ -32,7 +32,6 @@ onSubmitAddUser()
     console.log('Usuario Registrado');  //Mensajes de éxito
     console.log(res);
     this.router.navigate(['./login'])
-    this.authService.createdocument();
 
   }).catch ( (err) => 
       {
