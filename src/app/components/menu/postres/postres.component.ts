@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../../header/header-service.service';
-import { Item4Service } from '../../../services/item4.service';
+import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
 
 
@@ -12,11 +12,14 @@ import { Item } from '../../../models/item';
 export class PostresComponent implements OnInit {
 
   items: Item[];
+  route = 'postres'; 
 
-  constructor(public nav: HeaderServiceService, public postresService: Item4Service) { }
+  constructor(public nav: HeaderServiceService, public postresService: ItemService) { }
 
   ngOnInit() {
     this.nav.show();
+    this.postresService.setRoute(this.route);
+    this.postresService.getData();
     this.postresService.getItems().subscribe(items => {
       this.items = items;
     });

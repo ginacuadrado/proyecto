@@ -2,9 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ItemService } from './services/item.service';
-import { Item2Service } from './services/item2.service';
-import { Item3Service } from './services/item3.service';
-import { Item4Service } from './services/item4.service';
 
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
@@ -39,9 +36,6 @@ import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { AgregarItemComponent } from './components/agregar-item/agregar-item.component';
-import { AgregarItem3Component } from './components/agregar-item3/agregar-item3.component';
-import { AgregarItem4Component } from './components/agregar-item4/agregar-item4.component';
-import { AgregarItem2Component } from './components/agregar-item2/agregar-item2.component';
 
 //Router para la navegación entre las páginas
 
@@ -137,10 +131,7 @@ const router: Routes = [
     BebidasComponent,
     ProductlistComponent,
     ProductdetailsComponent,
-    AgregarItemComponent,
-    AgregarItem3Component,
-    AgregarItem4Component,
-    AgregarItem2Component
+    AgregarItemComponent
     
   ],
 
@@ -156,7 +147,7 @@ const router: Routes = [
 
   ],
 
-  providers: [AuthService, UserService, UserResolver, AuthGuard, ItemService, Item2Service, Item3Service, Item4Service],
+  providers: [AuthService, UserService, UserResolver, AuthGuard, ItemService],
   bootstrap: [AppComponent],
 
 })

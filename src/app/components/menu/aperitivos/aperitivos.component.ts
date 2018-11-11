@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../../header/header-service.service';
-import { Item2Service } from '../../../services/item2.service';
+import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
 
 
@@ -13,11 +13,14 @@ import { Item } from '../../../models/item';
 export class AperitivosComponent implements OnInit {
 
   items: Item[];
+  route = 'aperitivos';
 
-  constructor(public nav: HeaderServiceService, public aperitivosService: Item2Service) { }
+  constructor(public nav: HeaderServiceService, public aperitivosService: ItemService) { }
 
   ngOnInit() {
     this.nav.show();
+    this.aperitivosService.setRoute(this.route);
+    this.aperitivosService.getData();
     this.aperitivosService.getItems().subscribe(items => {
       this.items = items;
     });
