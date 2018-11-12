@@ -23,6 +23,7 @@ export class RegisterComponent {
 //Propiedades para el formulario
 public email: string;
 public password: string;
+public isadmin: boolean = false;
 
 constructor(public authService: AuthService, public afs: AngularFireAuth, public router : Router, /*public userservice: UserItemsService*/)
 {
@@ -37,7 +38,10 @@ onSubmitAddUser()
   {
     console.log('Usuario Registrado');  //Mensajes de éxito
     console.log(res);
-    this.router.navigate(['./login']) }
+   
+    this.router.navigate(['./login']) 
+  
+  }
 
   ).catch ( (err) => 
       {
@@ -45,6 +49,7 @@ onSubmitAddUser()
       }
   )
 
+  this.authService.createdocument(this.email,this.isadmin);
 }
 
 }

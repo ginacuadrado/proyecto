@@ -15,7 +15,7 @@ import { environment } from '../environments/environment'; //Aquí se encuentra 
 //Servicios de autenticación
 import { AuthService } from './services/autenticacion/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+/*import { AuthGuard } from './services/guards/authguard.service'*/
 //Componentes del Proyecto
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -37,14 +37,15 @@ import { MenuDetailsComponent } from './components/menu/menu-details/menu-detail
 //Componentes de Administrador
 import { AdminComponent } from './components/admin/admin.component';
 
-//import { UserItemsService } from './services/autenticacion/useritems.service';
+
 
 //Router para la navegación entre las páginas
 
 const router: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    /*canActivate: [AuthGuard]*/
   },
 
   {
@@ -158,7 +159,7 @@ const router: Routes = [
 
   ],
 
-  providers:[AuthService, ItemService,/* UserItemsService*/],
+  providers:[AuthService, ItemService, /*AuthGuard*/ ],
   bootstrap: [AppComponent],
 
 
