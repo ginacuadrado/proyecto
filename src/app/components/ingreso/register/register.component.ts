@@ -4,6 +4,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 //Métodos de autenticación
 import { AuthService } from '../../../services/autenticacion/auth.service'
+//import { UserItemsService } from '../../../services/autenticacion/useritems.service'
+import { Usuarios } from 'src/app/models/usuarios';
+import { User } from 'src/app/models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { switchMap } from 'rxjs/operators';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'app-register',
@@ -13,12 +19,12 @@ import { AuthService } from '../../../services/autenticacion/auth.service'
 })
 
 export class RegisterComponent {
- 
+
 //Propiedades para el formulario
 public email: string;
 public password: string;
 
-constructor(public authService: AuthService, public router : Router)
+constructor(public authService: AuthService, public afs: AngularFireAuth, public router : Router, /*public userservice: UserItemsService*/)
 {
  
 }
@@ -31,13 +37,15 @@ onSubmitAddUser()
   {
     console.log('Usuario Registrado');  //Mensajes de éxito
     console.log(res);
-    this.router.navigate(['./login'])
+    this.router.navigate(['./login']) }
 
-  }).catch ( (err) => 
+  ).catch ( (err) => 
       {
           console.log(err);
       }
   )
+
 }
 
 }
+

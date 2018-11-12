@@ -14,6 +14,7 @@ export class LoginComponent {
 
 public email: string;
 public password: string;
+public isAdmin: boolean;
   
 
   constructor(public authService: AuthService, public router: Router) 
@@ -26,13 +27,24 @@ public password: string;
       this.authService.loginEmail(this.email,this.password)
       .then ((res) => 
       {
-          this.router.navigate(['./home']);
+         console.log('Usuario Ingresado')
       }).catch((err) =>
       
       {
         console.log(err);
         this.router.navigate(['/'])
       })
+
+      if(this.email=='admin' && this.password=='admin')
+      {
+          this.isAdmin=true;
+          this.router.navigate(['./admin']);
+      }
+
+      else
+      {
+        this.router.navigate(['./home']);
+      }
 
   }
 
