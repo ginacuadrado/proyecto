@@ -11,7 +11,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 })
 export class ItemService {
 
-  ItemCollection: AngularFirestoreCollection<Item>;
+  ItemCollection: AngularFirestoreCollection<Item>; //Copia la colección de datos de Items
   items: Observable<Item[]>;
   itemDoc: AngularFirestoreDocument<Item>;
   route: string;
@@ -26,9 +26,9 @@ export class ItemService {
    }
 
    getData(){
-    this.ItemCollection = this.afs.collection(`${this.route}`, ref => ref.orderBy('nombre','asc'));
+    this.ItemCollection = this.afs.collection(`${this.route}`, ref => ref.orderBy('nombre','asc')); //Esta función indica cuál es la colección y ordena los datos de forma ascendente por nombre
 
-    //this.items = this.afs.collection('carnes').valueChanges();
+    //Toma el objeto en específico, crea un observable de tipo array para mostrar en pantalla
     this.items = this.ItemCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Item;
@@ -38,14 +38,17 @@ export class ItemService {
     }));
    }
 
+   //Devuelve el array 
    getItems(){
      return this.items;
    }
 
+   //Agrega el item a firebase
    addItem(item: Item){
       this.ItemCollection.add(item);
    }
 
+  //Eliminar el item  a firebase
    deleteItem(item: Item){
      this.itemDoc = this.afs.doc(`${this.route}/${item.id}`)
      this.itemDoc.delete();

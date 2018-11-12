@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../../header/header-service.service';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
+import {AuthService} from '../../../services/autenticacion/auth.service';
+import { Router } from '@angular/router';
+import { ShowAgregarItemService } from '../../admin/agregar-item/show-agregar-item.service';
 
 @Component({
   selector: 'app-carnes',
@@ -14,8 +17,10 @@ export class CarnesComponent implements OnInit {
   editState: boolean = false;
   itemToEdit: Item;
   route: string = 'carnes';
+  public email: string;
+  public password: string;
 
-  constructor(public nav: HeaderServiceService, public carneService: ItemService) {
+  constructor(public nav: HeaderServiceService, public carneService: ItemService, public authService: AuthService, public router: Router) {
      
    }
 

@@ -7,22 +7,18 @@ import { switchMap } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { auth } from 'firebase';
-
-
-interface User {
-  uid: string;
-  email: string;
-}
-
+import {User} from '../../models/user'
+//import { UserItemsService } from './useritems.service'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
 //Definición campos del Usuario
     user: Observable<User | null>;
+    isAdmin:boolean;
 
 //Constructor del Auth Service
-    constructor( private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, )
+    constructor( private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, /*private uis: UserItemsService*/)
     {
         this.user = this.afAuth.authState.pipe(
           switchMap(user => {
@@ -32,13 +28,17 @@ export class AuthService {
               return of(null)
             }
           }))
+
+
     }
 
-  //Autenticación con EMAIL Y PASSWORD
+//Autenticación con EMAIL Y PASSWORD
 
 //Registro de usuario
 
  registerUser(email: string, password: string) {
+
+ 
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
@@ -46,10 +46,12 @@ export class AuthService {
         return this.updateUserData(credential.user); // 
       })
       .catch(error => this.handleError(error));
+
+   
   }
 
 //Login de Usuario
- loginEmail(email: string, password: string) {
+ loginEmail(email: string, password: string,) {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
@@ -83,16 +85,18 @@ export class AuthService {
   }
 
   // Luego de loggear, envía la data del usuario a firestore
-  private updateUserData(user: User) {
+ updateUserData(user: User) 
+  {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
 
-    const data: User = {
+    const data: User =
+     {
       uid: user.uid,
       email: user.email || null,
-
     };
+
     return userRef.set(data);
   }
 

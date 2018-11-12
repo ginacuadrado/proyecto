@@ -31,11 +31,13 @@ import { CarnesComponent } from './components/menu/carnes/carnes.component';
 import { PostresComponent } from './components/menu/postres/postres.component';
 import { AperitivosComponent } from './components/menu/aperitivos/aperitivos.component';
 import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
-import { AgregarItemComponent } from './components/agregar-item/agregar-item.component';
+import { AgregarItemComponent } from './components/admin/agregar-item/agregar-item.component';
 import { MenuDetailsComponent } from './components/menu/menu-details/menu-details.component';
 
 //Componentes de Administrador
 import { AdminComponent } from './components/admin/admin.component';
+
+//import { UserItemsService } from './services/autenticacion/useritems.service';
 
 //Router para la navegación entre las páginas
 
@@ -86,9 +88,9 @@ const router: Routes = [
     path: 'menu-details',
     component: MenuDetailsComponent
   },
-  {
-    path: 'admin',
-    component: AdminComponent
+  {	  
+    path: 'login',	   
+    component: LoginComponent	   
   },
   {
     path: 'login',
@@ -99,6 +101,11 @@ const router: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
+  
   /*{ 
     path: 'login', 
     component: LoginComponent, 
@@ -135,7 +142,8 @@ const router: Routes = [
     BebidasComponent,
     AgregarItemComponent,
     AdminComponent,
-    MenuDetailsComponent
+    MenuDetailsComponent,
+
   ],
 
   imports:
@@ -150,7 +158,7 @@ const router: Routes = [
 
   ],
 
-  providers:[AuthService, ItemService,],
+  providers:[AuthService, ItemService,/* UserItemsService*/],
   bootstrap: [AppComponent],
 
 

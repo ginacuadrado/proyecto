@@ -1,0 +1,50 @@
+nav
+{
+        background-image: url('../../../assets/header.png');
+        align-self: center;
+        background-size: cover;    
+        height: 170pt; 
+}
+
+
+li 
+{
+        margin-left: 180pt;
+        
+        
+}
+
+img
+{
+    border-radius: 25px;
+}
+      
+.titulos
+{
+   font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 20pt;
+ 
+}
+
+.dropdown
+{
+     position:relative;
+     display:inline-block;   
+}
+
+.dropdown-content
+{
+        display:none;
+        position:absolute;
+        min-width: 160px;
+        z-index: 1;
+        background-color:rgba(53, 46, 46, 0.658);
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+
+}
+
+.dropdown:hover .dropdown-content
+{
+        display:block;
+}
