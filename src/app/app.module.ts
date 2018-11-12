@@ -91,6 +91,10 @@ const router: Routes = [
     component: AdminComponent
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
     redirectTo: '/login',
     pathMatch: 'full'
