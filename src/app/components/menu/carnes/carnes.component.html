@@ -4,8 +4,6 @@
   <br>
 </div>
 
-
-
 <div *ngIf="items.length > 0; else noItems">
 
     <div *ngFor="let item of items" style="text-align: center">
@@ -13,43 +11,11 @@
         <app-menu-details [item]="item"></app-menu-details>
         <br>
         <button><strong>ORDENAR</strong></button>
+        <button><strong>MODIFICAR</strong></button>
         <button (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
     </div>
- 
-    <!--<table>
-        <tr>
-            <th>Imagen</th>
-            <th>Plato</th>
-            <th>Descripción</th>
-            <th>Precio</th>  
-            <th>Ordenar</th>
-            <th>Eliminar</th>
-        </tr>
 
-        <tr *ngFor="let item of items">
-            
-                <td><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
-                <td>{{item.nombre}}</td>
-                <td>{{item.descripcion}}</td>
-                <td>{{item.precio}}</td>
-                <td><button><strong>ORDENAR</strong></button></td>
-                <td></td>
-            
-        </tr>
-    </table>-->
-    <br>
-    <br>
-
-    <!--<ul *ngFor="let item of items" class="collection">
-        <li class="collection-item">
-            <img src="{{item.imagen}}">
-            {{item.nombre}}
-            {{item.descripcion}}
-            Precio: {{item.precio}} Bs.S
-        </li>
-    </ul>-->
 </div>
-
 
 <ng-template #noItems>
     <hr>
@@ -57,9 +23,6 @@
 </ng-template>
 
 <div style="text-align: center">
-<br>
-<br>
-<br>
 <br>
 <app-agregar-item></app-agregar-item>
 
