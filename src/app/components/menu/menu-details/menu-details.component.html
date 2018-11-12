@@ -6,6 +6,6 @@
     <div class="block">
       <h2 class="title"><strong>{{item.nombre}}</strong></h2>
       <p class="description">{{item.descripcion}}</p>
-      <p class="description">Precio: {{item.precio}} Bs.S</p>
+      <p class="description">Precio: {{item.precio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</p>
     </div>
   </div>
