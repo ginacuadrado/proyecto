@@ -12,6 +12,8 @@ import { Item } from '../../../models/item';
 export class BebidasComponent implements OnInit {
 
   items: Item[];
+  editState: boolean = false;
+  itemToEdit: Item;
   route = 'bebidas';
 
   constructor(public nav: HeaderServiceService, public bebidasService: ItemService) { }
@@ -28,5 +30,22 @@ export class BebidasComponent implements OnInit {
   deleteItem(event, item){
     this.bebidasService.deleteItem(item);
   }
+
+  //Métodos que editan el item del array
+  editItem(event, item: Item){
+    this.editState = true;
+    this.itemToEdit = item;
+  }
+
+  clearState(){
+    this.editState = false;
+    this.itemToEdit = null;
+  }
+
+  updateItem(item: Item){
+    this.bebidasService.updateItem(item);
+    this.clearState();
+  }
+
 
 }

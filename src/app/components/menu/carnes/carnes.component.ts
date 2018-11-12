@@ -11,6 +11,8 @@ import { Item } from '../../../models/item';
 export class CarnesComponent implements OnInit {
 
   items: Item[];
+  editState: boolean = false;
+  itemToEdit: Item;
   route: string = 'carnes';
 
   constructor(public nav: HeaderServiceService, public carneService: ItemService) {
@@ -29,5 +31,22 @@ export class CarnesComponent implements OnInit {
   deleteItem(event, item){
       this.carneService.deleteItem(item);
   }
+
+  //Métodos que editan el item del array
+  editItem(event, item: Item){
+    this.editState = true;
+    this.itemToEdit = item;
+  }
+
+  clearState(){
+    this.editState = false;
+    this.itemToEdit = null;
+  }
+
+  updateItem(item: Item){
+    this.carneService.updateItem(item);
+    this.clearState();
+  }
+
 
 }
