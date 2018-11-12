@@ -3,7 +3,6 @@ import { HeaderServiceService } from '../../header/header-service.service';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
 
-
 @Component({
   selector: 'app-aperitivos',
   templateUrl: './aperitivos.component.html',
@@ -31,6 +30,7 @@ export class AperitivosComponent implements OnInit {
     this.aperitivosService.deleteItem(item);
   }
 
+ 
  
 
 }

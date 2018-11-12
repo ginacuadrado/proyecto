@@ -31,7 +31,7 @@ public password: string;
       
       {
         console.log(err);
-        this.router.navigate(['#'])
+        this.router.navigate(['/'])
       })
 
   }

@@ -37,6 +37,7 @@ import { MenuDetailsComponent } from './components/menu/menu-details/menu-detail
 //Componentes de Administrador
 import { AdminComponent } from './components/admin/admin.component';
 
+
 //Router para la navegación entre las páginas
 
 const router: Routes = [
@@ -86,14 +87,18 @@ const router: Routes = [
     path: 'menu-details',
     component: MenuDetailsComponent
   },
-  {
-    path: 'admin',
-    component: AdminComponent
+  {	  
+    path: 'login',	   
+    component: LoginComponent	   
   },
   {
     path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
   },
   /*{ 
     path: 'login', 
@@ -146,7 +151,7 @@ const router: Routes = [
 
   ],
 
-  providers:[AuthService, ItemService,],
+  providers:[AuthService, ItemService],
   bootstrap: [AppComponent],
 
 
