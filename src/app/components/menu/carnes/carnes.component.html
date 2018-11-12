@@ -12,6 +12,7 @@
         <br>
         <button><strong>ORDENAR</strong></button>
         <button *ngIf="!editState" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
+        
                             <button *ngIf="!editState" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
 
                             <div *ngIf="editState && itemToEdit.id == item.id">
