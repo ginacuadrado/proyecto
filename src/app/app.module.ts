@@ -139,10 +139,7 @@ const router: Routes = [
     AgregarItemComponent,
     AdminComponent,
     MenuDetailsComponent,
-    AperitivosAdminComponent,
-    BebidasAdminComponent,
-    CarnesAdminComponent,
-    PostresAdminComponent,
+
   ],
 
   imports:

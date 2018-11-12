@@ -12,8 +12,40 @@
                     <app-menu-details [item]="item"></app-menu-details>
                     <br>
                     <button><strong>ORDENAR</strong></button>
-                    <button><strong>MODIFICAR</strong></button>
-                    <button (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+                    <button *ngIf="!editState" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
+                            <button *ngIf="!editState" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+
+                            <div *ngIf="editState && itemToEdit.id == item.id">
+                                <form (ngSubmit)="updateItem(item)">
+                                    <div>
+                                       <div>
+                                           <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.nombre" name="nombre">
+                                           <label for="nombre">Nombre</label>
+                                       </div>
+                                       
+                                       <div>
+                                           <input type="text" placeholder="Introduzca descripción del producto" [(ngModel)]="item.descripcion" name="descripcion">
+                                           <label for="descripcion">Descripción</label>
+                                       </div>
+                                       
+                                       <div>
+                                           <input type="number" placeholder="Introduzca precio del producto" [(ngModel)]="item.precio" name="precio">
+                                           <label for="precio">Precio</label>
+                                       </div>
+                                       
+                                       <div>
+                                           <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.imagen" name="imagen">
+                                           <label for="imagen">Imagen</label>
+                                       </div> 
+
+                                       <div>
+                                           <input type="submit" class="btn" value="Actualizar">
+                                       </div>  
+                                       
+                                    </div>
+                                </form>
+                            </div>
+                        <hr>
             </div>
 
       </div>
