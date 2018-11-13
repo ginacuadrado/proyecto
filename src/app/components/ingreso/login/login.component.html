@@ -1,15 +1,14 @@
 
- <div class="container-fluid">
+ <div class="container-fluid" style="text-align: center">
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" style="text-align: center">
 
   <div style="text-align:center">
    
     <img width="250" alt="SteakLogo" src="../assets/logofondo.png">
 
   </div>
-  <br>
-  <br>
+
   <div class="container">
   <div class="row">
     
@@ -19,7 +18,7 @@
         
         <div class="form-group">
           
-          <h1 class="titulo"><strong>Inicia sesión en STEAK</strong></h1>
+          <h1 class="titulo2"><strong>Inicia sesión en STEAK</strong></h1>
          
          <!-- Ingreso del correo electrónico en el formulario-->
           <br>
@@ -35,19 +34,19 @@
         </div>
 
         <button type="submit" class="boton3"><strong>Ingresar</strong></button>
+        <button class="boton3" (click)="forgotpassword()"> <strong> Olvidé mi Contraseña </strong></button>
         </form>
     </div>
 
   </div>
-      
-    <div class="row" >      
-        <br>
-        <a  class="text-danger" (click)="forgotpassword()">Reset Password for {{email}}</a>
-    </div>
+        
+
+        
+  
           <div class="row" >
             
               <br>
-              <p class="titulo2"><strong>¿Aún no te has registrado?  <a href="/register">Registrate en STEAK</a></strong></p>
+              <p class="titulo" style="text-align: center"><strong>¿Aún no te has registrado?  <a href="/register">Registrate en STEAK</a></strong></p>
           </div>
         </div> 
 

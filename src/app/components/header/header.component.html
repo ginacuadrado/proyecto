@@ -18,54 +18,94 @@
           <!--<div class="collapse navbar-collapse " style="text-align: center" > [ngClass]="{ 'show': navbarOpen }"-->
           <div style="text-align: center">
           <ul class="navbar-nav mr-auto">
-          
-          <li class="nav-item">
-            
-            <a class="nav-link" class="titulos" href="./home"><strong>Home</strong></a>
-        
-        </li>
-        
+
+         <div *ngIf=" authService.user | async">
+                <p> ¡Bienvenido {{ (authService.user | async)?.email }}!</p>
+         </div>
+  
+                
+            <li class="nav-item"  *ngIf=" authService.user | async">
     
-          <li class="nav-item">
-          
-            <a class="nav-link" class="titulos" href="./menu"><strong>Menú</strong></a>
-          
-          </li>
+                <a class="nav-link" class="titulos"  href="#" (click)="onClickLogout()"><strong>Cerrar Sesión</strong></a>
+               
+              </li>
+  
+         <li class="nav-item">
     
-          <li class="nav-item ">
-    
-              <a class="nav-link" href="./about" class="titulos"><strong>Nosotros</strong></a>
-         
+              <a class="nav-link" class="titulos" href="./contact"><strong>Órdenes Pasadas</strong></a>
+          
             </li>
+
+
+
+          <li class="nav-item">
     
+              <a class="nav-link" class="titulos" href="./contact"><strong>Carrito</strong></a>
+          
+            </li>
+
           <li class="nav-item">
     
               <a class="nav-link" class="titulos" href="./contact"><strong>Contacto</strong></a>
           
             </li>
+         
+         
+         <li class="nav-item ">
     
+              <a class="nav-link" href="./about" class="titulos"><strong>Nosotros</strong></a>
+         
+            </li>
+         
+         
+         
+            <li class="nav-item">
+          
+            <a class="nav-link" class="titulos" href="./menu"><strong>Menú</strong></a>
+          
+          </li>
+          <li class="nav-item">
+            
+            <a class="nav-link" class="titulos" href="./home"><strong>Home</strong></a>
+        
+        </li>
+
+           
+
+            
+
+
+
+    <!-- 
           <li class="nav-item dropdown">
 
 
-          <div *ngIf=" authService.user | async">
+         <div *ngIf=" authService.user | async">
            <span> <a class="nav-link" class="titulos" style="color: white" ><strong>Perfil</strong></a></span>
            <br>
+           <br>
+           <br>
+           <br>
 
-           
-           <p class="dropdown-content" style="color: white"> ¡Bienvenido  {{ (authService.user | async)?.email }}!</p>
+        
+           <p class="dropdown-content" style="color: white"> ¡Bienvenido  <br>{{ (authService.user | async)?.email }}!</p>
           
             <br>
                 <a class="dropdown-content" href="./cart"><strong>Carrito</strong></a>
             <br>
+            <br>
                 <a class="dropdown-content" href="./perfil"><strong>Órdenes Pasadas</strong></a>
+            <br>
             <br>
                 <a class="dropdown-content" href="#" (click)="onClickLogout()" ><strong>Cerrar Sesión</strong></a>
           </div>
 
           </li>  
-    
+    -->
     </ul>
            </div>
     </nav>
      
   </div>
+
+

@@ -19,19 +19,17 @@
   
   margin-top: 8vmin;
   margin-bottom:8vmin; 
-  width: 70%;
+  width: 60%;
   height: 80%;
-   display: inline-block;
-   background-color: rgba(106, 110, 110, 0.555);
-   border-radius: 50px;
+  display: inline-block;
+  background-color: rgba(106, 110, 110, 0.555);
+  border-radius: 50px;
 
 }
 
-
-
 input[type="email"]
 {
-    width: 90vmin;
+    width: 520pt;
     padding: 12px 20px;
     margin: 3pt 3pt;
     margin-left: 2vmin;
@@ -46,7 +44,7 @@ input[type="email"]
 
 input[type="password"]
 {
-    width: 420pt;
+    width: 520pt;
     padding: 12px 20px;
     margin: 8pt 8pt;
     margin-left: 10pt;
@@ -63,21 +61,21 @@ button
     color: rgb(168, 158, 158);
     padding: 14px 20px;
     margin: 8pt 8pt;
-    margin-left: 140pt;
+    margin-left: 50pt;
     border: none;
     cursor: pointer;
     width: 150pt;
+    height: 40pt;
     border-radius: 10px;
+    float:left;
     
 }
-
 .boton3
 {
     font-family: 'PT Serif', serif;
-    font-size: 16pt;
+    font-size: 14pt;
     text-align: center;
     color: rgb(0, 0, 0);
-    
 }
 
 img
@@ -88,7 +86,7 @@ img
 .titulo
 {
     font-family: 'PT Serif', serif;
-    font-size: 20pt;
+    font-size: 15pt;
     text-align: justify;
     color: white;
     

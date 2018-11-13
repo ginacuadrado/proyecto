@@ -41,6 +41,8 @@ import { SharedModule } from './shared/shared.module';
 import { AdminComponent } from './components/admin/admin.component';
 import { AgregarItemComponent } from './components/admin/agregar-item/agregar-item.component';
 import { RegisterAdminComponent } from '../app/components/admin/register-admin/register-admin.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { VentanapagoComponent } from './components/ventanapago/ventanapago.component';
 
 
 
@@ -104,6 +106,10 @@ const router: Routes = [
     component: CartComponent
   },
   {
+    path:'pago',
+    component: VentanapagoComponent
+  },
+  {
     path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
     redirectTo: '/login',
     pathMatch: 'full'
@@ -111,6 +117,10 @@ const router: Routes = [
   {
     path: 'admin',
     component: AdminComponent
+  },
+  {
+    path: 'changepassword',
+    component: ChangepasswordComponent
   },
   {
     path: 'register-admin',
@@ -156,6 +166,8 @@ const router: Routes = [
     MenuDetailsComponent,
     RegisterAdminComponent,
     CartComponent,
+    ChangepasswordComponent,
+    VentanapagoComponent,
 
   ],
 

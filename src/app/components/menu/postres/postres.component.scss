@@ -1,22 +1,80 @@
 table {
+  font-family: 'PT Serif', serif;
+  font-size: 20pt;
+  text-align: justify;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.content-box-red {
+  background-color: #f9dbdb;
+  border: 1px solid #e9b3b3;
+}
+
+button {
+  margin: 5px 5px 5px 5px;
+}
+
+.jumbotron
+{
+  
+  margin-top: 8vmin;
+  margin-bottom:8vmin; 
+  width: 40%;
+  height: 40%;
+  display: inline-block;
+  background-color: rgba(106, 110, 110, 0.555);
+  border-radius: 50px;
+
+}
+
+input[type="text"]
+{
+  width: 300pt;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding-left: 60px;
+
+}
+
+input [type="number"]
+{
+  width: 300pt;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding-left: 45px;
+
+}
+
+label
+{
+  
+      font-family: 'PT Serif', serif;
+      font-size: 15pt;
+      text-align: center;
+      color: black;
+  
+}
+::placeholder
+{
     font-family: 'PT Serif', serif;
-    font-size: 20pt;
+    font-size: 10pt;
     text-align: justify;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  .content-box-red {
-    background-color: #f9dbdb;
-    border: 1px solid #e9b3b3;
-  }
-  
-  button {
-    margin: 5px 5px 5px 5px;
-  }
+    color: rgb(112, 112, 112);
+    
+}
+

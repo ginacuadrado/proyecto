@@ -29,6 +29,9 @@ errorMessage = '';
       .then ((res) => 
       {
          console.log('Usuario Ingresado'),
+         
+         
+         
          this.router.navigate(['/home'])
 
       }).catch((err) =>
