@@ -24,13 +24,10 @@ export class RegisterComponent {
 public email: string;
 public password: string;
 public isadmin: boolean = false;
-<<<<<<< HEAD
-=======
 errorMessage = '';
 error: {name: string, message: string} = {name: '', message: ''};
 isNewUser = true;
 resetPassword = false;
->>>>>>> 3fe2113ce0069859ae6cafd669730dfa7f9f3384
 
 constructor(public authService: AuthService, public afs: AngularFireAuth, public router : Router, /*public userservice: UserItemsService*/)
 {
