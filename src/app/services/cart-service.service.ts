@@ -6,7 +6,7 @@ import { Item } from '../models/item';
 })
 export class CartService {
 
-  private carrito: Item[] = [];
+  public carrito: Item[] = [];
 
   constructor() { 
 
@@ -15,8 +15,4 @@ export class CartService {
   addItem(item: Item){
     this.carrito.push(item);
   }
-
-  emptyCart(){
-    this.carrito = [];
-  } 
 }

@@ -3,7 +3,7 @@ import { HeaderServiceService } from '../../header/header-service.service';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
 import { Globals } from '../../../global';
-import {  }
+import { CartService } from '../../../services/cart-service.service';
 
 
 @Component({
@@ -13,23 +13,29 @@ import {  }
 })
 export class PostresComponent implements OnInit {
 
-  items: Item[];
+  items: Item[] = [];
   editState: boolean = false;
   itemToEdit: Item;
   route = 'postres'; 
   admin: boolean = false;
+  carrito: Item[] = [];
 
-  constructor(public nav: HeaderServiceService, public postresService: ItemService, private check: Globals) { }
+  constructor(public data: CartService, public nav: HeaderServiceService, public postresService: ItemService, private check: Globals) { }
 
   ngOnInit() {
-
     this.nav.show();
-    this.admin =  this.check.isAdmin;
+    this.carrito = this.data.carrito;
+    this.admin = this.check.isAdmin;
     this.postresService.setRoute(this.route);
     this.postresService.getData();
     this.postresService.getItems().subscribe(items => {
       this.items = items;
     });
+  }
+
+  selectedItem(event, item: Item){
+    this.data.addItem(item); 
+    this.carrito = this.data.carrito;
   }
 
   deleteItem(event, item){
