@@ -33,12 +33,15 @@ import { CarnesComponent } from './components/menu/carnes/carnes.component';
 import { PostresComponent } from './components/menu/postres/postres.component';
 import { AperitivosComponent } from './components/menu/aperitivos/aperitivos.component';
 import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
-import { AgregarItemComponent } from './components/admin/agregar-item/agregar-item.component';
 import { MenuDetailsComponent } from './components/menu/menu-details/menu-details.component';
+import { CartComponent } from './components/cart/cart.component';
 
 //Componentes de Administrador
 import { AdminComponent } from './components/admin/admin.component';
-import { RegisterAdminComponent } from '../app/components/admin/register-admin/register-admin.component'
+import { AgregarItemComponent } from './components/admin/agregar-item/agregar-item.component';
+import { RegisterAdminComponent } from '../app/components/admin/register-admin/register-admin.component';
+import { CartService } from './services/cart-service.service';
+
 
 
 
@@ -97,8 +100,8 @@ const router: Routes = [
     component: LoginComponent	   
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'cart',
+    component: CartComponent
   },
   {
     path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
@@ -152,6 +155,7 @@ const router: Routes = [
     AdminComponent,
     MenuDetailsComponent,
     RegisterAdminComponent,
+    CartComponent,
 
   ],
 
@@ -167,7 +171,7 @@ const router: Routes = [
 
   ],
 
-  providers:[AuthService, ItemService, Globals /*AuthGuard*/ ],
+  providers:[AuthService, ItemService, Globals, CartService /*AuthGuard*/ ],
   bootstrap: [AppComponent],
 
 

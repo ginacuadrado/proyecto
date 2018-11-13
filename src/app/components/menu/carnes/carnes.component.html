@@ -7,14 +7,14 @@
 <div *ngIf="items.length > 0; else noItems">
 
     <div *ngFor="let item of items" style="text-align: center">
-        <div *ngIf="item.disp || true">
+        <div *ngIf="item.disp || admin">
         <br>
         <app-menu-details [item]="item"></app-menu-details>
         <br>
         <button><strong>ORDENAR</strong></button>
-        <button *ngIf="!editState" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
+        <button *ngIf="!editState && admin" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
                 
-            <button *ngIf="!editState" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+            <button *ngIf="!editState && admin" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
 
                 <div *ngIf="editState && itemToEdit.id == item.id">
                     <form (ngSubmit)="updateItem(item)">

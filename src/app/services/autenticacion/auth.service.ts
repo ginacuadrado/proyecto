@@ -5,10 +5,9 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import {User} from '../../models/user'
+import { User } from '../../models/user'
 import { Usuarios } from '../../models/usuarios';
-import {  AngularFirestoreCollection } from 'angularfire2/firestore';
-
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
 
 //import { UserItemsService } from './useritems.service'
 
@@ -60,6 +59,7 @@ export class AuthService {
 
 //Login de Usuario
  loginEmail(email: string, password: string,) {
+
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
@@ -67,6 +67,8 @@ export class AuthService {
         return this.updateUserData(credential.user);
       })
       .catch(error => this.handleError(error));
+
+      
   }
 
   //Función para crear documento 
@@ -99,10 +101,7 @@ export class AuthService {
 
     this.usuario.useremail= email;
     this.usuario.userisadmin= isadmin;
-
-  
-      this.UsuariosCollection.add(this.usuario);
-
+    this.UsuariosCollection.add(this.usuario);
   }
 
 private oAuthLogin(provider: any) {
