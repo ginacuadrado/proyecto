@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../header/header-service.service';
+import { Item } from '../../models/item';
 
 @Component({
   selector: 'app-cart',
@@ -7,6 +8,8 @@ import { HeaderServiceService } from '../header/header-service.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+
+  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
 
   constructor(public nav: HeaderServiceService) { }
 

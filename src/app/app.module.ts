@@ -35,12 +35,12 @@ import { AperitivosComponent } from './components/menu/aperitivos/aperitivos.com
 import { BebidasComponent } from './components/menu/bebidas/bebidas.component';
 import { MenuDetailsComponent } from './components/menu/menu-details/menu-details.component';
 import { CartComponent } from './components/cart/cart.component';
+import { SharedModule } from './shared/shared.module';
 
 //Componentes de Administrador
 import { AdminComponent } from './components/admin/admin.component';
 import { AgregarItemComponent } from './components/admin/agregar-item/agregar-item.component';
 import { RegisterAdminComponent } from '../app/components/admin/register-admin/register-admin.component';
-import { CartService } from './services/cart-service.service';
 
 
 
@@ -163,6 +163,7 @@ const router: Routes = [
   [
     BrowserModule,
     RouterModule.forRoot(router),
+    SharedModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase), // Viene de firestore, inicializa el environmet
@@ -171,7 +172,7 @@ const router: Routes = [
 
   ],
 
-  providers:[AuthService, ItemService, Globals, CartService /*AuthGuard*/ ],
+  providers:[AuthService, ItemService, Globals /*AuthGuard*/ ],
   bootstrap: [AppComponent],
 
 

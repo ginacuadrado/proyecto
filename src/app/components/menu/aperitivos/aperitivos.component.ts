@@ -16,7 +16,7 @@ export class AperitivosComponent implements OnInit {
   itemToEdit: Item;
   route = 'aperitivos';
   admin: boolean = false;
-  cart: Item[] = [];
+  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
 
   constructor(private check: Globals, public nav: HeaderServiceService, public aperitivosService: ItemService) { }
 
@@ -31,7 +31,8 @@ export class AperitivosComponent implements OnInit {
   }
 
   selectedItem(event, item: Item){
-    this.cart.push(item);
+    this.carrito.push(item);
+    localStorage.carritoItems = JSON.stringify(this.carrito);
   }
 
   //Método que elimina el item del array

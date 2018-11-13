@@ -12,7 +12,7 @@
                             <br>
                             <app-menu-details [item]="item"></app-menu-details>
                             <br>
-                            <button><strong>ORDENAR</strong></button>
+                            <button (click)="selectedItem($event, item)"><strong>ORDENAR</strong></button>
                             <button *ngIf="!editState && admin" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
                                     
                                 <button *ngIf="!editState && admin" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>

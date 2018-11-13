@@ -20,6 +20,7 @@ export class CarnesComponent implements OnInit {
   public email: string;
   public password: string;
   admin: boolean = false;
+  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
 
   constructor(private check: Globals, public nav: HeaderServiceService, public carneService: ItemService, public authService: AuthService, public router: Router) {
      
@@ -33,6 +34,11 @@ export class CarnesComponent implements OnInit {
     this.carneService.getItems().subscribe(items => {
       this.items = items;
     });
+  }
+
+  selectedItem(event, item: Item){
+    this.carrito.push(item);
+    localStorage.carritoItems = JSON.stringify(this.carrito);
   }
 
   deleteItem(event, item){

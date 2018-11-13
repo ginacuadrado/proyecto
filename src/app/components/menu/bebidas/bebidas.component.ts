@@ -17,6 +17,7 @@ export class BebidasComponent implements OnInit {
   itemToEdit: Item;
   route = 'bebidas';
   admin: boolean = false;
+  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
 
   constructor(private check: Globals, public nav: HeaderServiceService, public bebidasService: ItemService) { }
 
@@ -28,6 +29,11 @@ export class BebidasComponent implements OnInit {
     this.bebidasService.getItems().subscribe(items => {
       this.items = items;
     });
+  }
+
+  selectedItem(event, item: Item){
+    this.carrito.push(item);
+    localStorage.carritoItems = JSON.stringify(this.carrito);
   }
 
   deleteItem(event, item){
