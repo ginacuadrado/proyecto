@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../../header/header-service.service';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
-import {AuthService} from '../../../services/autenticacion/auth.service';
+import { AuthService } from '../../../services/autenticacion/auth.service';
 import { Router } from '@angular/router';
+import { Globals } from '../../../global';
 
 @Component({
   selector: 'app-carnes',
@@ -18,13 +19,15 @@ export class CarnesComponent implements OnInit {
   route: string = 'carnes';
   public email: string;
   public password: string;
+  admin: boolean = false;
 
-  constructor(public nav: HeaderServiceService, public carneService: ItemService, public authService: AuthService, public router: Router) {
+  constructor(private check: Globals, public nav: HeaderServiceService, public carneService: ItemService, public authService: AuthService, public router: Router) {
      
    }
 
   ngOnInit() {
     this.nav.show();
+    this.admin = this.check.isAdmin;
     this.carneService.setRoute(this.route);
     this.carneService.getData();
     this.carneService.getItems().subscribe(items => {

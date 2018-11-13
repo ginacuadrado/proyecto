@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../../header/header-service.service';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
+import { Globals } from '../../../global';
 
 
 @Component({
@@ -15,11 +16,13 @@ export class BebidasComponent implements OnInit {
   editState: boolean = false;
   itemToEdit: Item;
   route = 'bebidas';
+  admin: boolean = false;
 
-  constructor(public nav: HeaderServiceService, public bebidasService: ItemService) { }
+  constructor(private check: Globals, public nav: HeaderServiceService, public bebidasService: ItemService) { }
 
   ngOnInit() {
     this.nav.show();
+    this.admin = this.check.isAdmin;
     this.bebidasService.setRoute(this.route);
     this.bebidasService.getData();
     this.bebidasService.getItems().subscribe(items => {

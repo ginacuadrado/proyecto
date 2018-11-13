@@ -11,6 +11,6 @@ export class AppComponent
  {
 
   title = 'STEAK';
-  catch= 'Lo único imposible es aquello que no pruebas';
+  catch = 'Lo único imposible es aquello que no pruebas';
   
 }

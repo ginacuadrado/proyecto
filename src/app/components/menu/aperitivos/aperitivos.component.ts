@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../../header/header-service.service';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
+import { Globals } from '../../../global';
 
 @Component({
   selector: 'app-aperitivos',
@@ -10,20 +11,27 @@ import { Item } from '../../../models/item';
 })
 export class AperitivosComponent implements OnInit {
 
-  items: Item[];
+  items: Item[] = [];
   editState: boolean = false;
   itemToEdit: Item;
   route = 'aperitivos';
+  admin: boolean = false;
+  cart: Item[] = [];
 
-  constructor(public nav: HeaderServiceService, public aperitivosService: ItemService) { }
+  constructor(private check: Globals, public nav: HeaderServiceService, public aperitivosService: ItemService) { }
 
   ngOnInit() {
     this.nav.show();
+    this.admin = this.check.isAdmin;
     this.aperitivosService.setRoute(this.route);
     this.aperitivosService.getData();
     this.aperitivosService.getItems().subscribe(items => {
       this.items = items;
     });
+  }
+
+  selectedItem(event, item: Item){
+    this.cart.push(item);
   }
 
   //Método que elimina el item del array

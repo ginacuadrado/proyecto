@@ -24,10 +24,10 @@
          </div>
   
                 
-            <li class="nav-item">
+            <li class="nav-item"  *ngIf=" authService.user | async">
     
-                <a class="nav-link" class="titulos" href="./contact"><strong>Cerrar Sesión</strong></a>
-            
+                <a class="nav-link" class="titulos"  href="#" (click)="onClickLogout()"><strong>Cerrar Sesión</strong></a>
+               
               </li>
   
          <li class="nav-item">
@@ -91,10 +91,7 @@
            <p class="dropdown-content" style="color: white"> ¡Bienvenido  <br>{{ (authService.user | async)?.email }}!</p>
           
             <br>
-            <br>
-            <br>
-            <br>
-                <a class="dropdown-content" href="./perfil"><strong>Carrito</strong></a>
+                <a class="dropdown-content" href="./cart"><strong>Carrito</strong></a>
             <br>
             <br>
                 <a class="dropdown-content" href="./perfil"><strong>Órdenes Pasadas</strong></a>

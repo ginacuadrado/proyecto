@@ -7,47 +7,60 @@
 <div *ngIf="items.length > 0; else noItems">
 
     <div *ngFor="let item of items" style="text-align: center">
+        <div *ngIf="item.disp || admin">
         <br>
         <app-menu-details [item]="item"></app-menu-details>
         <br>
         <button><strong>ORDENAR</strong></button>
-        <button *ngIf="!editState" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
-        
-                            <button *ngIf="!editState" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+        <button *ngIf="!editState && admin" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
+                
+            <button *ngIf="!editState && admin" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
 
-                            <div *ngIf="editState && itemToEdit.id == item.id">
-                                <form (ngSubmit)="updateItem(item)">
-                                    <div>
-                                       <div>
-                                           <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.nombre" name="nombre">
-                                           <label for="nombre">Nombre</label>
-                                       </div>
-                                       
-                                       <div>
-                                           <input type="text" placeholder="Introduzca descripción del producto" [(ngModel)]="item.descripcion" name="descripcion">
-                                           <label for="descripcion">Descripción</label>
-                                       </div>
-                                       
-                                       <div>
-                                           <input type="number" placeholder="Introduzca precio del producto" [(ngModel)]="item.precio" name="precio">
-                                           <label for="precio">Precio</label>
-                                       </div>
-                                       
-                                       <div>
-                                           <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.imagen" name="imagen">
-                                           <label for="imagen">Imagen</label>
-                                       </div> 
-
-                                       <div>
-                                           <input type="submit" class="btn" value="Actualizar">
-                                       </div>  
-                                       
-                                    </div>
-                                </form>
+            <div class="jumbotron"  *ngIf="editState && itemToEdit.id == item.id">
+                    <form (ngSubmit)="updateItem(item)">
+ 
+                             <label><strong>--- MODIFICAR PLATO ---</strong></label>  
+                             <br>  
+                             <input type="checkbox" name="Disponible" [(ngModel)]="item.disp"> <label>Disponible</label>    
+                                   
+                            <div>          <label for="nombre">  Nombre</label><br>
+                                <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.nombre" name="nombre">
+                      
+                                <br>
                             </div>
-                        <hr>
-    </div>
+                                       
+                            <div>   <label for="descripcion">  Descripción</label><br>
+                                <input type="text" placeholder="Introduzca descripción del producto" [(ngModel)]="item.descripcion" name="descripcion">
+                             
+                                <br>
+                            </div>
+                                       
+                            <div> <label for="precio">  Precio</label><br>
+                                <input type="number" placeholder="Introduzca precio del producto" [(ngModel)]="item.precio" name="precio">
+                               
+                                <br>
+                            </div>
+                                       
+                            <div><label for="imagen">  Imagen</label><br>
+                                <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.imagen" name="imagen">
+                                
+                                <br>
+                                <br>
+                                
+                            </div>
 
+                
+                           
+                            <div>
+                                <input type="submit" class="btn" value="Actualizar">
+                            </div>  
+                                       
+                        
+                    </form>
+                </div>
+            <hr>
+        </div>
+    </div>
 </div>
 
 <ng-template #noItems>
