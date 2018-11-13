@@ -15,7 +15,7 @@ import { environment } from '../environments/environment'; //Aquí se encuentra 
 //Servicios de autenticación
 import { AuthService } from './services/autenticacion/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthGuard } from './services/guards/authguard.service'
+//import { AuthGuard } from './services/guards/authguard.service'
 //Componentes del Proyecto
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -36,6 +36,7 @@ import { MenuDetailsComponent } from './components/menu/menu-details/menu-detail
 
 //Componentes de Administrador
 import { AdminComponent } from './components/admin/admin.component';
+import { RegisterAdminComponent } from '../app/components/admin/register-admin/register-admin.component'
 
 
 
@@ -45,7 +46,7 @@ const router: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+   
   },
 
   {
@@ -106,7 +107,11 @@ const router: Routes = [
     path: 'admin',
     component: AdminComponent
   },
-  
+  {
+    path: 'register-admin',
+    component: RegisterAdminComponent,
+  },
+
   /*{ 
     path: 'login', 
     component: LoginComponent, 
@@ -144,6 +149,7 @@ const router: Routes = [
     AgregarItemComponent,
     AdminComponent,
     MenuDetailsComponent,
+    RegisterAdminComponent,
 
   ],
 
@@ -159,7 +165,7 @@ const router: Routes = [
 
   ],
 
-  providers:[AuthService, ItemService, AuthGuard ],
+  providers:[AuthService, ItemService, /*AuthGuard*/ ],
   bootstrap: [AppComponent],
 
 

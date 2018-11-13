@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app'
 import { map } from "rxjs/operators";
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { auth } from 'firebase';
 import {User} from '../../models/user'
 import { Usuarios } from '../../models/usuarios';
 import {  AngularFirestoreCollection } from 'angularfire2/firestore';
-import { EmailValidator } from '@angular/forms';
 
 
 //import { UserItemsService } from './useritems.service'
@@ -20,6 +17,7 @@ export class AuthService {
 
 //Definición campos del Usuario
     user: Observable<User | null>;
+    UserCollection: AngularFirestoreCollection<User>;
     UsuariosCollection: AngularFirestoreCollection<Usuarios>;
 
     usuario: Usuarios = 
@@ -33,8 +31,14 @@ export class AuthService {
     constructor( private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, /*private uis: UserItemsService*/)
     {
       this.UsuariosCollection = this.afs.collection('usuarios');
-        
-
+      this.user = this.afAuth.authState.pipe(
+        switchMap(user => {
+          if (user) {
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();    //Crea documento en firestore
+          } else {
+            return of(null)
+          }
+        }))
     }
 
 //Autenticación con EMAIL Y PASSWORD
@@ -70,12 +74,11 @@ export class AuthService {
 
   
   //Función que permite resetear contraseña
-  resetPassword(email: string) {
-    const fbAuth = auth();
-
-    return fbAuth
-      .sendPasswordResetEmail(email)
-      .catch(error => this.handleError(error));
+  resetPassword(email: string) 
+  {
+    return this.afAuth.auth.sendPasswordResetEmail(email)
+      .then(() => console.log('sent Password Reset Email!'))
+      .catch((error) => console.log(error))
   }
 
 
@@ -103,7 +106,7 @@ export class AuthService {
 
   }
 
-/*private oAuthLogin(provider: any) {
+private oAuthLogin(provider: any) {
   return this.afAuth.auth
     .signInWithPopup(provider)
     .then(credential => {
@@ -111,10 +114,7 @@ export class AuthService {
       return this.updateUserData(credential.user);
     })
     .catch(error => this.handleError(error));
-}*/
-
-
-
+}
 
 
   // Luego de loggear, envía la data del usuario a firestore
@@ -133,19 +133,16 @@ export class AuthService {
     return userRef.set(data);
   }
 
-  private oAuthLogin(provider: any) {
-    return this.afAuth.auth
-      .signInWithPopup(provider)
-      .then(credential => {
-
-        return this.updateUserData(credential.user);
-      })
-      .catch(error => this.handleError(error));
-  }
-
 getAuth()
 {
     return this.afAuth.authState.pipe(map (auth => {auth}));  
 }
+
+deleteuser()
+{
+
+  
+}
+
 
 }

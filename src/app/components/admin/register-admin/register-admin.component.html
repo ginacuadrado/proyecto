@@ -1,0 +1,54 @@
+
+<!--Inicio del container fluid-->
+
+<div class="container-fluid">
+
+    <div class="jumbotron jumbotron-fluid">
+    
+      <div style="text-align:center">
+       
+        <img width="250" alt="SteakLogo" src="../assets/logofondo.png">
+    
+      </div>
+      <br>
+      <br>
+      <div class="container">
+      <div class="row">
+        
+        <div class="col-md-10 col-md-offset-3">
+                  
+            <form (submit)="onSubmitAddUser()">
+            
+                    <div class="form-group">
+                      
+                      <h1 class="titulo"><strong>Regístrate como ADMIN en STEAK (Nuevo Admin)</strong></h1>
+                      <!--Ingreso del correo electrónico en el formulario-->
+                      <br>
+                      <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Ingresa tu correo electrónico">
+                  
+                    </div>
+            
+                    <div class="form-group">
+                      
+                      <!--Ingreso de la contraseña en el formulario-->
+                      
+                      <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña">
+              
+            
+                    </div>
+            
+                    <button type="submit" class="boton3"><strong>Registro</strong></button>
+            </form>
+        </div>
+    
+      </div>
+          
+              <div class="row" >
+                
+                  <br>
+                  <p class="titulo2"><strong>¿Ya tienes cuenta en STEAK?  <a href="/login">Ingresa con tus datos</a></strong></p>
+              </div>
+            </div> 
+    </div> 
+    
+    </div> <!--Final del div container fluid-->

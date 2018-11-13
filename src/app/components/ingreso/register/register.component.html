@@ -1,9 +1,8 @@
 
 <!--Inicio del container fluid-->
+<div class="container-fluid" style="text-align: center">
 
-<div class="container-fluid">
-
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron">
     
       <div style="text-align:center">
        
@@ -15,37 +14,36 @@
       <div class="container">
       <div class="row">
         
-        <div class="col-md-10 col-md-offset-3">
-                  
+        <div>      
             <form (submit)="onSubmitAddUser()">
             
-                    <div class="form-group">
+              <div class="form-group">
                       
-                      <h1 class="titulo"><strong>Regístrate en STEAK (Nuevo Usuario)</strong></h1>
-                      <!--Ingreso del correo electrónico en el formulario-->
-                      <br>
-                      <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Ingresa tu correo electrónico">
+                <h1 class="titulo"><strong>Regístrate en STEAK (Nuevo Usuario)</strong></h1>
+                      
+                  <!--Ingreso del correo electrónico en el formulario-->
                   
-                    </div>
+                  <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Ingresa tu correo electrónico">
+                  
+              </div>
             
-                    <div class="form-group">
+              <div class="form-group">
                       
-                      <!--Ingreso de la contraseña en el formulario-->
-                      
+                  <!--Ingreso de la contraseña en el formulario-->
                       <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña">
+              </div> 
               
-            
-                    </div>
-            
-                    <button type="submit" class="boton3"><strong>Registro</strong></button>
+              <button type="submit" class="boton3"><strong>Registro</strong></button>
+
             </form>
+
         </div>
     
       </div>
           
-              <div class="row" >
+              <div>
                 
-                  <br>
+              <br>
                   <p class="titulo2"><strong>¿Ya tienes cuenta en STEAK?  <a href="/login">Ingresa con tus datos</a></strong></p>
               </div>
             </div> 
