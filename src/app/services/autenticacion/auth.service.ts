@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user'
 import { Usuarios } from '../../models/usuarios';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Item} from '../../models/item'
 
 //import { UserItemsService } from './useritems.service'
 
@@ -22,7 +23,8 @@ export class AuthService {
     usuario: Usuarios = 
     {
       useremail:"",
-      userisadmin: false
+      userisadmin: false,
+ 
     }
     
 //Constructor del Auth Service
@@ -135,12 +137,4 @@ getAuth()
 {
     return this.afAuth.authState.pipe(map (auth => {auth}));  
 }
-
-deleteuser()
-{
-
-  
-}
-
-
 }
