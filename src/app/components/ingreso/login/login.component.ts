@@ -15,7 +15,8 @@ export class LoginComponent {
 public email: string;
 public password: string;
 public isAdmin: boolean;
-  
+resetPassword = false;
+errorMessage = '';
 
   constructor(public authService: AuthService, public router: Router) 
   {
@@ -27,26 +28,53 @@ public isAdmin: boolean;
       this.authService.loginEmail(this.email,this.password)
       .then ((res) => 
       {
-         console.log('Usuario Ingresado')
+         console.log('Usuario Ingresado'),
+         this.router.navigate(['/home'])
+
       }).catch((err) =>
       
       {
         console.log(err);
-        this.router.navigate(['/'])
+        
       })
 
-      if(this.email=='admin' && this.password=='admin')
-      {
-          this.isAdmin=true;
-          this.router.navigate(['./admin']);
-      }
-
-      else
-      {
-        this.router.navigate(['./home']);
-      }
-
+      
   }
+
+
+
+  validateForm(email: string, password: string): boolean {
+    if (email.length === 0) {
+      this.errorMessage = 'Please enter Email!'
+      return false
+    }
+ 
+    if (password.length === 0) {
+      this.errorMessage = 'Please enter Password!'
+      return false
+    }
+ 
+    if (password.length < 6) {
+      this.errorMessage = 'Password should be at least 6 characters!'
+      return false
+    }
+ 
+    this.errorMessage = ''
+ 
+    return true
+  }
+
+forgotpassword()
+  {
+    
+        this.authService.resetPassword(this.email)
+          .then(() => this.resetPassword = true)
+          .catch(_error => {
+          console.log(_error);
+          })
+      
+  }
+
 
   
 }
