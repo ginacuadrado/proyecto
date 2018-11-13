@@ -36,7 +36,13 @@
                                        <div>
                                            <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.imagen" name="imagen">
                                            <label for="imagen">Imagen</label>
-                                       </div> 
+                                       </div>
+                                       
+                                       <div>
+                                            <label>
+                                                <input type="checkbox" name="Disponible" [(ngModel)]="item.disp">Disponible
+                                            </label>
+                                        </div>
 
                                        <div>
                                            <input type="submit" class="btn" value="Actualizar">

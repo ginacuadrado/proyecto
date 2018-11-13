@@ -26,15 +26,20 @@ export class AuthService {
     {
       useremail:"",
       userisadmin: false
-
     }
     
 //Constructor del Auth Service
     constructor( private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, /*private uis: UserItemsService*/)
     {
       this.UsuariosCollection = this.afs.collection('usuarios');
-        
-
+      this.user = this.afAuth.authState.pipe(
+        switchMap(user => {
+          if (user) {
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();    //Crea documento en firestore
+          } else {
+            return of(null)
+          }
+        }));
     }
 
 //Autenticación con EMAIL Y PASSWORD

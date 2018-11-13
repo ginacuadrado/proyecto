@@ -10,17 +10,18 @@
       <div *ngIf="items.length > 0; else noItems">
       
             <div *ngFor="let item of items" style="text-align: center">
+                <div *ngIf="item.disp">
                     <br>
                     <app-menu-details [item]="item"></app-menu-details>
                     <br>
                     <button><strong>ORDENAR</strong></button>
-                    <button *ngIf="!editState" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
-                            <button *ngIf="!editState" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+                    <button *ngIf="!editState && admin" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
+                            <button *ngIf="!editState && admin" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
 
                             <div *ngIf="editState && itemToEdit.id == item.id">
                                 <form (ngSubmit)="updateItem(item)">
                                     <div>
-                                       <div>
+                                       <div> 
                                            <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.nombre" name="nombre">
                                            <label for="nombre">Nombre</label>
                                        </div>
@@ -41,6 +42,12 @@
                                        </div> 
 
                                        <div>
+                                            <label>
+                                                <input type="checkbox" name="Disponible" [(ngModel)]="item.disp">Disponible
+                                            </label>
+                                        </div>
+
+                                       <div>
                                            <input type="submit" class="btn" value="Actualizar">
                                        </div>  
                                        
@@ -49,17 +56,18 @@
                             </div>
 
                             <hr>
+                        </div>
             </div>
 
       </div>
       
-      {{catch}}
+      
       <ng-template #noItems>
           <hr>
           <h5>No hay objetos para visualizar</h5>
       </ng-template>
       
-      <div style="text-align: center">
+      <div *ngIf="admin" style="text-align: center">
       <br>
       <app-agregar-item></app-agregar-item>
       

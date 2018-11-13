@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ItemService } from './services/item.service';
+import { Globals } from './global';
 
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
@@ -159,7 +160,7 @@ const router: Routes = [
 
   ],
 
-  providers:[AuthService, ItemService, /*AuthGuard*/ ],
+  providers:[AuthService, ItemService, Globals /*AuthGuard*/ ],
   bootstrap: [AppComponent],
 
 
