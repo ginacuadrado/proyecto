@@ -17,7 +17,7 @@ export class PostresComponent implements OnInit {
   itemToEdit: Item;
   route = 'postres'; 
   admin: boolean = false;
-  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
+  carrito: Item[] = [];
 
   constructor(public nav: HeaderServiceService, public postresService: ItemService, private check: Globals) { }
 
@@ -28,13 +28,20 @@ export class PostresComponent implements OnInit {
     this.postresService.setRoute(this.route);
     this.postresService.getData();
     this.postresService.getItems().subscribe(items => {
-      this.items = items;
+    this.items = items;
     });
   }
 
   selectedItem(event, item: Item){
-    this.carrito.push(item);
-    localStorage.carritoItems = JSON.stringify(this.carrito);
+    if(sessionStorage["carritoItems"])
+    {
+      this.carrito = JSON.parse(sessionStorage.getItem('carritoItems'));
+      this.carrito.push(item);
+      sessionStorage.carritoItems = JSON.stringify(this.carrito);
+    }else{
+      this.carrito.push(item);
+      sessionStorage.carritoItems = JSON.stringify(this.carrito);
+    }
   }
 
   deleteItem(event, item){
