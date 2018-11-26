@@ -43,9 +43,7 @@ import { AgregarItemComponent } from './components/admin/agregar-item/agregar-it
 import { RegisterAdminComponent } from '../app/components/admin/register-admin/register-admin.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { VentanapagoComponent } from './components/ventanapago/ventanapago.component';
-
-
-
+import { OrdenesComponent } from './components/ordenes/ordenes.component';
 
 //Router para la navegación entre las páginas
 
@@ -110,6 +108,10 @@ const router: Routes = [
     component: VentanapagoComponent
   },
   {
+    path:'ordenes_pasadas',
+    component: OrdenesComponent
+  },
+  {
     path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
     redirectTo: '/login',
     pathMatch: 'full'
@@ -126,6 +128,10 @@ const router: Routes = [
     path: 'register-admin',
     component: RegisterAdminComponent,
   },
+  {
+    path: '**',
+    redirectTo:'home'
+  }
 
   /*{ 
     path: 'login', 
@@ -168,6 +174,7 @@ const router: Routes = [
     CartComponent,
     ChangepasswordComponent,
     VentanapagoComponent,
+    OrdenesComponent
 
   ],
 

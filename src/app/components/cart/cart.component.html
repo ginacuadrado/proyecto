@@ -1,4 +1,4 @@
-<div style="margin: 5%">
+<div style="margin: 5% ; width: 90%">
     <h1>Carrito</h1>
     <br>
 
@@ -26,7 +26,7 @@
     <h4>Envío (4%): {{ envio | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
     <h4>Total: {{ total | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
     <br>
-    <button><strong>PAGAR</strong></button>
+    <button (click)="addFirebase($event, carrito)"><strong>PAGAR</strong></button>
 </div>
 
 <ng-template #emptyCart>

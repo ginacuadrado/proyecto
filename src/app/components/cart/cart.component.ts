@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../header/header-service.service';
 import { Item } from '../../models/item';
+import { AuthService } from '../../services/autenticacion/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,6 +11,7 @@ import { Item } from '../../models/item';
 export class CartComponent implements OnInit {
 
   carrito: Item[] = [];
+  email: string = "";
   subtotal: number = 0;
   iva: number = 0;
   envio: number = 0;
@@ -17,7 +19,7 @@ export class CartComponent implements OnInit {
   i: number = 0;
   index: number = 0;
 
-  constructor(public nav: HeaderServiceService) { }
+  constructor(public nav: HeaderServiceService, public authService: AuthService) { }
 
   ngOnInit() { 
     this.nav.show();
@@ -58,4 +60,6 @@ export class CartComponent implements OnInit {
     }
   }
 
+  addFirebase(event, cart: Item[]){
+  }
 }
