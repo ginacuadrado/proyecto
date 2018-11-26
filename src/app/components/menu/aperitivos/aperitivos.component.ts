@@ -16,7 +16,7 @@ export class AperitivosComponent implements OnInit {
   itemToEdit: Item;
   route = 'aperitivos';
   admin: boolean = false;
-  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
+  carrito: Item[] = [];
 
   constructor(private check: Globals, public nav: HeaderServiceService, public aperitivosService: ItemService) { }
 
@@ -26,13 +26,20 @@ export class AperitivosComponent implements OnInit {
     this.aperitivosService.setRoute(this.route);
     this.aperitivosService.getData();
     this.aperitivosService.getItems().subscribe(items => {
-      this.items = items;
+    this.items = items;
     });
   }
 
   selectedItem(event, item: Item){
-    this.carrito.push(item);
-    localStorage.carritoItems = JSON.stringify(this.carrito);
+    if(sessionStorage["carritoItems"])
+    {
+      this.carrito = JSON.parse(sessionStorage.getItem('carritoItems'));
+      this.carrito.push(item);
+      sessionStorage.carritoItems = JSON.stringify(this.carrito);
+    }else{
+      this.carrito.push(item);
+      sessionStorage.carritoItems = JSON.stringify(this.carrito);
+    }
   }
 
   //Método que elimina el item del array

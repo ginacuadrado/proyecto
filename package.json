@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.0.2",
+    "@angular/animations": "^6.1.10",
     "@angular/common": "^6.0.2",
     "@angular/compiler": "^6.0.2",
     "@angular/core": "^6.0.2",
@@ -24,6 +24,8 @@
     "core-js": "^2.5.4",
     "firebase": "^5.5.4",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-toastr": "^9.1.1",
+    "node-sass": "^4.10.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

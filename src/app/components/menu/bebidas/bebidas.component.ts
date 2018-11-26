@@ -12,12 +12,12 @@ import { Globals } from '../../../global';
 })
 export class BebidasComponent implements OnInit {
 
-  items: Item[];
+  items: Item[] = [];
   editState: boolean = false;
   itemToEdit: Item;
   route = 'bebidas';
   admin: boolean = false;
-  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
+  carrito: Item[] = [];
 
   constructor(private check: Globals, public nav: HeaderServiceService, public bebidasService: ItemService) { }
 
@@ -32,8 +32,15 @@ export class BebidasComponent implements OnInit {
   }
 
   selectedItem(event, item: Item){
-    this.carrito.push(item);
-    localStorage.carritoItems = JSON.stringify(this.carrito);
+    if(sessionStorage["carritoItems"])
+    {
+      this.carrito = JSON.parse(sessionStorage.getItem('carritoItems'));
+      this.carrito.push(item);
+      sessionStorage.carritoItems = JSON.stringify(this.carrito);
+    }else{
+      this.carrito.push(item);
+      sessionStorage.carritoItems = JSON.stringify(this.carrito);
+    }
   }
 
   deleteItem(event, item){

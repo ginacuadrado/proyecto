@@ -9,12 +9,20 @@ import { Item } from '../../models/item';
 })
 export class CartComponent implements OnInit {
 
-  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
+  carrito: Item[] = [];
+  string: string = '';
 
   constructor(public nav: HeaderServiceService) { }
 
   ngOnInit() { 
     this.nav.show();
+
+    if(sessionStorage["carritoItems"]){
+      this.carrito = JSON.parse(sessionStorage.getItem('carritoItems'));
+      
+    }else{
+      
+    }
   }
 
 }
