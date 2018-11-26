@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { tap, first } from 'rxjs/operators';
 import { HeaderServiceService } from '../header/header-service.service';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @Component({
 
@@ -52,6 +53,7 @@ export class ContactComponent implements OnInit{
     try {
       await this.afs.collection('contacto').add(formValue);
       this.success = true;
+      console.log(this.success);
     } catch(err) {
       console.error(err)
     }
@@ -68,5 +70,9 @@ export class ContactComponent implements OnInit{
     .subscribe()
   }
 
+
+  //showSuccess() {
+  //  this.toastr.success('Hello world!', 'Toastr fun!');
+  //}
 
 }

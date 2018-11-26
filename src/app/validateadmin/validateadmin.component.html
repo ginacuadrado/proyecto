@@ -1,0 +1,34 @@
+<div class="container-fluid" style="text-align: center">
+
+  <div class="jumbotron jumbotron-fluid" style="text-align: center">
+  
+    <div style="text-align:center">
+     
+      <img width="250" alt="SteakLogo" src="../../assets/logofondo.png">
+  
+    </div>
+      
+      <div class="col-md-10 col-md-offset-3">
+                
+        <form (submit)="validarclave(password)">
+          
+          <div class="form-group">
+            
+            <h1 class="titulo2"><strong>Indica la clave de validación para continuar</strong></h1>
+           
+
+            <input type="password" [(ngModel)]="password" class="form-control" name="password" placeholder="Ingresa la contraseña" required>
+           
+          </div>
+  
+          <button type="submit" class="boton3"><strong>Ingresar</strong></button>
+          </form>
+      </div>
+  
+    </div>
+          
+  
+          
+    
+       
+        </div> 

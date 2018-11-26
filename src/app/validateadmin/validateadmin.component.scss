@@ -1,8 +1,7 @@
-//Fondo de pantalla
 .container-fluid
 {
 
-    background-image: url("../../../../assets/background.jpg");
+    background-image: url("../../assets/background.jpg");
     background-position: center;
     position: fixed;
     background-repeat: no-repeat;
@@ -27,20 +26,6 @@
 
 }
 
-input[type="email"]
-{
-    width: 520pt;
-    padding: 12px 20px;
-    margin: 3pt 3pt;
-    margin-left: 2vmin;
-    display: inline-block;
-    border: 1px solid rgb(255, 255, 255);
-    box-sizing: border-box;
-    background-image: url("../../../../assets/iconcorreo.png");
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding-left: 45px;
-}
 
 input[type="password"]
 {
@@ -51,7 +36,7 @@ input[type="password"]
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    background-image: url("../../../../assets/iconpassword.png");
+    background-image: url("../../assets/iconpassword.png");
     background-position: 10px 10px; 
     background-repeat: no-repeat;
     padding-left: 45px;

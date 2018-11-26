@@ -1,35 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Params } from '@angular/router';
+import { Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 //Métodos de autenticación
-import { AuthService } from '../../../services/autenticacion/auth.service'
+import { AuthAdminService } from '../../../../services/autenticacion/authadmin.service'
 import { AngularFireAuth } from 'angularfire2/auth';
 
-
-import { ToastrService } from 'ngx-toastr';
-
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
-
+  selector: 'app-registro-admin',
+  templateUrl: './registro-admin.component.html',
+  styleUrls: ['./registro-admin.component.scss']
 })
-
-export class RegisterComponent {
+export class RegistroAdminComponent implements OnInit {
 
 //Propiedades para el formulario
 public email: string;
 public password: string;
-public isadmin: boolean = false;
+public isadmin: boolean = true;
 registerForm: FormGroup;
 submitted= false;
-resetPassword = false;
 
-constructor( private toastr: ToastrService, private fb: FormBuilder, public authService: AuthService, public afs: AngularFireAuth, public router : Router)
+constructor(public authService: AuthAdminService,public fb: FormBuilder, public afs: AngularFireAuth, public router : Router, /*public userservice: UserItemsService*/)
 {
-
+ 
 }
+
 
 ngOnInit() 
 {
@@ -43,8 +38,6 @@ ngOnInit()
 get f() { return this.registerForm.controls; }
 
 
-
-//Al tocar el botón, se hace la función de registro
 tryRegister()
 {
   this.submitted = true;
@@ -66,12 +59,6 @@ tryRegister()
 
         })
 
-      this.authService.createdocument(this.email,this.isadmin);}     //Crea el documento para el registro de users
   }
-
-
-
-
-
-}
+}}
 

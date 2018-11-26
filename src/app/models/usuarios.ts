@@ -1,8 +1,10 @@
 import {Item} from './item'
 
+
 export class Usuarios 
 {
-  useremail:string;
-  userisadmin: boolean;
+  
+  email:string;
+  isadmin: boolean;
   
 }

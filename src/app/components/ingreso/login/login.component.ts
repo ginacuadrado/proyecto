@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+//Métodos de autenticación
 import { AuthService } from '../../../services/autenticacion/auth.service'
+import { AngularFireAuth } from 'angularfire2/auth';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
 
@@ -17,55 +22,51 @@ public password: string;
 public isAdmin: boolean;
 resetPassword = false;
 errorMessage = '';
+loginForm: FormGroup;
+submitted=false;
 
-  constructor(public authService: AuthService, public router: Router) 
+  constructor(private toastr: ToastrService, private fb: FormBuilder, public authService: AuthService, public afs: AngularFireAuth, public router : Router) 
   {
    
   }
 
-  onSubmitLogin()
+ngOnInit() 
+{
+      this.loginForm = this.fb.group({
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required, Validators.minLength(6)]] });
+
+}
+
+
+get f() { return this.loginForm.controls; }
+
+
+//Función que valida el ingreso del usuario en la página
+onSubmitLogin()
+{
+
+  this.submitted = true;
+
+  if (this.loginForm.invalid) 
   {
-      this.authService.loginEmail(this.email,this.password)
-      .then ((res) => 
+      return;
+  }
+    
+  else if(this.loginForm.valid)
+  {
+      this.authService.loginEmail(this.email,this.password).then((res) => 
       {
-         console.log('Usuario Ingresado'),
-         
-         
-         
-         this.router.navigate(['/home'])
+      
 
       }).catch((err) =>
       
       {
         console.log(err);
         
-      })
-
+      })}
       
-  }
-
-
-
-  validateForm(email: string, password: string): boolean {
-    if (email.length === 0) {
-      this.errorMessage = 'Please enter Email!'
-      return false
-    }
- 
-    if (password.length === 0) {
-      this.errorMessage = 'Please enter Password!'
-      return false
-    }
- 
-    if (password.length < 6) {
-      this.errorMessage = 'Password should be at least 6 characters!'
-      return false
-    }
- 
-    this.errorMessage = ''
- 
-    return true
-  }
+}
 
 forgotpassword()
   {

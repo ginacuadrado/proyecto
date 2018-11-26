@@ -1,0 +1,113 @@
+//Fondo de pantalla
+.container-fluid
+{
+
+    background-image: url("../../../../../assets/background.jpg");
+    background-position: center;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;   
+    width: 100vw;
+    height: 100vh;    
+       
+}
+
+//Jumbotron es el cuadro que contiene los datos para el log in
+
+.jumbotron
+{
+  
+  margin-top: 8vmin;
+  margin-bottom:8vmin; 
+  width: 60%;
+  height: 80%;
+  display: inline-block;
+  background-color: rgba(106, 110, 110, 0.555);
+  border-radius: 50px;
+
+}
+
+input[type="email"]
+{
+    width: 520pt;
+    padding: 12px 20px;
+    margin: 3pt 3pt;
+    margin-left: 2vmin;
+    display: inline-block;
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    background-image: url("../../../../../assets/iconcorreo.png");
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding-left: 45px;
+}
+
+input[type="password"]
+{
+    width: 520pt;
+    padding: 12px 20px;
+    margin: 8pt 8pt;
+    margin-left: 10pt;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-image: url("../../../../../assets/iconpassword.png");
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding-left: 45px;
+}
+button 
+{
+    color: rgb(168, 158, 158);
+    padding: 14px 20px;
+    margin: 8pt 8pt;
+    margin-left: 50pt;
+    border: none;
+    cursor: pointer;
+    width: 150pt;
+    height: 40pt;
+    border-radius: 10px;
+    float:left;
+    
+}
+.boton3
+{
+    font-family: 'PT Serif', serif;
+    font-size: 14pt;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+img
+{
+    border-radius: 20px;
+}
+
+.titulo
+{
+    font-family: 'PT Serif', serif;
+    font-size: 15pt;
+    text-align: justify;
+    color: white;
+    
+}
+
+.titulo2
+{
+    font-family: 'PT Serif', serif;
+    font-size: 15pt;
+    text-align: center;
+    color: white;
+    margin-left: 10pt;
+
+    
+}
+
+::placeholder
+{
+    font-family: 'PT Serif', serif;
+    font-size: 10pt;
+    text-align: justify;
+    color: rgb(112, 112, 112);
+    
+}

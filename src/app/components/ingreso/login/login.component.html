@@ -1,5 +1,4 @@
-
- <div class="container-fluid" style="text-align: center">
+<div class="container-fluid" style="text-align: center">
 
 <div class="jumbotron jumbotron-fluid" style="text-align: center">
 
@@ -8,35 +7,49 @@
     <img width="250" alt="SteakLogo" src="../assets/logofondo.png">
 
   </div>
-
-  <div class="container">
-  <div class="row">
     
     <div class="col-md-10 col-md-offset-3">
               
-      <form (submit)="onSubmitLogin()">
-        
-        <div class="form-group">
-          
-          <h1 class="titulo2"><strong>Inicia sesión en STEAK</strong></h1>
-         
-         <!-- Ingreso del correo electrónico en el formulario-->
-          <br>
-          <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Ingresa tu correo electrónico">
-        </div>
+    
+<!-- Formulario de Inicio de Sesión-->      
+<form [formGroup]="loginForm" (submit)="onSubmitLogin()">
+            
+  <div class="form-group">
+                      
+    <h1 class="titulo"><strong>Inicia Sesión con STEAK</strong></h1>
+                      
+  <!--Ingreso del correo electrónico en el formulario-->
+                  
+<input type="email" formControlName="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Ingresa tu correo electrónico" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+                 
+                  <!--Validación de Errores-->
+                  <div class="titulo" *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div class="titulo" *ngIf="f.email.errors.required">Es necesario que ingreses tu email</div>
+                  <div class="titulo" *ngIf="f.email.errors.email">El email ingresado es inválido</div>
+                  </div>
+  </div>
 
-        <div class="form-group">
-          
-          <!--Ingreso de la contraseña en el formulario-->
-          
-          <input type="password" [(ngModel)]="password" class="form-control" name="password" placeholder="Ingresa tu contraseña">
-         
-        </div>
+ <!--Ingreso de la contraseña en el formulario-->
+<div class="form-group">
+                      
+<input type="password" formControlName="password" class="form-control" [(ngModel)]="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" name="password" placeholder="Ingresa tu contraseña">
+                
+                 <!--Validación de Errores-->
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div class="titulo"*ngIf="f.password.errors.required">Es necesario que ingreses tu contraseña</div>
+                <div class="titulo" *ngIf="f.password.errors.minlength">Tu contraseña debe tener mínimo 6 caracteres</div>
+                </div>
+</div>
 
-        <button type="submit" class="boton3"><strong>Ingresar</strong></button>
+<div class="form-group">
+  <button type="submit" class="boton3"><strong>Ingresar</strong></button>
+</div>
+
+
+</form>
         <button class="boton3" (click)="forgotpassword()"> <strong> Olvidé mi Contraseña </strong></button>
-        </form>
-    </div>
+
+      </div>
 
   </div>
         
@@ -48,9 +61,5 @@
               <br>
               <p class="titulo" style="text-align: center"><strong>¿Aún no te has registrado?  <a href="/register">Registrate en STEAK</a></strong></p>
           </div>
-        </div> 
-
-        
-</div> 
-
-</div> 
+     
+      </div> 

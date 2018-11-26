@@ -2,6 +2,9 @@
 
 
 <div class="column">
+
+  <br>
+  <br>
 <div class="jumbotron jumbotron-fluid">
   
 <form [formGroup]="myForm" [hidden]="success" (ngSubmit)="submitHandler()">
@@ -26,14 +29,12 @@
   
       <input id="mensaje" type="text" maxlength="2000" placeholder="Escribe tu mensaje para nosotros..." formControlName="mensaje" class="form-control my-4">
   
-    <button type="submit" [disabled]="myForm.invalid"><strong>Enviar</strong></button>
+    <button type="submit"  [disabled]="myForm.invalid"><strong>Enviar</strong></button>
   
 </form>
 
 <div *ngIf="success" class="notification is-success titulo">
-¡Tu mensaje fue enviado exitosamente!
 
-</div>
 
 </div>
 

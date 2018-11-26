@@ -1,0 +1,68 @@
+
+<!--Inicio del container fluid-->
+<div class="container-fluid" style="text-align: center">
+
+  <div class="jumbotron">
+  
+    <div style="text-align:center">
+     
+      <img width="250" alt="SteakLogo" src="../assets/logofondo.png">
+  
+    </div>
+    <br>
+    <div class="container">
+    <div class="row">
+    
+      <div>
+
+
+<!-- Formulario de Registo-->      
+<form [formGroup]="registerForm" (submit)="tryRegister()">
+          
+<div class="form-group">
+                    
+  <h1 class="titulo"><strong>Regístrate en STEAK (Nuevo ADMIN)</strong></h1>
+                    
+  <!--Ingreso del correo electrónico en el formulario-->
+                
+    <input type="email" formControlName="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Ingresa tu correo electrónico" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+               
+                <!--Validación de Errores-->
+                <div class="titulo" *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div class="titulo" *ngIf="f.email.errors.required">Es necesario que ingreses tu email</div>
+                <div class="titulo" *ngIf="f.email.errors.email">El email ingresado es inválido</div>
+                </div>
+</div>
+
+<!--Ingreso de la contraseña en el formulario-->
+<div class="form-group">
+                    
+<input type="password" formControlName="password" class="form-control" [(ngModel)]="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" name="password" placeholder="Ingresa tu contraseña">
+              
+               <!--Validación de Errores-->
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div class="titulo"*ngIf="f.password.errors.required">Es necesario que ingreses tu contraseña</div>
+              <div class="titulo" *ngIf="f.password.errors.minlength">Tu contraseña debe tener mínimo 6 caracteres</div>
+              </div>
+</div>
+
+<div class="form-group">
+<button type="submit" class="boton3"><strong>Registro</strong></button>
+</div>
+
+
+</form>
+
+      </div>
+  
+    </div>
+        
+            <div>
+              
+            <br>
+                <p class="titulo2"><strong>¿Ya tienes cuenta en STEAK?  <a href="/login">Ingresa con tus datos</a></strong></p>
+            </div>
+          </div> 
+  </div> 
+  
+  </div> <!--Final del div container fluid-->
