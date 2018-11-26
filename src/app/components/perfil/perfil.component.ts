@@ -14,11 +14,13 @@ export class PerfilComponent implements OnInit {
 
   
 
-  constructor() {
+  constructor(private nav: HeaderServiceService) {
 
   }
 
-  ngOnInit
+  ngOnInit(){
+    this.nav.show();
+  }
   
 
 

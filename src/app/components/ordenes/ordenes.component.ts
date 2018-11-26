@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../header/header-service.service';
 
 @Component({
-  selector: 'app-ventanapago',
-  templateUrl: './ventanapago.component.html',
-  styleUrls: ['./ventanapago.component.scss']
+  selector: 'app-ordenes',
+  templateUrl: './ordenes.component.html',
+  styleUrls: ['./ordenes.component.scss']
 })
-export class VentanapagoComponent implements OnInit {
+export class OrdenesComponent implements OnInit {
 
   constructor(private nav: HeaderServiceService) { }
 

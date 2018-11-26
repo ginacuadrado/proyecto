@@ -9,15 +9,24 @@
                 <th>Plato</th>
                 <th>Descripción</th>
                 <th>Precio</th>
+                <th></th>
             </tr>
             <tr *ngFor="let item of carrito">
                 <td><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.descripcion}}</td>
-                <td>{{item.precio}}</td>
+                <td>{{item.precio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</td>
+                <td><button (click)="removeItem($event, item)"><strong>ELIMINAR</strong></button></td>
             </tr>
         </table>
     </div>
+    <br>
+    <h4>Subtotal: {{ subtotal | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+    <h4>IVA (16%): {{ iva | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+    <h4>Envío (4%): {{ envio | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+    <h4>Total: {{ total | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+    <br>
+    <button><strong>PAGAR</strong></button>
 </div>
 
 <ng-template #emptyCart>
