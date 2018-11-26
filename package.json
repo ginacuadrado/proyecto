@@ -11,11 +11,7 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@angular/animations": "^7.1.0",
-=======
-    "@angular/animations": "^6.1.10",
->>>>>>> 168047c846ec744a19b18aa402b6f73e650ccf1f
     "@angular/common": "^6.0.2",
     "@angular/compiler": "^6.0.2",
     "@angular/core": "^6.0.2",
@@ -29,10 +25,6 @@
     "firebase": "^5.5.4",
     "ngx-bootstrap": "^3.0.1",
     "ngx-toastr": "^9.1.1",
-<<<<<<< HEAD
-=======
-    "node-sass": "^4.10.0",
->>>>>>> 168047c846ec744a19b18aa402b6f73e650ccf1f
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
