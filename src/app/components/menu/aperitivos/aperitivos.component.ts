@@ -16,7 +16,7 @@ export class AperitivosComponent implements OnInit {
   itemToEdit: Item;
   route = 'aperitivos';
   admin: boolean = false;
-  carrito: Item[] = JSON.parse(localStorage.getItem('carritoItems'));
+  carrito: Item[] = [];
 
   constructor(private check: Globals, public nav: HeaderServiceService, public aperitivosService: ItemService) { }
 

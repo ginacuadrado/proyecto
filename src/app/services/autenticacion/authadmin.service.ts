@@ -5,54 +5,43 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { User } from '../../models/user'
-import { Usuarios } from '../../models/usuarios';
+import { Admin } from '../../models/admin'
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { ToastrService } from 'ngx-toastr';
-import * as firebase from 'firebase/app'
 
 @Injectable({ providedIn: 'root' })
-export class AuthService {
+export class AuthAdminService {
 
 //Definición campos del Usuario
-user: Observable<User | null>;
-UserCollection: AngularFirestoreCollection<User>;
-UsuariosCollection: AngularFirestoreCollection<Usuarios>;
-database: any;
-onuser: Observable<Usuarios[]>;
-isadmin:string = 'false';
+admin: Observable<Admin | null>;
+AdminCollection: AngularFirestoreCollection<Admin>;
+isadmin:string='true';
 
-usuario: Usuarios = 
-  {
-      email:"",
-      isadmin: false,
-  }
-
-queryRef: string
-    
-//Constructor del Auth Service
-    constructor( private toastr: ToastrService, private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, /*private uis: UserItemsService*/)
-    {
-      this.UsuariosCollection = this.afs.collection('usuarios');
-      this.user = this.afAuth.authState.pipe(
-        switchMap(user => {
-          if (user) {
-            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();    //Crea documento en firestore
+//Constructor del Auth Service de Administradores
+constructor( private toastr: ToastrService, private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router)
+{
+      this.AdminCollection = this.afs.collection('admin');
+      this.admin = this.afAuth.authState.pipe(
+        switchMap(admin => {
+          if (admin) {
+            return this.afs.doc<Admin>(`admin/${admin.uid}`).valueChanges();    //Crea documento en firestore
           } else {
             return of(null)
           }
         }))
-    }
+}
 
 //Autenticación con EMAIL Y PASSWORD
 
-//Función registro de usuario, recibe como parámetro email y password
+//Función registro de admin, recibe como parámetro email y password
 registerUser(email: string, password: string) 
 {
 
  return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(credential =>
 {
 
+    this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Administrador Registrado');
+    this.router.navigate(['/loginadmin']);
     return this.updateUserData(credential.user);
 
   }).catch(error => 
@@ -71,8 +60,8 @@ loginEmail(email: string, password: string,)
     return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credential => 
         {  
             sessionStorage.setItem('isadmin',this.isadmin);
-            this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Usuario Registrado');
-            this.router.navigate(['/home']);
+            this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Administrador Registrado');
+            this.router.navigate(['/homeadmin']);
             return this.updateUserData(credential.user);
 
         }).catch(error => 
@@ -95,52 +84,32 @@ loginEmail(email: string, password: string,)
 //Función cerrar sesión
   logout() {
     this.afAuth.auth.signOut().then(() => {
-      
+
       sessionStorage.clear();
-      this.router.navigate(['/']);
+      this.router.navigate(['/loginadmin']);
+
     });
   }
 
   //Manejo de errores por consola
   private handleError(error: Error) {
     
-
+        console.log(error)
    
   }
 
-  createdocument(email: string, isadmin: boolean)
-  {
-
-    this.usuario.email= email;
-    this.usuario.isadmin= isadmin;
-    this.UsuariosCollection.add(this.usuario);
-  }
-
-private oAuthLogin(provider: any) {
-  return this.afAuth.auth
-    .signInWithPopup(provider)
-    .then(credential => {
-
-      return this.updateUserData(credential.user);
-    })
-    .catch(error => this.handleError(error));
-}
-
-
   // Luego de loggear, envía la data del usuario a firestore
- updateUserData(user: User) 
+ updateUserData(admin:Admin) 
   {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
-    );
+    const adminRef: AngularFirestoreDocument<Admin> = this.afs.doc(`admin/${admin.uid}`);
 
-    const data: User =
+    const data: Admin =
      {
-      uid: user.uid,
-      email: user.email || null,
+      uid: admin.uid,
+      email: admin.email || null,
     };
 
-    return userRef.set(data);
+    return adminRef.set(data);
   }
 
 getAuth()
@@ -148,18 +117,27 @@ getAuth()
     return this.afAuth.authState.pipe(map (auth => {auth}));  
 }
 
-
-islogged(user:User)
+validar(clave: string):boolean
 {
-    firebase.auth().onAuthStateChanged((user: firebase.User) =>
-     {
-      if (user) {
-        return true;
-      } else {
-        
-        return false;
-      }})}
+
+    if(clave=='soyadmin')
+    {
+      sessionStorage.setItem('claveadmin','true');
+      this.router.navigate(['/loginadmin'])
+      this.toastr.success('Clave Correcta','Bienvenido Administrador')
+      return true;
+    }
     
+    else if(clave!='soyadmin')
+    {
+
+      sessionStorage.setItem('claveadmin','false');
+      this.router.navigate(['./admin']) 
+      this.toastr.warning('Clave Incorrecta. No puedes ingresar a esta página','Página Inválida')
+      return false;
+    }
+}
+
 
 
 }

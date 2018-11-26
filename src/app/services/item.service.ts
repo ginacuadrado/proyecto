@@ -15,7 +15,7 @@ export class ItemService {
   items: Observable<Item[]>;
   itemDoc: AngularFirestoreDocument<Item>;
   route: string;
-
+ 
   constructor(public afs: AngularFirestore) {
 
     

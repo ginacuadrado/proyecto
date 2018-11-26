@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { ItemService } from './services/item.service';
 import { Globals } from './global';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
@@ -16,7 +18,10 @@ import { environment } from '../environments/environment'; //Aquí se encuentra 
 //Servicios de autenticación
 import { AuthService } from './services/autenticacion/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { AuthGuard } from './services/guards/authguard.service'
+import { AuthGuardService } from './services/autenticacion/auth-guard.service';
+import { AuthGuardAdminService } from './services/autenticacion/auth-guard-admin.service';
+import { AuthAdminService } from './services/autenticacion/authadmin.service';
+import { GuardService } from './services/autenticacion/guard.service';
 
 //Componentes del Proyecto
 import { AppComponent } from './app.component';
@@ -38,12 +43,15 @@ import { CartComponent } from './components/cart/cart.component';
 import { SharedModule } from './shared/shared.module';
 
 //Componentes de Administrador
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/admin/admin.component';  //Home
+import { RegistroAdminComponent } from './components/admin/ingreso-admin/registro-admin/registro-admin.component'; //Registro
+import { LoginAdminComponent } from './components/admin/ingreso-admin/login-admin/login-admin.component'; //Login
+
+
 import { AgregarItemComponent } from './components/admin/agregar-item/agregar-item.component';
-import { RegisterAdminComponent } from '../app/components/admin/register-admin/register-admin.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { VentanapagoComponent } from './components/ventanapago/ventanapago.component';
-
+import { ValidateadminComponent } from './validateadmin/validateadmin.component';
 
 
 
@@ -53,7 +61,7 @@ const router: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-   
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
 
   {
@@ -62,32 +70,39 @@ const router: Routes = [
   },
   {
     path: 'menu',
-    component: MenuComponent
+    component: MenuComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'menu/carnes',
-    component: CarnesComponent
+    component: CarnesComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   
   {
     path: 'menu/aperitivos',
-    component: AperitivosComponent
+    component: AperitivosComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'menu/postres',
-    component: PostresComponent
+    component: PostresComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'menu/bebidas',
-    component: BebidasComponent
+    component: BebidasComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'register',
@@ -110,22 +125,35 @@ const router: Routes = [
     component: VentanapagoComponent
   },
   {
-    path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
+    path: '',                    //Primera vista que se observe al usuario entrar en la página web es el Login de Usuarios
     redirectTo: '/login',
     pathMatch: 'full'
   },
   {
-    path: 'admin',
-    component: AdminComponent
+    path: 'adminhome',
+    component: AdminComponent,
+    canActivate:[AuthGuardAdminService],
+  },
+  {
+    path:'admin',
+    component: ValidateadminComponent
   },
   {
     path: 'changepassword',
     component: ChangepasswordComponent
   },
   {
-    path: 'register-admin',
-    component: RegisterAdminComponent,
+    path: 'registroadmin',
+    component: RegistroAdminComponent,
+    canActivate:[GuardService],
   },
+  {
+    path: 'loginadmin',
+    component: LoginAdminComponent,
+    canActivate:[GuardService],
+  },
+
+ 
 
   /*{ 
     path: 'login', 
@@ -164,10 +192,14 @@ const router: Routes = [
     AgregarItemComponent,
     AdminComponent,
     MenuDetailsComponent,
-    RegisterAdminComponent,
+    RegistroAdminComponent,
+    LoginAdminComponent,
     CartComponent,
     ChangepasswordComponent,
     VentanapagoComponent,
+    ValidateadminComponent,
+    RegistroAdminComponent,
+    LoginAdminComponent,
 
   ],
 
@@ -181,10 +213,12 @@ const router: Routes = [
     AngularFireModule.initializeApp(environment.firebase), // Viene de firestore, inicializa el environmet
     AngularFirestoreModule, // Viene de firestore, usado para features de la base de datos
     AngularFireAuthModule,  // Viene de firestore, usado para la autenticación
-
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    
   ],
 
-  providers:[AuthService, ItemService, Globals /*AuthGuard*/ ],
+  providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, GuardService, AuthGuardAdminService],
   bootstrap: [AppComponent],
 
 

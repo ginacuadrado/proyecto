@@ -1,13 +1,21 @@
 
 .jumbotron
 {
-   width:500pt;
-   height:450pt;
-   display: inline-block;
-   margin-top: 40pt;
-   margin-left: 40pt;
-   background-color: rgba(83, 93, 100, 0.295);
-   border-radius: 20px;
+  
+   width: 80%;  
+   min-height: 100vh;
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   padding: 15px;
+   background: rgba(35, 149, 255, 0.733);
+   border-radius: 10%;
+   
 }
 
 select {
