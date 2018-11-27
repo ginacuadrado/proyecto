@@ -27,7 +27,7 @@ import { GuardService } from './services/autenticacion/guard.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component'
-import { PerfilComponent } from './components/perfil/perfil.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -52,6 +52,8 @@ import { AgregarItemComponent } from './components/admin/agregar-item/agregar-it
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { VentanapagoComponent } from './components/ventanapago/ventanapago.component';
 import { ValidateadminComponent } from './validateadmin/validateadmin.component';
+import { SearchComponent } from './components/search/search.component';
+import { EnvioComponent } from './components/ventanapago/envio/envio.component';
 
 
 
@@ -62,11 +64,6 @@ const router: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
-  },
-
-  {
-    path: 'perfil',
-    component: PerfilComponent
   },
   {
     path: 'menu',
@@ -153,6 +150,13 @@ const router: Routes = [
     canActivate:[GuardService],
   },
 
+  {
+    path: 'search',
+    component: SearchComponent,
+    canActivate:[AuthGuardService],
+  },
+
+
  
 
   /*{ 
@@ -184,7 +188,6 @@ const router: Routes = [
     AboutComponent,
     LoginComponent,      //Componentes relacionados con el ingreso del usuario
     RegisterComponent,   //Componentes relacionados con el ingreso del usuario
-    PerfilComponent,     //Componentes relacionados con el ingreso del usuario
     CarnesComponent,
     PostresComponent,
     AperitivosComponent,
@@ -200,7 +203,8 @@ const router: Routes = [
     ValidateadminComponent,
     RegistroAdminComponent,
     LoginAdminComponent,
-
+    SearchComponent,
+    EnvioComponent
   ],
 
   imports:

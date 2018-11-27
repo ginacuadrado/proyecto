@@ -22,14 +22,16 @@ export class HeaderComponent implements OnInit {
   public isLogin: boolean;
   public emailUsuario: string;
   public uid: string;
-
-
+ 
   toggleNavbar() 
   {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor( public nav: HeaderServiceService, public authService: AuthService ) { }
+  constructor( public nav: HeaderServiceService, public authService: AuthService ) {
+
+   
+   }
 
   ngOnInit() 
   {

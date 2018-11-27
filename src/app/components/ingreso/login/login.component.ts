@@ -24,6 +24,7 @@ resetPassword = false;
 errorMessage = '';
 loginForm: FormGroup;
 submitted=false;
+correo:string;
 
   constructor(private toastr: ToastrService, private fb: FormBuilder, public authService: AuthService, public afs: AngularFireAuth, public router : Router) 
   {
@@ -57,7 +58,8 @@ onSubmitLogin()
   {
       this.authService.loginEmail(this.email,this.password).then((res) => 
       {
-      
+            
+            
 
       }).catch((err) =>
       

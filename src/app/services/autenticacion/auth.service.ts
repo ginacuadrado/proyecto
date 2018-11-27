@@ -21,6 +21,7 @@ UsuariosCollection: AngularFirestoreCollection<Usuarios>;
 database: any;
 onuser: Observable<Usuarios[]>;
 isadmin:string = 'false';
+currentemail:string;
 
 usuario: Usuarios = 
   {
@@ -73,6 +74,7 @@ loginEmail(email: string, password: string,)
             sessionStorage.setItem('isadmin',this.isadmin);
             this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Usuario Registrado');
             this.router.navigate(['/home']);
+            this.currentemail=credential.user.email;
             return this.updateUserData(credential.user);
 
         }).catch(error => 
@@ -161,5 +163,11 @@ islogged(user:User)
       }})}
     
 
+veruser():string
+    {
+    
+      return this.currentemail;
+      
+    }
 
-}
+  }

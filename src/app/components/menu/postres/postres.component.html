@@ -20,7 +20,8 @@
                                 <button *ngIf="!editState && admin" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
                     
                                 <div class="jumbotron"  *ngIf="editState && itemToEdit.id == item.id">
-                                        <form (ngSubmit)="updateItem(item)">
+                                        
+                                    <form (ngSubmit)="updateItem(item)">
                      
                                                  <label><strong>--- MODIFICAR PLATO ---</strong></label>  
                                                  <br>  
