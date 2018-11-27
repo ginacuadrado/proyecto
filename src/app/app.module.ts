@@ -22,6 +22,7 @@ import { AuthGuardService } from './services/autenticacion/auth-guard.service';
 import { AuthGuardAdminService } from './services/autenticacion/auth-guard-admin.service';
 import { AuthAdminService } from './services/autenticacion/authadmin.service';
 import { GuardService } from './services/autenticacion/guard.service';
+import { ModalModule } from 'ngx-bootstrap';
 
 //Componentes del Proyecto
 import { AppComponent } from './app.component';
@@ -62,7 +63,7 @@ const router: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    //canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'menu',
@@ -233,6 +234,7 @@ const router: Routes = [
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
+    ModalModule.forRoot(),
     
   ],
 

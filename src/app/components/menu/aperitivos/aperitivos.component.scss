@@ -21,9 +21,29 @@ td, th {
   border: 1px solid #e9b3b3;
 }
 
-button {
-  margin: 5px 5px 5px 5px;
+button 
+{
+    background-color: rgb(201, 113, 113);
+    margin-right:auto;
+    margin-left: 20px;
+
+    border: none;
+    cursor: pointer;
+    width: 100pt;
+    height: 50pt;
+    border-radius: 10px;
+
+    
 }
+
+.titulos2
+{
+    font-family: 'PT Serif', serif;
+    font-size: 16pt;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
 
 .jumbotron
 {

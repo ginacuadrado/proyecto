@@ -1,10 +1,12 @@
+<div>
+        <img alt="Banner Aperitivos" src="../assets/banneraperitivos.png">
+</div>
+
 <div style="text-align:center">
    
         <div style="text-align:center">
                 <br>
-                <img alt="Banner Aperitivos" src="../assets/banneraperitivos.jpg">
-                <br>
-                <br>
+               
               </div>
               
 
@@ -27,6 +29,11 @@
                                             
                                         <button *ngIf="!editState && admin == 'true'" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
                             
+
+
+
+
+
                                             <div class="jumbotron"  *ngIf="editState && itemToEdit.id == item.id">
                                                 <form (ngSubmit)="updateItem(item)">
                              
