@@ -60,7 +60,7 @@ loginEmail(email: string, password: string,)
     return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credential => 
         {  
             sessionStorage.setItem('isadmin',this.isadmin);
-            this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Administrador Registrado');
+            this.toastr.success('¡Tus datos han sido ingresados exitosamente!', 'Inicio de Sesión');
             this.router.navigate(['/homeadmin']);
             return this.updateUserData(credential.user);
 

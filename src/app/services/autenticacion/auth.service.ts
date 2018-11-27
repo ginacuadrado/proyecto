@@ -55,6 +55,8 @@ registerUser(email: string, password: string)
  return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(credential =>
 {
 
+    this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Usuario Registrado');
+    this.router.navigate(['/login']);
     return this.updateUserData(credential.user);
 
   }).catch(error => 
@@ -75,7 +77,7 @@ loginEmail(email: string, password: string,)
         {  
             sessionStorage.setItem('isuser',this.isuser);
             sessionStorage.setItem('isadmin',this.isadmin);
-            this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Usuario Registrado');
+            this.toastr.success('¡Tus datos han sido ingresados exitosamente!', 'Bienvenido');
             this.router.navigate(['/home']);
             this.currentemail=credential.user.email;
             return this.updateUserData(credential.user);

@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.nav.show();
     this.footer.show();
-    window.location.reload()
+    
   }
 
 }

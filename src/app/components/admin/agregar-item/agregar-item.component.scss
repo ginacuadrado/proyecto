@@ -11,7 +11,7 @@ table {
   }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
   }
@@ -29,6 +29,13 @@ table {
       font-size: 20pt;
       text-align: center;
       color: rgb(255, 255, 255);
+  }
+  .titulos
+  {
+      font-family: 'PT Serif', serif;
+      font-size: 14pt;
+      text-align: center;
+      color: rgb(0, 0, 0);
   }
   .content-box-red {
     background-color: #f9dbdb;
@@ -102,7 +109,7 @@ table {
       font-family: 'PT Serif', serif;
       font-size: 10pt;
       text-align: justify;
-      color: rgb(112, 112, 112);
+      color: rgb(0, 0, 0);
       
   }
   

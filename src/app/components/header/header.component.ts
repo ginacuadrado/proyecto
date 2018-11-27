@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
   onClickLogout()
   {
     sessionStorage.clear();
+
     this.authService.logout();
   }
 

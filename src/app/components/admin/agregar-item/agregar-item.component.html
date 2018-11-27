@@ -4,21 +4,22 @@
   <form (ngSubmit)="onSubmit()" class="col s6">
 
         <label class="titulos"><strong>---Añadir Producto---</strong></label>
+        
         <div class="row">
                 <label class="titulos2">Nombre</label>
-      <input class="titulos" type="text" placeholder="Agregar nombre" [(ngModel)]="item.nombre" name="nombre">
+      <input class="titulos3" type="text" placeholder="Agregar nombre" [(ngModel)]="item.nombre" name="nombre">
       <br>
     <br>
         </div>
     <div class="row">
             <label class="titulos2">Info</label>
-        <input  class="titulos" type="text" placeholder="Agregar descripción" [(ngModel)]="item.descripcion" name="descripcion">
+        <input  class="titulos3" type="text" placeholder="Agregar descripción" [(ngModel)]="item.descripcion" name="descripcion">
         <br>
         <br>
     </div>
         <div class="row">
                 <label class="titulos2">Precio</label>
-        <input type="number"  class="titulos" placeholder="Agregar Precio" [(ngModel)]="item.precio" name="precio">
+        <input type="number"  class="titulos3" placeholder="Agregar Precio" [(ngModel)]="item.precio" name="precio">
         </div>
    
     
@@ -35,26 +36,26 @@
 -->
 
 <label class="titulos2">Imagen</label>
-<input type="text"  class="titulos" placeholder="Agregar Referencia a Imagen" [(ngModel)]="item.imagen" name="imagen">
+<input type="text"  class="titulos3" placeholder="Agregar Referencia a Imagen" [(ngModel)]="item.imagen" name="imagen">
 
 
 
     <label class="titulos2">Agregue hasta un máximo de 3 opciones de extras para el plato:</label>
     <div class="row">
             <label class="titulos2">Extra 1</label>
-            <input type="text"  class="titulos2" placeholder="Extra 1" [(ngModel)]="item.extra1" name="extra1">
+            <input type="text"  class="titulos3" placeholder="Extra 1" [(ngModel)]="item.extra1" name="extra1">
           
     </div>
 
     <div class="row">
             <label class="titulos2">Extra 2</label>
-            <input type="text" class="titulos2" placeholder="Extra 2" [(ngModel)]="item.extra2" name="extra2">
+            <input type="text" class="titulos3" placeholder="Extra 2" [(ngModel)]="item.extra2" name="extra2">
           
     </div>
 
     <div class="row">
             <label class="titulos2">Extra 3</label>
-            <input type="text"  class="titulos2" placeholder="Extra 3" [(ngModel)]="item.extra3" name="extra3">
+            <input type="text"  class="titulos3" placeholder="Extra 3" [(ngModel)]="item.extra3" name="extra3">
           
     </div>
     <label class="titulos2">*El producto estará disponible en el menú como opción predeterminada.</label>
