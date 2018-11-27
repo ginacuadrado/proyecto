@@ -45,8 +45,10 @@ export class CartComponent implements OnInit {
       this.iva = this.subtotal * 0.16;
       this.envio = this.subtotal * 0.04;
       this.total = this.subtotal + this.iva + this.envio;
+
       this.orden.email = this.email;
       this.orden.orden = this.carrito;
+      this.orden.monto = this.total;
     }else{
       
     }
@@ -70,10 +72,12 @@ export class CartComponent implements OnInit {
       this.envio = this.subtotal * 0.04;
       this.total = this.subtotal + this.iva + this.envio;
       this.orden.orden = this.carrito;
+      this.orden.monto = this.total;
     }
   }
 
   addFirebase(event){
     this.order.addOrder(this.orden);
+    sessionStorage.removeItem("carritoItems");
   }
 }

@@ -1,3 +1,15 @@
 <p>
   ordenes works!
 </p>
+
+<div *ngFor = "let order of ordenes">
+
+  {{order.email}}
+  {{order.monto}}
+
+  <div *ngFor = "let items of order.orden">
+    {{items.nombre}}
+  </div>
+
+  <button (click)="Reordenar($event, order.orden)"><strong>REORDENAR</strong></button>
+</div>
