@@ -19,7 +19,14 @@ export class AgregarItemComponent implements OnInit {
     nombre: "",
     descripcion: "",
     precio: 0,
-    disp: true
+    disp: true,
+    extra1: '',
+    extra2: '',
+    extra3: '',
+    selected1: false,
+    selected2: false,
+    selected3: false,
+    imagen: ''
   }
   selectedFile=null;
 
@@ -36,6 +43,12 @@ export class AgregarItemComponent implements OnInit {
       this.item.descripcion = '';
       this.item.precio = 0;
       this.item.imagen = '';
+      this.item.extra1 = '';
+      this.item.extra2 = '';
+      this.item.extra3 = '';
+      this.item.selected1 = false;
+      this.item.selected2 = false;
+      this.item.selected3 = false;
     }
   }
 

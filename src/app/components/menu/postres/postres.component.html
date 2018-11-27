@@ -14,6 +14,14 @@
                             <br>
                             <app-menu-details [item]="item"></app-menu-details>
                             <br>
+
+                            <h4>Extras disponibles:</h4>
+                            <input [(ngModel)]="item.selected1" name="extra1" class="check" type="checkbox" *ngIf="item.extra1 != ''"><label for="extra1">{{item.extra1}}</label>
+                            <input [(ngModel)]="item.selected2" name="extra2" class="check" type="checkbox" *ngIf="item.extra2 != ''"><label for="extra1">{{item.extra2}}</label>
+                            <input [(ngModel)]="item.selected3" name="extra3" class="check" type="checkbox" *ngIf="item.extra3 != ''"><label for="extra1">{{item.extra3}}</label>
+
+                            <br>
+
                             <button (click)="selectedItem($event, item)"><strong>ORDENAR</strong></button>
                             <button *ngIf="!editState && admin" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
                                     
@@ -47,13 +55,27 @@
                                                            
                                                 <div><label for="imagen">  Imagen</label><br>
                                                     <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.imagen" name="imagen">
-                                                    
                                                     <br>
-                                                    <br>
-                                                    
                                                 </div>
                     
-                                    
+                                                <div>          <label for="extra1">  Extra 1</label><br>
+                                                    <input type="text" placeholder="Extra 1" [(ngModel)]="item.extra1" name="extra1">
+                                          
+                                                    <br>
+                                                </div>
+                    
+                                                <div>          <label for="extra2">  Extra 2</label
+                                                    ><br>
+                                                    <input type="text" placeholder="Extra 2" [(ngModel)]="item.extra2" name="extra2">
+                                          
+                                                    <br>
+                                                </div>
+                    
+                                                <div>          <label for="extra3">  Extra 3</label><br>
+                                                    <input type="text" placeholder="Extra 3" [(ngModel)]="item.extra3" name="extra3">
+                                          
+                                                    <br>
+                                                </div>
                                                
                                                 <div>
                                                     <input type="submit" class="btn" value="Actualizar">
