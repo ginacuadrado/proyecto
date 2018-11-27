@@ -5,6 +5,7 @@ import { Orden } from '../../models/orden';
 import { OrdenService } from '../../services/orden.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { ModalModule } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-ventanapago',

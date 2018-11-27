@@ -1,10 +1,12 @@
+<div>
+        <img alt="Banner Aperitivos" src="../assets/banneraperitivos.png">
+</div>
+
 <div style="text-align:center">
    
         <div style="text-align:center">
                 <br>
-                <img alt="Banner Aperitivos" src="../assets/banneraperitivos.jpg">
-                <br>
-                <br>
+               
               </div>
               
 
@@ -16,13 +18,15 @@
                                     <app-menu-details [item]="item"></app-menu-details>
                                     <br>
 
-                                    <button (click)="selectedItem($event, item)"><strong>ORDENAR</strong></button>
-                                     <br>
-                                
-                                    <button *ngIf="!editState && admin" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
-                                            
-                                        <button *ngIf="!editState && admin" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+            <button (click)="selectedItem($event, item)" class="titulos2"><strong>ORDENAR</strong></button>
+            <button *ngIf="!editState && admin" (click)="editItem($event, item)" class="titulos2"><strong>MODIFICAR</strong></button>
+            <button *ngIf="!editState && admin" (click)="deleteItem($event, item)" class="titulos2"><strong>ELIMINAR</strong></button>
                             
+
+
+
+
+
                                             <div class="jumbotron"  *ngIf="editState && itemToEdit.id == item.id">
                                                 <form (ngSubmit)="updateItem(item)">
                              
