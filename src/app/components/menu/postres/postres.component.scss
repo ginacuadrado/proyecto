@@ -6,63 +6,87 @@ table {
   width: 100%;
 }
 
-input.check{
-  margin: 1%;
-}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.titulos
+{
+    font-family: 'PT Serif', serif;
+    font-size: 30pt;
+    text-align: center;
+    color: rgb(255, 255, 255);
 }
-
+.titulos2
+{
+    font-family: 'PT Serif', serif;
+    font-size: 20pt;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
 .content-box-red {
   background-color: #f9dbdb;
   border: 1px solid #e9b3b3;
 }
 
-button {
-  margin: 5px 5px 5px 5px;
+button 
+{
+  background-color: rgb(185, 130, 130);
+  margin-right:auto;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+  width: 200pt;
+  height: 50pt;
+  border-radius: 10px;
+
+    
 }
+
+.titulos2
+{
+    font-family: 'PT Serif', serif;
+    font-size: 16pt;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
 
 .jumbotron
 {
   
-  margin-top: 8vmin;
-  margin-bottom:8vmin; 
-  width: 40%;
-  height: 40%;
-  display: inline-block;
-  background-color: rgba(106, 110, 110, 0.555);
-  border-radius: 50px;
+  width: 60%;  
+  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+  
+  background: #4d1b1b;
+  border-radius: 5%;
+  margin-left:auto;
+  margin-right: auto;
+  
 
 }
 
-input[type="text"]
+input
 {
-  width: 300pt;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding-left: 60px;
-
+  width: 80%;
+  height: 40px;
+  color: #000000;
+  border-radius: 5px;
+  font-size: 14pt;
+  margin-left: 5px;
+ 
 }
 
-input [type="number"]
+input[type=checkbox]
 {
-  width: 300pt;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding-left: 45px;
-
+  width: 30%;
+  height: 30px;
+  color: #000000;
+  border-radius: 5px;
+  font-size: 14pt;
+  margin-left: 5px;
+ 
 }
+
 
 label
 {
@@ -80,5 +104,11 @@ label
     text-align: justify;
     color: rgb(112, 112, 112);
     
+}
+
+img
+{
+    width:100%;
+    height: 20%;
 }
 

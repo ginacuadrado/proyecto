@@ -19,9 +19,23 @@ public claveadmin: string = 'true';
   {
   }
 
-public validarclave(password: string): boolean
+public validarclave(password: string)
 {
-    return this.auth.validar(password);
+   
+  if(this.password=='soyadmin')
+  {
+    sessionStorage.setItem('claveadmin','true');
+    this.router.navigate(['/loginadmin']);
+    this.toastr.success('Clave Correcta','Bienvenido Administrador')
+  
+  }
+
+  else
+  {
+    this.router.navigate(['/login']) ;
+    this.toastr.warning('Clave Incorrecta. No puedes ingresar a esta página','Página Inválida');
+  
+  }
 }
   
 }

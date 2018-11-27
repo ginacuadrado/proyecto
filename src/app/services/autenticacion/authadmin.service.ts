@@ -60,7 +60,7 @@ loginEmail(email: string, password: string,)
     return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credential => 
         {  
             sessionStorage.setItem('isadmin',this.isadmin);
-            this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Administrador Registrado');
+            this.toastr.success('¡Tus datos han sido ingresados exitosamente!', 'Inicio de Sesión');
             this.router.navigate(['/homeadmin']);
             return this.updateUserData(credential.user);
 
@@ -117,26 +117,6 @@ getAuth()
     return this.afAuth.authState.pipe(map (auth => {auth}));  
 }
 
-validar(clave: string):boolean
-{
-
-    if(clave=='soyadmin')
-    {
-      sessionStorage.setItem('claveadmin','true');
-      this.router.navigate(['/loginadmin'])
-      this.toastr.success('Clave Correcta','Bienvenido Administrador')
-      return true;
-    }
-    
-    else if(clave!='soyadmin')
-    {
-
-      sessionStorage.setItem('claveadmin','false');
-      this.router.navigate(['./admin']) 
-      this.toastr.warning('Clave Incorrecta. No puedes ingresar a esta página','Página Inválida')
-      return false;
-    }
-}
 
 
 

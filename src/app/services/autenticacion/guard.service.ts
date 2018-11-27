@@ -16,20 +16,20 @@ constructor(public auth: AuthAdminService, public router: Router, public toastr:
 canActivate():boolean
 {
     if(sessionStorage.getItem("claveadmin")=='true')
+     {
+         return true;
+      
+    }if(sessionStorage.getItem("isuser")=='true')
     {
-        this.router.navigate(['/login']);
-        this.toastr.warning('No puedes ingresar a la página', 'Error de validación')
-      return true;
-    }
-    else {
-
-        this.router.navigate(['/login']);
-        this.toastr.warning('No puedes ingresar a la página', 'Error de validación')
+        this.toastr.warning('No puedes ingresar a la página', 'Error Usuario')
+        this.router.navigate(['/home']);
         return false;
     }
+    else{
+        this.router.navigate(['/login']);
+        this.toastr.warning('No puedes ingresar a la página', 'Error de validación')
+        return false;}
     
-   
-
 }
  
 

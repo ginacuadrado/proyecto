@@ -4,53 +4,64 @@
   <form (ngSubmit)="onSubmit()" class="col s6">
 
         <label class="titulos"><strong>---Añadir Producto---</strong></label>
-    <div class="row">
-
-      <input class=" my-3 "type="text" placeholder="Agregar nombre" [(ngModel)]="item.nombre" name="nombre">
-    </div>
-
-    <div class="row">
-        <input  class=" my-3 " type="text" placeholder="Agregar descripción" [(ngModel)]="item.descripcion" name="descripcion">
         
-    </div>
-
+        <div class="row">
+                <label class="titulos2">Nombre</label>
+      <input class="titulos3" type="text" placeholder="Agregar nombre" [(ngModel)]="item.nombre" name="nombre">
+      <br>
+    <br>
+        </div>
     <div class="row">
-  
-        <input type="number"  class=" my-3 " placeholder="Agregar Precio" [(ngModel)]="item.precio" name="precio">
-   
+            <label class="titulos2">Info</label>
+        <input  class="titulos3" type="text" placeholder="Agregar descripción" [(ngModel)]="item.descripcion" name="descripcion">
+        <br>
+        <br>
     </div>
+        <div class="row">
+                <label class="titulos2">Precio</label>
+        <input type="number"  class="titulos3" placeholder="Agregar Precio" [(ngModel)]="item.precio" name="precio">
+        </div>
+   
+    
 
-
+ <!-- 
     
         <div class="form-group">
            
-        <input type="file" name="filename" (change)="onFileSelected($event)" [(ngModel)]="item.imagen" accept="image/jpg, image/jpeg, image/png">
+      <input type="file" name="filename" (change)="onFileSelected($event)" [(ngModel)]="item.imagen" accept="image/jpg, image/jpeg, image/png">
           <button type="button" (click)="onUpload()">Subir Archivo</button>
         </div>
 
-    <p>Agruegue hasta un máximo de 3 opciones de extras para el plato:</p>
 
+-->
+
+<label class="titulos2">Imagen</label>
+<input type="text"  class="titulos3" placeholder="Agregar Referencia a Imagen" [(ngModel)]="item.imagen" name="imagen">
+
+
+
+    <label class="titulos2">Agregue hasta un máximo de 3 opciones de extras para el plato:</label>
     <div class="row">
-  
-            <input type="text"  class=" my-3 " placeholder="Extra 1" [(ngModel)]="item.extra1" name="extra1">
+            <label class="titulos2">Extra 1</label>
+            <input type="text"  class="titulos3" placeholder="Extra 1" [(ngModel)]="item.extra1" name="extra1">
           
     </div>
 
     <div class="row">
-  
-            <input type="text"  class=" my-3 " placeholder="Extra 2" [(ngModel)]="item.extra2" name="extra2">
+            <label class="titulos2">Extra 2</label>
+            <input type="text" class="titulos3" placeholder="Extra 2" [(ngModel)]="item.extra2" name="extra2">
           
     </div>
 
     <div class="row">
-  
-            <input type="text"  class=" my-3 " placeholder="Extra 3" [(ngModel)]="item.extra3" name="extra3">
+            <label class="titulos2">Extra 3</label>
+            <input type="text"  class="titulos3" placeholder="Extra 3" [(ngModel)]="item.extra3" name="extra3">
           
     </div>
+    <label class="titulos2">*El producto estará disponible en el menú como opción predeterminada.</label>
+    
 
-    <p>*El producto estará disponible en el menú como opción predeterminada.</p>
-
-    <button type="submit" value="submit" class="btn"> AÑADIR </button>
+    <button type="submit" value="submit" class="btn"> <label class="titulos2">AÑADIR</label> </button>
 
   </form>
  </div>

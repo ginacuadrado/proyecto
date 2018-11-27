@@ -3,7 +3,7 @@ import { HeaderServiceService } from './header-service.service';
 import { NgModule } from '@angular/core';
 import { AuthService } from '../../services/autenticacion/auth.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { AuthAdminService } from '../../services/autenticacion/authadmin.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor( public nav: HeaderServiceService, public authService: AuthService, public toastr: ToastrService ) {
+  constructor( public nav: HeaderServiceService, public authadmin: AuthAdminService, public authService: AuthService, public toastr: ToastrService ) {
 
    
    }
@@ -44,7 +44,14 @@ export class HeaderComponent implements OnInit {
   onClickLogout()
   {
     sessionStorage.clear();
+
     this.authService.logout();
+  }
+
+  onClickLogout2()
+  {
+    sessionStorage.clear();
+    this.authadmin.logout();
   }
 
   changepassword()

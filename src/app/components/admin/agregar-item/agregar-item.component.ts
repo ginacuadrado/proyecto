@@ -5,6 +5,8 @@ import { ImgStorageService } from '../../../services/img-storage.service';
 import { Upload } from '../../../models/upload';
 import * as firebase from 'firebase';
 import {HttpClient} from '@angular/common/http'
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-agregar-item',
@@ -30,7 +32,7 @@ export class AgregarItemComponent implements OnInit {
   }
   selectedFile=null;
 
-  constructor(private http: HttpClient, public itemService: ItemService, public imgStorageService: ImgStorageService, ) { }
+  constructor(private http: HttpClient, public toastr: ToastrService, public itemService: ItemService, public imgStorageService: ImgStorageService, ) { }
 
 
   ngOnInit() {
@@ -50,6 +52,8 @@ export class AgregarItemComponent implements OnInit {
       this.item.selected2 = false;
       this.item.selected3 = false;
     }
+
+      this.toastr.success('Se ha añadido correctamente el producto','Operación Exitosa')
   }
 
  onFileSelected(event)
