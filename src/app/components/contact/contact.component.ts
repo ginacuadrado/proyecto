@@ -5,7 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { tap, first } from 'rxjs/operators';
 import { HeaderServiceService } from '../header/header-service.service';
-import { AlertModule } from 'ngx-bootstrap/alert';
+import {ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
 
@@ -29,7 +30,7 @@ export class ContactComponent implements OnInit{
   loading = false;
   success = false;
 
-  constructor(private fb: FormBuilder, private afs: AngularFirestore, public nav: HeaderServiceService) { }
+  constructor(private fb: FormBuilder, private route: Router, private toastr: ToastrService, private afs: AngularFirestore, public nav: HeaderServiceService) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -43,22 +44,34 @@ export class ContactComponent implements OnInit{
     this.nav.show();
   }
 
-
-
   async submitHandler() {
-    this.loading = true;
+    
 
-    const formValue = this.myForm.value;
+  this.loading = true;
+  const formValue = this.myForm.value;
 
-    try {
-      await this.afs.collection('contacto').add(formValue);
-      this.success = true;
-      console.log(this.success);
-    } catch(err) {
-      console.error(err)
+    if(this.myForm.invalid)
+    {
+        this.toastr.error('No podemos enviar un formulario inválido. Intente de nuevo', 'Error en el formulario')
     }
+  
+    else if(this.myForm.valid)
+    {
 
-    this.loading = false;
+      this.toastr.success('Su mensaje fue enviado exitosamente', 'Formulario Enviado');
+      this.route.navigate(['/contacto']);
+      try {
+        await this.afs.collection('contacto').add(formValue);
+        this.success = true;
+        console.log(this.success)
+        ;
+      } catch(err) {
+        console.error(err)
+      }
+
+    }
+     
+
   }
 
   preloadData() {
@@ -70,9 +83,5 @@ export class ContactComponent implements OnInit{
     .subscribe()
   }
 
-
-  //showSuccess() {
-  //  this.toastr.success('Hello world!', 'Toastr fun!');
-  //}
 
 }

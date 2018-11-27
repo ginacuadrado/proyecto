@@ -1,7 +1,0 @@
-<form [formGroup]="myForm" (ngSubmit)="envio()">
-  
-  <label for="select" class="titulos"><strong>Indicanos tu dirección para el envío</strong></label>
-
-      <input id="direccion" type="text" maxlength="2000" placeholder="Escribe tu dirección" formControlName="direccion" class="form-control my-4">
-  
-    <button type="submit"  [disabled]="myForm.invalid"><strong>Enviar</strong></button>

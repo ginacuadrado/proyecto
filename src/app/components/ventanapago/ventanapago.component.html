@@ -1,7 +1,49 @@
+<div style="margin: 5%">
+    <h1>RESUMEN DE LA ORDEN</h1>
+    <br>
 
-<!--Cuando el pago ya se realizó, aparece para enviar la dirección-->
-<div *ngIf='pago==true'>
+<!--Impresión de la orden-->
+    <div *ngIf=" carrito.length > 0 ; else emptyCart">
+        <table class="center">
+            <tr>
+                <th>Imgen</th>
+                <th>Plato</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let item of carrito">
+                <td class="styled"><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
+                <td class="styled">{{item.nombre}}</td>
+                <td class="styled">{{item.descripcion}}</td>
+                <td class="styled">{{item.precio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</td>
 
-<app-envio></app-envio>
-
+            </tr>
+        </table>
+    </div>
+    <div style="text-align: center">
+        <br>
+        <h4>Subtotal: {{ subtotal | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <h4>IVA (16%): {{ iva | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <h4>Envío (4%): {{ envio | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <h4>Total: {{ total | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <br>
+        
+    </div>
 </div>
+
+<ng-template #emptyCart>
+    <br>
+    <h3>El carrito está vacío.</h3>
+
+</ng-template>
+
+<form [formGroup]="myForm" >
+  
+    <label for="select" class="titulos"><strong>Indicanos tu dirección para el envío de la orden</strong></label>
+  
+        <input id="address" type="text" [(ngModel)]="address" maxlength="2000" placeholder="Escribe tu dirección" formControlName="address" name="address" class="form-control my-4">
+  </form>
+
+<button (click)="setpago()">Pagar</button>
+<button (click)="enviarorden($event)"><strong>ENVIAR ORDEN</strong></button>

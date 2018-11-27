@@ -1,42 +1,53 @@
-<div class="container">
+<div style="text-align: center">
+    
+    <img height="30%" width="100%"  src="../assets/bannercontacto.png">
+</div>
 
+<br>
+<br>
 
-<div class="column">
+<div style="text-align: center">
 
-  <br>
-  <br>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron">
   
 <form [formGroup]="myForm" [hidden]="success" (ngSubmit)="submitHandler()">
   
   <label for="select" class="titulos"><strong>¿Por qué nos escribes hoy?</strong></label>
+  <br>
+  <label for="select" class="titulos2"><strong>Rellena el formulario y haznos saber tu opinión</strong></label>
 
       <br>
+      <br>
 
-    
-      <input id="mensaje" type="text" formControlName="nombre" class="form-control my-4" placeholder="Ingresa tu nombre y tu apellido">
+      <input id="mensaje" type="text" formControlName="nombre" placeholder="Ingresa tu nombre y tu apellido">
+      <br>
+      <br>
 
-      <input id="mensaje" type="text" formControlName="email" class="form-control my-4" placeholder="Ingresa tu correo electrónico" >
-
-      <label class="titulo">Motivo del contacto</label>
+      <input id="mensaje" type="text" formControlName="email"  placeholder="Ingresa tu correo electrónico" >
+      <br>
+      <br>
+      
       <select formControlName="motivo" >
+        <option value="" disabled selected>Selecciona el motivo de contacto</option>
         <option>Pregunta</option>
-        <option>Reservaciones</option>
         <option>Reclamos</option>
         <option>Sugerencias</option>
-        <option>Elogios</option>
       </select>
+      <br>
+      <br>
   
-      <input id="mensaje" type="text" maxlength="2000" placeholder="Escribe tu mensaje para nosotros..." formControlName="mensaje" class="form-control my-4">
-  
-    <button type="submit"  [disabled]="myForm.invalid"><strong>Enviar</strong></button>
+      <input id="mensaje" type="text" maxlength="2000" placeholder="Escribe tu mensaje para nosotros..." formControlName="mensaje">
+      <br>
+      <br>
+      <br>
+      <button type="submit" class="titulos2" ><strong>Enviar</strong></button>
   
 </form>
 
-<div *ngIf="success" class="notification is-success titulo">
-
 
 </div>
 
 </div>
-</div>
+
+<br>
+<app-footer></app-footer>

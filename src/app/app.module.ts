@@ -5,7 +5,7 @@ import { ItemService } from './services/item.service';
 import { Globals } from './global';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
 
@@ -54,9 +54,7 @@ import { VentanapagoComponent } from './components/ventanapago/ventanapago.compo
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { ValidateadminComponent } from './validateadmin/validateadmin.component';
 import { SearchComponent } from './components/search/search.component';
-import { EnvioComponent } from './components/ventanapago/envio/envio.component';
-
-
+import { ImgStorageService } from './services/img-storage.service';
 
 //Router para la navegación entre las páginas
 
@@ -157,7 +155,7 @@ const router: Routes = [
   {
     path: '**',
     redirectTo:'home'
-  }
+  },
 
   {
     path: 'search',
@@ -165,6 +163,11 @@ const router: Routes = [
     canActivate:[AuthGuardService],
   },
 
+  {
+    path: 'pago',
+    component: VentanapagoComponent,
+    canActivate:[AuthGuardService],
+  },
 
  
 
@@ -214,7 +217,7 @@ const router: Routes = [
     RegistroAdminComponent,
     LoginAdminComponent,
     SearchComponent,
-    EnvioComponent
+    
   ],
 
   imports:
@@ -229,10 +232,11 @@ const router: Routes = [
     AngularFireAuthModule,  // Viene de firestore, usado para la autenticación
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    HttpClientModule,
     
   ],
 
-  providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, GuardService, AuthGuardAdminService],
+  providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, ImgStorageService, GuardService, AuthGuardAdminService, ],
   bootstrap: [AppComponent],
 
 

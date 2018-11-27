@@ -33,7 +33,8 @@ export class OrdenService {
      return this.orders;
   }
 
-  addOrder(order: Orden){
+  addOrder(order: Orden)
+  {
     this.OrderCollection.add(order);
   }
 

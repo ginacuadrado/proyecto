@@ -1,12 +1,12 @@
 #myFooter {
-	background-color: #464646;
+	background-color: #330606;
 	color:white;
 }
 
 #myFooter .footer-copyright{
-	background-color: #000000;
+	background-color: #0f0101;
 	padding-top:3px;
-	padding-bottom:3px;
+	padding-bottom:2px;
 	text-align: center;
 }
 
@@ -16,6 +16,7 @@
 }
 
 #myFooter ul{
+
 	list-style-type: none;
     padding-left: 0;
     line-height: 1.7;
@@ -23,14 +24,19 @@
 }
 
 #myFooter h5{
-	font-size: 18px;
+
+	font-family: 'PT Serif', serif;
+	font-size: 16pt;
     color: white;
     font-weight: bold;
     margin-top: 30px;
 }
 
 #myFooter a{
-	color:#d2d1d1;
+	font-family: 'PT Serif', serif;
+    font-size: 11pt;
+   
+	color:#fafafa;
 	text-decoration: none;
 }
 
@@ -51,7 +57,7 @@
 
 #myFooter .social-networks a{
     font-size: 32px;
-    margin-right: 5px;
+    margin-right: px;
     margin-left: 5px;
     color: #f9f9f9;
     padding: 10px;
