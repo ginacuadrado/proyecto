@@ -22,6 +22,9 @@
          <div *ngIf=" authService.user | async">
                 <p> ¡Bienvenido {{ (authService.user | async)?.email }}!</p>
          </div>
+         <div *ngIf=" authadmin.admin | async">
+            <p> ¡Bienvenido {{ (authadmin.admin | async)?.email }}!</p>
+     </div>
   
                 
             <li class="nav-item"  *ngIf=" authService.user | async">
@@ -29,6 +32,12 @@
                 <a class="nav-link" class="titulos"  href="#" (click)="onClickLogout()"><strong>Cerrar Sesión</strong></a>
                
               </li>
+
+              <li class="nav-item"  *ngIf=" authadmin.admin | async">
+    
+                  <a class="nav-link" class="titulos"  href="#" (click)="onClickLogout2()"><strong>Cerrar Sesión</strong></a>
+                 
+                </li>
   
          <li class="nav-item">
     

@@ -117,26 +117,6 @@ getAuth()
     return this.afAuth.authState.pipe(map (auth => {auth}));  
 }
 
-validar(clave: string):boolean
-{
-
-    if(clave=='soyadmin')
-    {
-      sessionStorage.setItem('claveadmin','true');
-      this.router.navigate(['/loginadmin'])
-      this.toastr.success('Clave Correcta','Bienvenido Administrador')
-      return true;
-    }
-    
-    else if(clave!='soyadmin')
-    {
-
-      sessionStorage.setItem('claveadmin','false');
-      this.router.navigate(['./admin']) 
-      this.toastr.warning('Clave Incorrecta. No puedes ingresar a esta página','Página Inválida')
-      return false;
-    }
-}
 
 
 

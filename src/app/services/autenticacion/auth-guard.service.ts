@@ -6,9 +6,9 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class AuthGuardService implements CanActivate
 {
-
-  public admin:string;
-
+  public user:string = sessionStorage.getItem("isuser")
+  public admin:string= sessionStorage.getItem("isadmin")
+  public clave:string= sessionStorage.getItem("claveadmin")
   constructor(public auth: AuthService, public router: Router, public toastr: ToastrService) {}
 
 
@@ -18,19 +18,29 @@ export class AuthGuardService implements CanActivate
 
     this.admin = sessionStorage.getItem("isadmin")
 
-    if(this.admin=='true')
+    if(this.admin=='true' && this.clave=='true')
     {
-      this.router.navigate(['/login']);
-      this.toastr.warning('No puedes ingresar a la página', 'Error de validación')
-      return false;
+        return true;
     }
-
-    else if(this.admin=='false')
+    else if(this.user=='true' && this.clave=='true')
     {
       return true;
     }
-
-    else return false;
+    else if(this.user=='true' && this.clave=='false')
+    {
+      return true;
+    }
+    else if(this.user=='true')
+    {
+      return true;
+    }
+    
+    else
+  {
+    this.router.navigate(['/login']);
+    this.toastr.warning('No puedes ingresar a la página', 'Error de validación')
+    return false;
+  }
 
   }
 

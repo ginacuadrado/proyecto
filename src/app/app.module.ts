@@ -19,7 +19,6 @@ import { environment } from '../environments/environment'; //Aquí se encuentra 
 import { AuthService } from './services/autenticacion/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/autenticacion/auth-guard.service';
-import { AuthGuardAdminService } from './services/autenticacion/auth-guard-admin.service';
 import { AuthAdminService } from './services/autenticacion/authadmin.service';
 import { GuardService } from './services/autenticacion/guard.service';
 import { ModalModule } from 'ngx-bootstrap';
@@ -115,11 +114,13 @@ const router: Routes = [
   },
   {
     path: 'cart',
-    component: CartComponent
+    component: CartComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path:'pago',
-    component: VentanapagoComponent
+    component: VentanapagoComponent,
+    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path:'ordenes_pasadas',
@@ -133,7 +134,7 @@ const router: Routes = [
   {
     path: 'adminhome',
     component: AdminComponent,
-    canActivate:[AuthGuardAdminService],
+    canActivate:[GuardService],
   },
   {
     path:'admin',
@@ -153,10 +154,7 @@ const router: Routes = [
     component: LoginAdminComponent,
     canActivate:[GuardService],
   },
-  {
-    path: '**',
-    redirectTo:'home'
-  },
+
 
   {
     path: 'search',
@@ -168,6 +166,10 @@ const router: Routes = [
     path: 'pago',
     component: VentanapagoComponent,
     canActivate:[AuthGuardService],
+  },
+  {
+    path: '**',
+    redirectTo:'home'
   },
 
  
@@ -238,7 +240,7 @@ const router: Routes = [
     
   ],
 
-  providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, ImgStorageService, GuardService, AuthGuardAdminService, ],
+  providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, ImgStorageService, GuardService ],
   bootstrap: [AppComponent],
 
 
