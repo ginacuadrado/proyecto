@@ -5,7 +5,7 @@
       {{items.nombre}}
     </div>
     
-    {{order.monto | currency : 'Bs.S ' : 'code' : '1.2-2'}}
+    {{order.monto | currency : '$ ' : 'code' : '1.2-2'}}
     <br>
 
     <button (click)="Reordenar($event, order.orden)"><strong>REORDENAR</strong></button>

@@ -2,20 +2,13 @@
 
     <div *ngIf = "pago === 'select'">
         <h1>Seleccione su método de pago:</h1>
-
         <div style="text-align: center">
-            <img (click)="paypalSelected($event)" src="../../../assets/paypal.jpg">
-            <img (click)="altSelected($event)" src="../../../assets/checkout.png">
-        </div>
+            <img class="im" src="../../../assets/paypal.jpg">
+            <div id="paypal-checkout-btn"></div>
+            <img class="imag" (click)="altSelected($event)" src="../../../assets/checkout.png">
+        </div>        
     </div>
-
-
-    <div *ngIf = "pago === 'paypal'">
-        <h2>Se seleccionó Paypal</h2>
-        <button (click)="returnSelection($event)">Regresar</button>
-    </div>
-
-    <div *ngIf = "pago === 'alt'">
+ <div *ngIf = "pago === 'alt'">
         <button (click)="returnSelection($event)">REGRESAR</button>
 
         <br>
@@ -33,18 +26,25 @@
             </div>
 
             <div style="float: right">
-                <h3>{{subtotal | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
-                <h3>{{iva | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
-                <h3>{{envio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
-                <h3>{{total | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
+                <h3>{{subtotal | currency : '$ ' : 'code' : '1.2-2'}}</h3>
+                <h3>{{iva | currency : '$ ' : 'code' : '1.2-2'}}</h3>
+                <h3>{{envio | currency : '$ ' : 'code' : '1.2-2'}}</h3>
+                <h3>{{total | currency : '$ ' : 'code' : '1.2-2'}}</h3>
             </div>
         </div>
-
+    <div>
         <br>
-
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <h4>Introduzca datos de pago:</h4>
         <div>
-            <form (ngSubmit)="SubmitAlt()">
+            
                 <label for="cc">Tarjeta de Crédito</label><br>
                 <input name="cc" style="width: 30%" type="string" placeholder="Número de tarjeta de crédito" minlength="13" maxlength="18">
                 <br>
@@ -54,9 +54,8 @@
                 <label for="date">Fecha de Vencimiento</label><br>
                 <input name="date" type="month">
                 <br>
-                <button type="submit"><strong>PAGAR</strong></button>
-            </form>
+                <br>
+                <button (click)="submitAlt()"><strong>PAGAR</strong></button>
         </div>
     </div>
-
 </div>

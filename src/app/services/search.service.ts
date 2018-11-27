@@ -1,20 +1,23 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+/*import { Injectable } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+import { Item } from '../models/item';
 import {ItemService} from '../services/item.service';
 
 @Injectable()
 export class SearchService {
 
-  constructor(private afs: AngularFirestoreCollection, public itemservice: ItemService) { }
+  route: string = '';
 
+  constructor(private db: AngularFireDatabase, public itemservice: ItemService) { }
 
-  getcomida() 
-  {
-   
-    
+  getItems(start, end): Observable<Item[]>{
+
+    return this.db.list(`/${this.route}`, ref  => {
+      ref.limitToFirst(10).orderByKey()
+    });
 
   }
-
   
 
-}
+}*/

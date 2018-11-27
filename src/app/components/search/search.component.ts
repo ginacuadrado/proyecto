@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
+import { SearchService } from '../../services/search.service';
+import { Subject } from 'rxjs';
 import { Item } from '../../models/item';
 import { AngularFirestore, AngularFirestoreCollection  } from '@angular/fire/firestore';
 
@@ -10,37 +12,18 @@ import { AngularFirestore, AngularFirestoreCollection  } from '@angular/fire/fir
 })
 export class SearchComponent implements OnInit {
 
-
+  i: number = 0;
   aperitivos: Item[] = [];
   carnes: Item[] = [];
   bebidas: Item[] = [];
   postres: Item[] = [];
-  comida: Item[]= [];
+  comidas: Item[]= [];
 
-  constructor(public itemservice: ItemService,public fire: AngularFirestore, afc: AngularFirestoreCollection) 
+  constructor(public itemservice: ItemService, public search: SearchService) 
   { }
 
-  ngOnInit() 
-  {
-    this.itemservice.setRoute('bebidas');
-    this.itemservice.getData();
-    this.itemservice.getItems().subscribe(items => {this.postres=items});
-    this.itemservice.setRoute('carnes');
-    this.itemservice.getData();
-    this.itemservice.getItems().subscribe(items => {this.carnes=items});
+  ngOnInit() {
     
-  }
-
-  getComidas()
-  {
-    
-          return this.fire.collection('aperitivos', ref => ref.where('disp','==',true)).snapshotChanges();
-  }
-
-  aperitivoson()
-  {
-    
-    //this.comida= this.fire.collection('aperitivos', ref => ref.where('disp','==',true)).snapshotChanges();
-      
   }
 }
+*/

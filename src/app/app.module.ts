@@ -54,8 +54,9 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
 import { VentanapagoComponent } from './components/ventanapago/ventanapago.component';
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { ValidateadminComponent } from './validateadmin/validateadmin.component';
-import { SearchComponent } from './components/search/search.component';
+/*import { SearchComponent } from './components/search/search.component';*/
 import { ImgStorageService } from './services/img-storage.service';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 //Router para la navegación entre las páginas
 
@@ -153,24 +154,21 @@ const router: Routes = [
     component: LoginAdminComponent,
     canActivate:[GuardService],
   },
-  {
-    path: '**',
-    redirectTo:'home'
-  },
-
-  {
+  /*{
     path: 'search',
     component: SearchComponent,
-    canActivate:[AuthGuardService],
-  },
+    //canActivate:[AuthGuardService],
+  },*/
 
   {
     path: 'pago',
     component: VentanapagoComponent,
     canActivate:[AuthGuardService],
   },
-
- 
+  {
+    path: '**',
+    redirectTo:'home'
+  },
 
   /*{ 
     path: 'login', 
@@ -217,7 +215,7 @@ const router: Routes = [
     ValidateadminComponent,
     RegistroAdminComponent,
     LoginAdminComponent,
-    SearchComponent,
+    //SearchComponent,
     
   ],
 
@@ -235,7 +233,8 @@ const router: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     ModalModule.forRoot(),
-    
+    NgxPayPalModule
+
   ],
 
   providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, ImgStorageService, GuardService, AuthGuardAdminService, ],

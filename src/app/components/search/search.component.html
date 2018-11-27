@@ -1,21 +1,9 @@
 search
-<form >
-<input type="checkbox" name="Disponible" checked="aperitivoson()"> <label>Aperitivos</label>
-    <div *ngFor='let item of aperitivos '>
-      <app-menu-details [item]="aperitivos"></app-menu-details>
 
-    </div>
+<input type="text" (keydown)="search($event)" placeholder="Buscar productos...">
 
-<input type="submit" class="btn" value="Buscar">
-</form>
-<div *ngFor="let item of postres " style="text-align: center">
-
-  <app-menu-details [item]="item"></app-menu-details>
-
-</div>
-
-<div *ngFor="let item of carnes" style="text-align: center">
-
-  <app-menu-details [item]="item"></app-menu-details>
-
+<div *ngFor="let comida of comidas">
+  <h4>
+    {{comida.nombre}}
+  </h4>
 </div>
