@@ -1,1 +1,62 @@
-hola
+<div style="margin: 5%">
+
+    <div *ngIf = "pago === 'select'">
+        <h1>Seleccione su método de pago:</h1>
+
+        <div style="text-align: center">
+            <img (click)="paypalSelected($event)" src="../../../assets/paypal.jpg">
+            <img (click)="altSelected($event)" src="../../../assets/checkout.png">
+        </div>
+    </div>
+
+
+    <div *ngIf = "pago === 'paypal'">
+        <h2>Se seleccionó Paypal</h2>
+        <button (click)="returnSelection($event)">Regresar</button>
+    </div>
+
+    <div *ngIf = "pago === 'alt'">
+        <button (click)="returnSelection($event)">REGRESAR</button>
+
+        <br>
+        <br>
+
+        <h2>Método de pago alternativo:</h2>
+        <br>
+
+        <div style="width: 35% ; margin-left: auto ; margin-right: auto">
+            <div>
+                <h3>Subtotal:</h3>
+                <h3>IVA (16%):</h3>
+                <h3>Envío (4%):</h3>
+                <h3>Total a pagar:</h3>
+            </div>
+
+            <div>
+                <h3>{{subtotal | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
+                <h3>{{iva | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
+                <h3>{{envio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
+                <h3>{{total | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
+            </div>
+        </div>
+
+        <br>
+
+        <h4>Introduzca datos de pago:</h4>
+        <div>
+            <form (ngSubmit)="SubmitAlt(); this.reset()">
+                <label for="cc">Tarjeta de Crédito</label><br>
+                <input name="cc" style="width: 30%" type="string" placeholder="Número de tarjeta de crédito" minlength="13" maxlength="18">
+                <br>
+                <label for="cvv">Código de Seguridad</label><br>
+                <input name="cvv" style="width: 5%" type="string" placeholder="CVV" maxlength="3">
+                <br>
+                <label for="date">Fecha de Vencimiento</label><br>
+                <input name="date" type="month">
+                <br>
+                <button type="submit"><strong>PAGAR</strong></button>
+            </form>
+        </div>
+    </div>
+
+</div>
