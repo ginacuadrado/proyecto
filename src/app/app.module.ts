@@ -51,6 +51,7 @@ import { LoginAdminComponent } from './components/admin/ingreso-admin/login-admi
 import { AgregarItemComponent } from './components/admin/agregar-item/agregar-item.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { VentanapagoComponent } from './components/ventanapago/ventanapago.component';
+import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { ValidateadminComponent } from './validateadmin/validateadmin.component';
 import { SearchComponent } from './components/search/search.component';
 import { EnvioComponent } from './components/ventanapago/envio/envio.component';
@@ -122,7 +123,11 @@ const router: Routes = [
     component: VentanapagoComponent
   },
   {
-    path: '',                    //Primera vista que se observe al usuario entrar en la página web es el Login de Usuarios
+    path:'ordenes_pasadas',
+    component: OrdenesComponent
+  },
+  {
+    path: '',                     //Primera vista que se observe al usuario entrar en la página web es el Log-In
     redirectTo: '/login',
     pathMatch: 'full'
   },
@@ -149,6 +154,10 @@ const router: Routes = [
     component: LoginAdminComponent,
     canActivate:[GuardService],
   },
+  {
+    path: '**',
+    redirectTo:'home'
+  }
 
   {
     path: 'search',
@@ -200,6 +209,7 @@ const router: Routes = [
     CartComponent,
     ChangepasswordComponent,
     VentanapagoComponent,
+    OrdenesComponent,
     ValidateadminComponent,
     RegistroAdminComponent,
     LoginAdminComponent,

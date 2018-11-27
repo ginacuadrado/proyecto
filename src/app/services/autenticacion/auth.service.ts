@@ -21,7 +21,7 @@ UsuariosCollection: AngularFirestoreCollection<Usuarios>;
 database: any;
 onuser: Observable<Usuarios[]>;
 isadmin:string = 'false';
-currentemail:string;
+currentemail: string = "";
 
 usuario: Usuarios = 
   {
@@ -66,6 +66,7 @@ registerUser(email: string, password: string)
 
 }
 
+    
 //Función login de usuario, recibe como parámetro email y password
 loginEmail(email: string, password: string,) 
 {

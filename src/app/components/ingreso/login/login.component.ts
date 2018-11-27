@@ -46,7 +46,6 @@ get f() { return this.loginForm.controls; }
 //Función que valida el ingreso del usuario en la página
 onSubmitLogin()
 {
-
   this.submitted = true;
 
   if (this.loginForm.invalid) 
@@ -58,8 +57,7 @@ onSubmitLogin()
   {
       this.authService.loginEmail(this.email,this.password).then((res) => 
       {
-            
-            
+        sessionStorage.useremail = this.email;
 
       }).catch((err) =>
       
