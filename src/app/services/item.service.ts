@@ -17,9 +17,8 @@ export class ItemService {
   route: string;
  
   constructor(public afs: AngularFirestore) {
-
-    
-    }
+      
+  }
 
    setRoute(name: string){
       this.route = name;
@@ -48,7 +47,7 @@ export class ItemService {
       this.ItemCollection.add(item);
    }
 
-  //Eliminar el item  a firebase
+  //Eliminar el item de firebase
    deleteItem(item: Item){
      this.itemDoc = this.afs.doc(`${this.route}/${item.id}`)
      this.itemDoc.delete();

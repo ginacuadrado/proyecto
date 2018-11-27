@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderServiceService } from '../header/header-service.service';
 import { Item } from '../../models/item';
-import { AuthService } from '../../services/autenticacion/auth.service';
+import { Orden } from '../../models/orden';
+import { OrdenService } from '../../services/orden.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,24 +12,31 @@ import { AuthService } from '../../services/autenticacion/auth.service';
 export class CartComponent implements OnInit {
 
   carrito: Item[] = [];
-  email: string = "";
   subtotal: number = 0;
   iva: number = 0;
   envio: number = 0;
   total: number = 0;
   i: number = 0;
   index: number = 0;
+  email: string = sessionStorage.useremail;
+  orden: Orden = {
+    email: '',
+    orden: []
+  };
 
-  constructor(public nav: HeaderServiceService, public authService: AuthService) { }
+  constructor(public nav: HeaderServiceService, public order: OrdenService) {
+  
+  }
 
   ngOnInit() { 
     this.nav.show();
+    this.order.getData();
 
     //Validación para carrito vacío
     if(sessionStorage["carritoItems"]){
       this.carrito = JSON.parse(sessionStorage.getItem('carritoItems'));
 
-      //Suma de los precios
+    //Suma de los precios
       for(this.i = 0; this.i<this.carrito.length; this.i++)
       {
         this.subtotal = this.subtotal + this.carrito[this.i].precio;
@@ -37,9 +45,13 @@ export class CartComponent implements OnInit {
       this.iva = this.subtotal * 0.16;
       this.envio = this.subtotal * 0.04;
       this.total = this.subtotal + this.iva + this.envio;
+      this.orden.email = this.email;
+      this.orden.orden = this.carrito;
     }else{
       
     }
+
+    
   }
 
   removeItem(event, item: Item){
@@ -57,9 +69,11 @@ export class CartComponent implements OnInit {
       this.iva = this.subtotal * 0.16;
       this.envio = this.subtotal * 0.04;
       this.total = this.subtotal + this.iva + this.envio;
+      this.orden.orden = this.carrito;
     }
   }
 
-  addFirebase(event, cart: Item[]){
+  addFirebase(event){
+    this.order.addOrder(this.orden);
   }
 }

@@ -1,9 +1,9 @@
-<div style="margin: 5% ; width: 90%">
+<div style="margin: 5%">
     <h1>Carrito</h1>
     <br>
 
     <div *ngIf=" carrito.length > 0 ; else emptyCart">
-        <table>
+        <table class="center">
             <tr>
                 <th>Imgen</th>
                 <th>Plato</th>
@@ -12,21 +12,23 @@
                 <th></th>
             </tr>
             <tr *ngFor="let item of carrito">
-                <td><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
-                <td>{{item.nombre}}</td>
-                <td>{{item.descripcion}}</td>
-                <td>{{item.precio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</td>
-                <td><button (click)="removeItem($event, item)"><strong>ELIMINAR</strong></button></td>
+                <td class="styled"><img src="{{item.imagen}}" heigth="100px" width="100px"></td>
+                <td class="styled">{{item.nombre}}</td>
+                <td class="styled">{{item.descripcion}}</td>
+                <td class="styled">{{item.precio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</td>
+                <td class="styled"><button (click)="removeItem($event, item)"><strong>ELIMINAR</strong></button></td>
             </tr>
         </table>
     </div>
-    <br>
-    <h4>Subtotal: {{ subtotal | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-    <h4>IVA (16%): {{ iva | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-    <h4>Envío (4%): {{ envio | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-    <h4>Total: {{ total | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-    <br>
-    <button (click)="addFirebase($event, carrito)"><strong>PAGAR</strong></button>
+    <div style="text-align: center">
+        <br>
+        <h4>Subtotal: {{ subtotal | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <h4>IVA (16%): {{ iva | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <h4>Envío (4%): {{ envio | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <h4>Total: {{ total | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
+        <br>
+        <button (click)="addFirebase($event)"><strong>PROCEDER A PAGO</strong></button>
+    </div>
 </div>
 
 <ng-template #emptyCart>
