@@ -25,14 +25,14 @@
         <br>
 
         <div style="width: 35% ; margin-left: auto ; margin-right: auto">
-            <div>
+            <div style="float: left">
                 <h3>Subtotal:</h3>
                 <h3>IVA (16%):</h3>
                 <h3>Envío (4%):</h3>
                 <h3>Total a pagar:</h3>
             </div>
 
-            <div>
+            <div style="float: right">
                 <h3>{{subtotal | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
                 <h3>{{iva | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
                 <h3>{{envio | currency : 'Bs.S ' : 'code' : '1.2-2'}}</h3>
@@ -44,7 +44,7 @@
 
         <h4>Introduzca datos de pago:</h4>
         <div>
-            <form (ngSubmit)="SubmitAlt(); this.reset()">
+            <form (ngSubmit)="SubmitAlt()">
                 <label for="cc">Tarjeta de Crédito</label><br>
                 <input name="cc" style="width: 30%" type="string" placeholder="Número de tarjeta de crédito" minlength="13" maxlength="18">
                 <br>

@@ -79,6 +79,4 @@ export class CartComponent implements OnInit {
       this.orden.monto = this.total;
     }
   }
-
-  
 }

@@ -62,7 +62,7 @@ const router: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
+    //canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
   },
   {
     path: 'menu',

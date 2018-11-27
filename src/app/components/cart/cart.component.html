@@ -23,7 +23,6 @@
                 <td class="styled"><button (click)="removeItem($event, item)"><strong>ELIMINAR</strong></button></td>
             </tr>
         </table>
-<<<<<<< HEAD
 
         <div style="text-align: center">
                 <br>
@@ -32,19 +31,8 @@
                 <h4>Envío (4%): {{ envio | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
                 <h4>Total: {{ total | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
                 <br>
-                <button (click)="addFirebase($event)"><strong>PROCEDER A PAGO</strong></button>
+                <a href="/pago"><button><strong>PROCEDER A PAGO</strong></button></a>
         </div>
-=======
-    </div>
-    <div style="text-align: center">
-        <br>
-        <h4>Subtotal: {{ subtotal | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-        <h4>IVA (16%): {{ iva | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-        <h4>Envío (4%): {{ envio | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-        <h4>Total: {{ total | currency : 'Bs.S ' : 'code' : '1.2-2' }}</h4>
-        <br>
-        
->>>>>>> c02f86426a475c9c7831374392afae32a31a98e4
     </div>
 </div>
 

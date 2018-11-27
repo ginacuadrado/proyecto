@@ -15,14 +15,13 @@ export class AperitivosComponent implements OnInit {
   editState: boolean = false;
   itemToEdit: Item;
   route = 'aperitivos';
-  admin: boolean = false;
+  admin: string = sessionStorage.getItem('isadmin');
   carrito: Item[] = [];
 
   constructor(private check: Globals, public nav: HeaderServiceService, public aperitivosService: ItemService) { }
 
   ngOnInit() {
     this.nav.show();
-    this.admin = this.check.isAdmin;
     this.aperitivosService.setRoute(this.route);
     this.aperitivosService.getData();
     this.aperitivosService.getItems().subscribe(items => {

@@ -19,7 +19,7 @@ export class CarnesComponent implements OnInit {
   route: string = 'carnes';
   public email: string;
   public password: string;
-  admin: boolean = false;
+  admin: string = sessionStorage.getItem('isadmin');
   carrito: Item[] = [];
 
   constructor(private check: Globals, public nav: HeaderServiceService, public carneService: ItemService, public authService: AuthService, public router: Router) {
@@ -28,7 +28,6 @@ export class CarnesComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
-    this.admin = this.check.isAdmin;
     this.carneService.setRoute(this.route);
     this.carneService.getData();
     this.carneService.getItems().subscribe(items => {
