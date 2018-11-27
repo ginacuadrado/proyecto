@@ -18,10 +18,13 @@ export class CartComponent implements OnInit {
   total: number = 0;
   i: number = 0;
   index: number = 0;
+  address:string="";
   email: string = sessionStorage.useremail;
   orden: Orden = {
     email: '',
-    orden: []
+    orden: [],
+    monto: 0,
+    direccion:'',
   };
 
   constructor(public nav: HeaderServiceService, public order: OrdenService) {
@@ -49,6 +52,7 @@ export class CartComponent implements OnInit {
       this.orden.email = this.email;
       this.orden.orden = this.carrito;
       this.orden.monto = this.total;
+      
     }else{
       
     }
@@ -76,8 +80,5 @@ export class CartComponent implements OnInit {
     }
   }
 
-  addFirebase(event){
-    this.order.addOrder(this.orden);
-    sessionStorage.removeItem("carritoItems");
-  }
+  
 }

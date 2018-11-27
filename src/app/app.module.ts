@@ -5,7 +5,7 @@ import { ItemService } from './services/item.service';
 import { Globals } from './global';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
  //Importado para el enrutamiento
 import { RouterModule, Routes } from '@angular/router';
 
@@ -27,7 +27,7 @@ import { GuardService } from './services/autenticacion/guard.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component'
-import { PerfilComponent } from './components/perfil/perfil.component';
+
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -53,8 +53,8 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
 import { VentanapagoComponent } from './components/ventanapago/ventanapago.component';
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { ValidateadminComponent } from './validateadmin/validateadmin.component';
-
-
+import { SearchComponent } from './components/search/search.component';
+import { ImgStorageService } from './services/img-storage.service';
 
 //Router para la navegación entre las páginas
 
@@ -63,11 +63,6 @@ const router: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuardService] //Solo acceden usuarios autenticados
-  },
-
-  {
-    path: 'perfil',
-    component: PerfilComponent
   },
   {
     path: 'menu',
@@ -160,7 +155,19 @@ const router: Routes = [
   {
     path: '**',
     redirectTo:'home'
-  }
+  },
+
+  {
+    path: 'search',
+    component: SearchComponent,
+    canActivate:[AuthGuardService],
+  },
+
+  {
+    path: 'pago',
+    component: VentanapagoComponent,
+    canActivate:[AuthGuardService],
+  },
 
  
 
@@ -193,7 +200,6 @@ const router: Routes = [
     AboutComponent,
     LoginComponent,      //Componentes relacionados con el ingreso del usuario
     RegisterComponent,   //Componentes relacionados con el ingreso del usuario
-    PerfilComponent,     //Componentes relacionados con el ingreso del usuario
     CarnesComponent,
     PostresComponent,
     AperitivosComponent,
@@ -210,7 +216,8 @@ const router: Routes = [
     ValidateadminComponent,
     RegistroAdminComponent,
     LoginAdminComponent,
-
+    SearchComponent,
+    
   ],
 
   imports:
@@ -225,10 +232,11 @@ const router: Routes = [
     AngularFireAuthModule,  // Viene de firestore, usado para la autenticación
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    HttpClientModule,
     
   ],
 
-  providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, GuardService, AuthGuardAdminService],
+  providers:[AuthService, ItemService, Globals, AuthGuardService, AuthAdminService, ImgStorageService, GuardService, AuthGuardAdminService, ],
   bootstrap: [AppComponent],
 
 

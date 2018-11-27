@@ -66,9 +66,6 @@ registerUser(email: string, password: string)
 
 }
 
-veruser():string{
-      return this.currentemail; 
-}
     
 //Función login de usuario, recibe como parámetro email y password
 loginEmail(email: string, password: string,) 
@@ -167,5 +164,11 @@ islogged(user:User)
       }})}
     
 
+veruser():string
+    {
+    
+      return this.currentemail;
+      
+    }
 
-}
+  }

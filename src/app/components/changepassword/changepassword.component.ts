@@ -26,9 +26,13 @@ export class ChangepasswordComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
-  
 
   }
 
+  updatepassword()
+  {
+
+    
+  }
 
 }

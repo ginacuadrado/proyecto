@@ -4,5 +4,6 @@ export interface Orden {
     email?: string,
     orden?: Item[],
     id?: string,
-    monto?: number
+    monto?: number,
+    direccion?:string,
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
+import { ImgStorageService } from '../../../services/img-storage.service';
+import { Upload } from '../../../models/upload';
+import * as firebase from 'firebase';
+import {HttpClient} from '@angular/common/http'
 
 @Component({
   selector: 'app-agregar-item',
@@ -9,6 +13,8 @@ import { Item } from '../../../models/item';
 })
 export class AgregarItemComponent implements OnInit {
 
+  selectedFiles: FileList;
+  currentUpload: Upload;
   item: Item = {
     nombre: "",
     descripcion: "",
@@ -22,8 +28,10 @@ export class AgregarItemComponent implements OnInit {
     selected3: false,
     imagen: ''
   }
+  selectedFile=null;
 
-  constructor(public itemService: ItemService) { }
+  constructor(private http: HttpClient, public itemService: ItemService, public imgStorageService: ImgStorageService, ) { }
+
 
   ngOnInit() {
   }
@@ -43,5 +51,16 @@ export class AgregarItemComponent implements OnInit {
       this.item.selected3 = false;
     }
   }
+
+ onFileSelected(event)
+ {
+   this.selectedFile= event.target.files[0];
+   
+ }
+
+ onUpload()
+ {
+    this.http.post
+ }
 
 }
