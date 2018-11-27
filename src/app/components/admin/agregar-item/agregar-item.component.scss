@@ -1,58 +1,115 @@
-.tabla1{ 
-    width: 55%; 
-    height: 300px;
- } 
-
-.cabtab1{ 
-    background-color: rgba(255, 221, 205, 0.445); 
-    font-weight: bold; 
-    color: #ffffff; 
-    padding: 2 2 2 2px; 
- } 
- input
- {
-    
-     width: 500px;
-     height: 30px;
-     color: #5e5e5e;
-     padding: 15px 40px 15px 15px;
-     border-radius: 5px;
-     font-size: 14px;
-     margin-left: 50px;
-     border: 1px solid rgba(0, 0, 0, 0.3);
-     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
- }
- 
- .titulos
- {
-     font-family: 'PT Serif', serif;
-     font-size: 30pt;
-     text-align: center;
-     color: black;
- }
- 
- button 
- {
-     color: rgb(0, 0, 0);
-     padding: 14px 20px;
-     margin: 8pt 8pt;
-     margin-left: 215pt;
-     border: none;
-     cursor: pointer;
-     width: 150pt;
-     border-radius: 20px;
-     
- }
- 
-.jumbotron
-{
+table {
+    font-family: 'PT Serif', serif;
+    font-size: 20pt;
+    text-align: justify;
+    border-collapse: collapse;
+    width: 100%;
+  }
   
-  margin-top: 8vmin;
-  margin-bottom:8vmin; 
-  width: 50%;
-  height: 50%;
-  display: inline-block;
-  background-color: rgba(68, 68, 68, 0.555);
-  border-radius: 50px;
-
-}
+  input.check{
+    margin: 1%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .titulos
+  {
+      font-family: 'PT Serif', serif;
+      font-size: 30pt;
+      text-align: center;
+      color: rgb(255, 255, 255);
+  }
+  .titulos2
+  {
+      font-family: 'PT Serif', serif;
+      font-size: 20pt;
+      text-align: center;
+      color: rgb(255, 255, 255);
+  }
+  .content-box-red {
+    background-color: #f9dbdb;
+    border: 1px solid #e9b3b3;
+  }
+  
+  button 
+  {
+    background-color: rgb(185, 130, 130);
+    margin-right:auto;
+    margin-left: auto;
+    border: none;
+    cursor: pointer;
+    width: 200pt;
+    height: 50pt;
+    border-radius: 10px;
+  
+      
+  }
+  
+  .titulos2
+  {
+      font-family: 'PT Serif', serif;
+      font-size: 16pt;
+      text-align: center;
+      color: rgb(255, 255, 255);
+  }
+  
+  
+  .jumbotron
+  {
+    
+    width: 60%;  
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    
+    background: #4d1b1b;
+    border-radius: 5%;
+    margin-left:auto;
+    margin-right: auto;
+    
+  
+  }
+  
+  input
+  {
+    width: 80%;
+    height: 30px;
+    color: #000000;
+    border-radius: 5px;
+    font-size: 14pt;
+    margin-left: 5px;
+    padding-left: 10px;
+   
+  }
+  
+ 
+  
+  label
+  {
+    
+        font-family: 'PT Serif', serif;
+        font-size: 15pt;
+        text-align: center;
+        color: black;
+    
+  }
+  ::placeholder
+  {
+      font-family: 'PT Serif', serif;
+      font-size: 10pt;
+      text-align: justify;
+      color: rgb(112, 112, 112);
+      
+  }
+  
+  img
+  {
+      width:100%;
+      height: 20%;
+  }
+  
+  

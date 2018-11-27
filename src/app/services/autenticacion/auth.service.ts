@@ -22,6 +22,7 @@ database: any;
 onuser: Observable<Usuarios[]>;
 isuser:string = 'true';
 currentemail: string = "";
+isadmin:string='false';
 
 usuario: Usuarios = 
   {
@@ -73,6 +74,7 @@ loginEmail(email: string, password: string,)
     return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(credential => 
         {  
             sessionStorage.setItem('isuser',this.isuser);
+            sessionStorage.setItem('isadmin',this.isadmin);
             this.toastr.success('¡Tus datos han sido registrados exitosamente!', 'Usuario Registrado');
             this.router.navigate(['/home']);
             this.currentemail=credential.user.email;

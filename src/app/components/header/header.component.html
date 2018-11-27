@@ -22,7 +22,7 @@
          <div *ngIf=" authService.user | async">
                 <p> ¡Bienvenido {{ (authService.user | async)?.email }}!</p>
          </div>
-         <div *ngIf=" authadmin.admin | async">
+         <div *ngIf="authadmin.admin | async">
             <p> ¡Bienvenido {{ (authadmin.admin | async)?.email }}!</p>
      </div>
   
@@ -39,7 +39,7 @@
                  
                 </li>
   
-         <li class="nav-item">
+         <li *ngIf="admin == 'false'" class="nav-item">
     
               <a class="nav-link" class="titulos" href="./ordenes_pasadas"><strong>Órdenes Pasadas</strong></a>
           
@@ -47,20 +47,20 @@
 
 
 
-          <li class="nav-item">
+          <li *ngIf="admin == 'false'" class="nav-item">
     
               <a class="nav-link" class="titulos" href="./cart"><strong>Carrito</strong></a>
           
             </li>
 
-          <li class="nav-item">
+          <li *ngIf="admin == 'false'" class="nav-item">
     
               <a class="nav-link" class="titulos" href="./contact"><strong>Contacto</strong></a>
           
             </li>
          
          
-         <li class="nav-item ">
+         <li *ngIf="admin == 'false'" class="nav-item ">
     
               <a class="nav-link" href="./about" class="titulos"><strong>Nosotros</strong></a>
          

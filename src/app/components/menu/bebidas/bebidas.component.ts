@@ -16,14 +16,13 @@ export class BebidasComponent implements OnInit {
   editState: boolean = false;
   itemToEdit: Item;
   route = 'bebidas';
-  admin: boolean = false;
+  admin: string = sessionStorage.getItem('isadmin');
   carrito: Item[] = [];
 
   constructor(private check: Globals, public nav: HeaderServiceService, public bebidasService: ItemService) { }
 
   ngOnInit() {
     this.nav.show();
-    this.admin = this.check.isAdmin;
     this.bebidasService.setRoute(this.route);
     this.bebidasService.getData();
     this.bebidasService.getItems().subscribe(items => {

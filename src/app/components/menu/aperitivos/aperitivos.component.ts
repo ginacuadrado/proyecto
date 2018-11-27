@@ -3,6 +3,7 @@ import { HeaderServiceService } from '../../header/header-service.service';
 import { ItemService } from '../../../services/item.service';
 import { Item } from '../../../models/item';
 import { Globals } from '../../../global';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-aperitivos',
@@ -15,14 +16,13 @@ export class AperitivosComponent implements OnInit {
   editState: boolean = false;
   itemToEdit: Item;
   route = 'aperitivos';
-  admin: boolean = false;
+  admin: string = sessionStorage.getItem('isadmin');
   carrito: Item[] = [];
 
-  constructor(private check: Globals, public nav: HeaderServiceService, public aperitivosService: ItemService) { }
+  constructor(private check: Globals,public toastr: ToastrService, public nav: HeaderServiceService, public aperitivosService: ItemService) { }
 
   ngOnInit() {
     this.nav.show();
-    this.admin = this.check.isAdmin;
     this.aperitivosService.setRoute(this.route);
     this.aperitivosService.getData();
     this.aperitivosService.getItems().subscribe(items => {
@@ -40,12 +40,14 @@ export class AperitivosComponent implements OnInit {
       this.carrito.push(item);
       sessionStorage.carritoItems = JSON.stringify(this.carrito);
     }
+    this.toastr.success('Su producto se ha añadido al carrito', 'Operación Exitosa')
   }
 
   //Método que elimina el item del array
   deleteItem(event, item: Item){
     if(confirm("¿Estás seguro que deseas eliminar este producto?")) {
       this.aperitivosService.deleteItem(item);
+      this.toastr.success('Su producto se ha eliminado', 'Operación Exitosa')
     }
    
   }
@@ -54,6 +56,7 @@ export class AperitivosComponent implements OnInit {
   editItem(event, item: Item){
     this.editState = true;
     this.itemToEdit = item;
+
   }
 
   clearState(){
@@ -63,6 +66,7 @@ export class AperitivosComponent implements OnInit {
 
   updateItem(item: Item){
     this.aperitivosService.updateItem(item);
+    this.toastr.success('Su producto se ha modificado', 'Operación Exitosa')
     this.clearState();
   }
 

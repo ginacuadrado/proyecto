@@ -16,7 +16,7 @@ export class PostresComponent implements OnInit {
   editState: boolean = false;
   itemToEdit: Item;
   route = 'postres'; 
-  admin: boolean = false;
+  admin: string = sessionStorage.getItem('isadmin');
   carrito: Item[] = [];
 
   constructor(public nav: HeaderServiceService, public postresService: ItemService, private check: Globals) { }
@@ -24,7 +24,6 @@ export class PostresComponent implements OnInit {
   ngOnInit() {
 
     this.nav.show();
-    this.admin = this.check.isAdmin;
     this.postresService.setRoute(this.route);
     this.postresService.getData();
     this.postresService.getItems().subscribe(items => {

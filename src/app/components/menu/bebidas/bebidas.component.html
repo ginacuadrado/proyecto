@@ -1,10 +1,7 @@
-<div style="text-align:center">
-        <br>
-        <img width="85%" alt="Banner Carnes" src="../assets/bannerbebidas.jpg">
-        <br>
-        <br>
-      </div>
-      
+<div>
+        <img alt="Banner Aperitivos" src="../assets/bannerbebidas.png">
+</div>
+
       <div *ngIf="items.length > 0; else noItems">
 
             <div *ngFor="let item of items" style="text-align: center">
@@ -13,69 +10,73 @@
                             <app-menu-details [item]="item"></app-menu-details>
                             <br>
 
-                            <h4>Extras disponibles:</h4>
+                            <h4 *ngIf="item.selected1 || item.selected2 || item.selected3">Extras disponibles:</h4>
                             <input [(ngModel)]="item.selected1" name="extra1" class="check" type="checkbox" *ngIf="item.extra1 != ''"><label for="extra1">{{item.extra1}}</label>
-                            <input [(ngModel)]="item.selected2" name="extra2" class="check" type="checkbox" *ngIf="item.extra2 != ''"><label for="extra1">{{item.extra2}}</label>
-                            <input [(ngModel)]="item.selected3" name="extra3" class="check" type="checkbox" *ngIf="item.extra3 != ''"><label for="extra1">{{item.extra3}}</label>
+                            <input [(ngModel)]="item.selected2" name="extra2" class="check" type="checkbox" *ngIf="item.extra2 != ''"><label for="extra2">{{item.extra2}}</label>
+                            <input [(ngModel)]="item.selected3" name="extra3" class="check" type="checkbox" *ngIf="item.extra3 != ''"><label for="extra3">{{item.extra3}}</label>
 
                             <br>
 
-                            <button (click)="selectedItem($event, item)"><strong>ORDENAR</strong></button>
-                            <button *ngIf="!editState && admin" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
+                            <button *ngIf="admin == 'false'" (click)="selectedItem($event, item)"><strong>ORDENAR</strong></button>
+                            <button *ngIf="!editState && admin == 'true'" (click)="editItem($event, item)"><strong>MODIFICAR</strong></button>
                                     
-                                <button *ngIf="!editState && admin" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
+                                <button *ngIf="!editState && admin == 'true'" (click)="deleteItem($event, item)"><strong>ELIMINAR</strong></button>
                     
+                               
+
                                 <div class="jumbotron"  *ngIf="editState && itemToEdit.id == item.id">
                                         <form (ngSubmit)="updateItem(item)">
                      
-                                                 <label><strong>--- MODIFICAR PLATO ---</strong></label>  
+                                                 <label class="titulos"><strong>--- MODIFICAR PLATO ---</strong></label>  
                                                  <br>  
-                                                 <input type="checkbox" name="Disponible" [(ngModel)]="item.disp"> <label>Disponible</label>    
+                                                 <input type="checkbox" name="Disponible" [(ngModel)]="item.disp"> 
+                                                 <br><label class="titulos2">Disponible</label>    
                                                        
-                                                <div>          <label for="nombre">  Nombre</label><br>
+                                                <div>          <label class="titulos2" for="nombre">  Nombre</label><br>
                                                     <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.nombre" name="nombre">
                                           
                                                     <br>
                                                 </div>
                                                            
-                                                <div>   <label for="descripcion">  Descripción</label><br>
+                                                <div>   <label for="descripcion" class="titulos2">  Descripción</label><br>
                                                     <input type="text" placeholder="Introduzca descripción del producto" [(ngModel)]="item.descripcion" name="descripcion">
                                                  
                                                     <br>
                                                 </div>
                                                            
-                                                <div> <label for="precio">  Precio</label><br>
+                                                <div> <label for="precio" class="titulos2"> Precio</label><br>
                                                     <input type="number" placeholder="Introduzca precio del producto" [(ngModel)]="item.precio" name="precio">
                                                    
                                                     <br>
                                                 </div>
                                                            
-                                                <div><label for="imagen">  Imagen</label><br>
+                                                <div><label for="imagen" class="titulos2"> Imagen</label><br>
                                                     <input type="text" placeholder="Introduzca nombre del producto" [(ngModel)]="item.imagen" name="imagen">
                                                     <br>
                                                 </div>
                     
-                                                <div>          <label for="extra1">  Extra 1</label><br>
+                                                <div>          <label for="extra1" class="titulos2">  Extra 1</label><br>
                                                     <input type="text" placeholder="Extra 1" [(ngModel)]="item.extra1" name="extra1">
                                           
                                                     <br>
                                                 </div>
 
-                                                <div>          <label for="extra2">  Extra 2</label
+                                                <div>          <label for="extra2" class="titulos2">  Extra 2</label
                                                     ><br>
                                                     <input type="text" placeholder="Extra 2" [(ngModel)]="item.extra2" name="extra2">
                                           
                                                     <br>
                                                 </div>
 
-                                                <div>          <label for="extra3">  Extra 3</label><br>
+                                                <div>          <label for="extra3" class="titulos2">  Extra 3</label><br>
                                                     <input type="text" placeholder="Extra 3" [(ngModel)]="item.extra3" name="extra3">
                                           
                                                     <br>
                                                 </div>
-                                               
+                                                <br>
+                                                <br>
                                                 <div>
-                                                    <input type="submit" class="btn" value="Actualizar">
+                                                    <button type="submit" class="btn" ><strong class="titulos2">Actualizar Datos</strong></button>
                                                 </div>  
                                                            
                                             

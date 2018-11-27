@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   public emailUsuario: string;
   public uid: string;
   resetPassword = false;
+  admin: string = sessionStorage.getItem("isadmin");
  
   toggleNavbar() 
   {
